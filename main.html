@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Automate It Production Planner</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto', Arial, sans-serif;
+			background: #181c20;
+			color: #f3f3f3;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background: #23272b;
+			padding: 1.5rem 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			box-shadow: 0 2px 8px #000a;
+		}
+		.logo {
+			font-size: 2rem;
+			font-weight: 700;
+			letter-spacing: 2px;
+			color: #ffb347;
+		}
+		.planner-container {
+			max-width: 1200px;
+			margin: 2rem auto;
+			background: #23272b;
+			border-radius: 16px;
+			box-shadow: 0 4px 24px #0006;
+			padding: 2rem;
+		}
+		.input-section {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			margin-bottom: 2rem;
+		}
+		.input-section select, .input-section input {
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			border: none;
+			font-size: 1rem;
+		}
+		.input-section button {
+			background: #ffb347;
+			color: #23272b;
+			border: none;
+			border-radius: 8px;
+			padding: 0.5rem 1.5rem;
+			font-size: 1rem;
+			font-weight: 700;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		.input-section button:hover {
+			background: #ffd580;
+		}
+		.production-plan {
+			background: #1a1e22;
+			border-radius: 12px;
+			padding: 2rem;
+			min-height: 300px;
+			box-shadow: 0 2px 8px #0004;
+		}
+		.placeholder-graph {
+			color: #888;
+			text-align: center;
+			margin-top: 4rem;
+			font-size: 1.2rem;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">Automate It Planner</div>
+		<div>Inspired by satisfactory-calculator.com</div>
+	</header>
+	<div class="planner-container">
+		<div class="input-section">
+			<select id="item-select">
+				<option value="">Select Item</option>
+			</select>
+			<input id="rate-input" type="number" min="0.1" step="0.1" placeholder="Rate per minute">
+			<label for="optimize-select" style="margin-left:1rem;">Optimize by:</label>
+			<select id="optimize-select">
+				<option value="space">Space</option>
+				<option value="power">Power</option>
+				<option value="buildings">Buildings</option>
+			</select>
+				<button id="edit-available-items-btn" style="margin-left:1rem;">Set Available Items</button>
+
+				<!-- Modal for available items -->
+					<div id="available-items-modal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
+						<div style="background:#23272b;padding:2rem 2.5rem;border-radius:12px;min-width:350px;max-width:90vw;max-height:80vh;overflow-y:auto;">
+						<h2 style="margin-top:0;">Set Available Items</h2>
+						<form id="available-items-form">
+							<table id="available-items-table" style="width:100%;margin-bottom:1rem;">
+								<thead><tr><th>Item</th><th>Amount</th><th></th></tr></thead>
+								<tbody></tbody>
+							</table>
+							<button type="button" id="add-available-item-row">Add New Item</button>
+							<div style="margin-top:1.5rem;text-align:right;">
+								<button type="button" id="close-available-items-modal" style="margin-right:1rem;">Cancel</button>
+								<button type="submit">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			<button id="calculate-btn">Calculate</button>
+		</div>
+		<div class="production-plan" id="production-plan">
+			<div style="display: flex; flex-direction: row; gap: 2rem;">
+				<div style="flex: 1; min-width: 350px;">
+					<div class="placeholder-graph">
+						Production plan will appear here as a tree/graph.<br>
+						(Icons, rates, and buildings will be shown)
+					</div>
+					<div id="plan-tree-html"></div>
+				</div>
+				<div style="flex: 2; min-width: 400px;">
+					<div id="network-graph" style="width:100%;height:500px;background:#222;border-radius:8px;"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Vis Network CDN -->
+		<script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+		<link href="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+		<script>
+		// --- Data structures for Automate It ---
+	const items = {
+		helium_3: { name: 'Helium-3', icon: '', type: 'gas' },
+		condensed_helium_3: { name: 'Condensed Helium-3', icon: '', type: 'gas' },
+		quantum_energy_solution: { name: 'Quantum Energy Solution', icon: '', type: 'fluid' },
+		quantum_plasma: { name: 'Quantum Plasma', icon: '', type: 'fluid' },
+			superluminal_relay_core: { name: 'Superluminal Relay Core', icon: '', type: 'solid' },
+			fractal_processing_prism: { name: 'Fractal Processing Prism', icon: '', type: 'solid' },
+			quantum_resonant_lens_core: { name: 'Quantum-Resonant Lens Core', icon: '', type: 'solid' },
+			galactic_essence_singularity: { name: 'Galactic Essence Singularity', icon: '', type: 'solid' },
+			chronium_crystal_core: { name: 'Chronium Crystal Core', icon: '', type: 'solid' },
+			luminary_crystal_core: { name: 'Luminary Crystal Core', icon: '', type: 'solid' },
+			pulse_energy_matrix: { name: 'Pulse Energy Matrix', icon: '', type: 'solid' },
+			tuned_quantum_processor: { name: 'Tuned Quantum Processor', icon: '', type: 'solid' },
+			reinforced_nails: { name: 'Reinforced Nails', icon: '', type: 'solid' },
+			railway_tracks: { name: 'Railway Tracks', icon: '', type: 'solid' },
+			railway_line: { name: 'Railway Line', icon: '', type: 'solid' },
+			iron: { name: 'Iron', icon: '', type: 'solid' },
+			iron_bar: { name: 'Iron Bar', icon: '', type: 'solid' },
+			iron_pipe: { name: 'Iron Pipe', icon: '', type: 'solid' },
+			copper: { name: 'Copper', icon: '', type: 'solid' },
+			copper_filament: { name: 'Copper Filament', icon: '', type: 'solid' },
+			reinforced_steel_plate: { name: 'Reinforced Steel Plate', icon: '', type: 'solid' },
+			structural_cable: { name: 'Structural Cable', icon: '', type: 'solid' },
+			copper_bar: { name: 'Copper Bar', icon: '', type: 'solid' },
+			power_cable: { name: 'Power Cable', icon: '', type: 'solid' },
+			stone: { name: 'Stone', icon: '', type: 'solid' },
+			stone_block: { name: 'Stone Block', icon: '', type: 'solid' },
+			support_beam: { name: 'Support Beam', icon: '', type: 'solid' },
+			stellar_nexus_singularity: { name: 'Stellar Nexus Singularity', icon: '', type: 'solid' },
+			lv_transformer: { name: 'LV Transformer', icon: '', type: 'solid' },
+			hv_transformer: { name: 'HV Transformer', icon: '', type: 'solid' },
+			cosmic_singularity: { name: 'Cosmic Singularity', icon: '', type: 'solid' },
+			copper_pipe: { name: 'Copper Pipe', icon: '', type: 'solid' },
+			wood: { name: 'Wood', icon: '', type: 'solid' },
+			wooden_plank: { name: 'Wooden Plank', icon: '', type: 'solid' },
+			coal: { name: 'Coal', icon: '', type: 'solid' },
+			steel: { name: 'Steel', icon: '', type: 'solid' },
+			steel_sheet: { name: 'Steel Sheet', icon: '', type: 'solid' },
+			water: { name: 'Water', icon: '', type: 'fluid' },
+			quantum_core_singularity: { name: 'Quantum Core Singularity', icon: '', type: 'solid' },
+			hydrogen: { name: 'Hydrogen', icon: '', type: 'gas' },
+			ether_quartz: { name: 'Ether Quartz', icon: '', type: 'solid' },
+			sapphire: { name: 'Sapphire', icon: '', type: 'solid' },
+			sapphire_energy_cell: { name: 'Sapphire Energy Cell', icon: '', type: 'solid' },
+			ruby: { name: 'Ruby', icon: '', type: 'solid' },
+			titanium: { name: 'Titanium', icon: '', type: 'solid' },
+			quartz: { name: 'Quartz', icon: '', type: 'solid' },
+			diamond: { name: 'Diamond', icon: '', type: 'solid' },
+			reinforced_concrete: { name: 'Reinforced Concrete', icon: '', type: 'solid' },
+			silicon: { name: 'Silicon', icon: '', type: 'solid' },
+			polycrystalline_silicon: { name: 'Polycrystalline Silicon', icon: '', type: 'solid' },
+			oil: { name: 'Oil', icon: '', type: 'fluid' },
+			heavy_oil: { name: 'Heavy Oil', icon: '', type: 'fluid' },
+			light_oil: { name: 'Light Oil', icon: '', type: 'fluid' },
+			solar_cell: { name: 'Solar Cell', icon: '', type: 'solid' },
+			refined_ether_quartz: { name: 'Refined Ether Quartz', icon: '', type: 'solid' },
+			nitrogen: { name: 'Nitrogen', icon: '', type: 'gas' },
+			liquid_nitrogen: { name: 'Liquid Nitrogen', icon: '', type: 'fluid' },
+			salt: { name: 'Salt', icon: '', type: 'solid' },
+			brine: { name: 'Brine', icon: '', type: 'fluid' },
+			sodium: { name: 'Sodium', icon: '', type: 'fluid' },
+			chloride: { name: 'Chloride', icon: '', type: 'gas' },
+			liquid_chloride: { name: 'Liquid Chloride', icon: '', type: 'fluid' },
+			advanced_solar_module: { name: 'Advanced Solar Module', icon: '', type: 'solid' },
+			automated_singularity_converter: { name: 'Automated Singularity Converter', icon: '', type: 'solid' },
+			aluminum: { name: 'Aluminum', icon: '', type: 'solid' },
+			aluminum_ingot: { name: 'Aluminum Ingot', icon: '', type: 'solid' },
+			aluminum_bar: { name: 'Aluminum Bar', icon: '', type: 'solid' },
+			aluminum_profile: { name: 'Aluminum Profile', icon: '', type: 'solid' },
+			aluminum_frame: { name: 'Aluminum Frame', icon: '', type: 'solid' },
+			aluminum_coating: { name: 'Aluminum Coating', icon: '', type: 'solid' },
+			liquid_oxygen: { name: 'Liquid Oxygen', icon: '', type: 'fluid' },
+			heavy_water: { name: 'Heavy Water', icon: '', type: 'fluid' },
+			deuterium: { name: 'Deuterium', icon: '', type: 'gas' },
+			liquid_deuterium: { name: 'Liquid Deuterium', icon: '', type: 'fluid' },
+			sulfur: { name: 'Sulfur', icon: '', type: 'solid' },
+			sulfur_dioxide: { name: 'Sulfur Dioxide', icon: '', type: 'gas' },
+			water_steam: { name: 'Water Steam', icon: '', type: 'gas' },
+			sulfur_trioxide: { name: 'Sulfur Trioxide', icon: '', type: 'gas' },
+			sulfuric_acid: { name: 'Sulfuric Acid', icon: '', type: 'fluid' },
+			oxygen: { name: 'Oxygen', icon: '', type: 'gas' },
+			ionized_hydrogen: { name: 'Ionized Hydrogen', icon: '', type: 'gas' },
+			plasma_arc_energy: { name: 'Plasma Arc Energy', icon: '', type: 'gas' },
+			superheated_plasma_core: { name: 'Superheated Plasma Core', icon: '', type: 'gas' },
+			uranium: { name: 'Uranium', icon: '', type: 'solid' },
+			uranium_ion_cell: { name: 'Uranium Ion Cell', icon: '', type: 'solid' },
+			uranium_suspension: { name: 'Uranium Suspension', icon: '', type: 'fluid' },
+			refined_uranium_rod: { name: 'Refined Uranium Rod', icon: '', type: 'solid' },
+			titanium_mesh: { name: 'Titanium Mesh', icon: '', type: 'solid' },
+			singularity_infused_actuator: { name: 'Singularity-Infused Actuator', icon: '', type: 'solid' },
+			quartz_insulated_glass: { name: 'Quartz Insulated Glass', icon: '', type: 'solid' },
+			photonic_diamond_layer: { name: 'Photonic Diamond Layer', icon: '', type: 'solid' },
+			iron_ingot: { name: 'Iron Ingot', icon: '', type: 'solid' },
+			silicon_diode: { name: 'Silicon Diode', icon: '', type: 'solid' },
+			titanium_alloy_plate: { name: 'Titanium Alloy Plate', icon: '', type: 'solid' },
+			astralite: { name: 'Astralite', icon: '', type: 'solid' },
+			astralite_fragment: { name: 'Astralite Fragment', icon: '', type: 'solid' },
+			astral_reinforcement_panel: { name: 'Astral Reinforcement Panel', icon: '', type: 'solid' },
+			wood_board: { name: 'Wood Board', icon: '', type: 'solid' },
+			biomass: { name: 'Biomass', icon: '', type: 'solid' },
+			liquid_hydrogen: { name: 'Liquid Hydrogen', icon: '', type: 'fluid' },
+			substrate: { name: 'Substrate', icon: '', type: 'solid' },
+			ethylene: { name: 'Ethylene', icon: '', type: 'gas' },
+			etheric_binder_gel: { name: 'Etheric Binder Gel', icon: '', type: 'fluid' },
+			reinforced_uranium_suspension: { name: 'Reinforced Uranium Suspension', icon: '', type: 'fluid' },
+			voidglass_focusing_array: { name: 'Voidglass Focusing Array', icon: '', type: 'solid' },
+			photonic_memory_core: { name: 'Photonic Memory Core', icon: '', type: 'solid' },
+			chronium_crystal: { name: 'Chronium Crystal', icon: '', type: 'solid' },
+			diamond_slurry: { name: 'Diamond Slurry', icon: '', type: 'fluid' },
+			chronium_suspension: { name: 'Chronium Suspension', icon: '', type: 'fluid' },
+			iridium: { name: 'Iridium', icon: '', type: 'solid' },
+			iridium_solution: { name: 'Iridium Solution', icon: '', type: 'fluid' },
+			temporal_circuit_slurry: { name: 'Temporal Circuit Slurry', icon: '', type: 'fluid' },
+			stabilized_iridium_matrix: { name: 'Stabilized Iridium Matrix', icon: '', type: 'fluid' },
+			chrono_catalyst_gel: { name: 'Chrono Catalyst Gel', icon: '', type: 'fluid' },
+			iridium_plated_cable: { name: 'Iridium-Plated Cable', icon: '', type: 'solid' },
+			diamond_dust: { name: 'Diamond Dust', icon: '', type: 'solid' },
+			titanium_lattice: { name: 'Titanium Lattice', icon: '', type: 'solid' },
+			crystallized_diamond_core: { name: 'Crystallized Diamond Core', icon: '', type: 'solid' },
+			lattice_reinforced_conduit: { name: 'Lattice Reinforced Conduit', icon: '', type: 'solid' },
+			ruby_lens: { name: 'Ruby Lens', icon: '', type: 'solid' },
+            lens: { name: 'Lens', icon: '', type: 'solid' },
+            tri_crystal_fusion_node: { name: 'Tri-Crystal Fusion Node', icon: '', type: 'solid' },
+			osmium: { name: 'Osmium', icon: '', type: 'solid' },
+            lattice_encoded_memory_bank: { name: 'Lattice-Encoded Memory Bank', icon: '', type: 'solid' },
+            fractured_singularity_mesh: { name: 'Fractured Singularity Mesh', icon: '', type: 'solid' },
+            phase_synced_relay_circuit: { name: 'Phase-Synced Relay Circuit', icon: '', type: 'solid' },
+            sapphire_conduit: { name: 'Sapphire Conduit', icon: '', type: 'solid' },
+			quantum_signal_relay: { name: 'Quantum Signal Relay', icon: '', type: 'solid' },
+			plastic: { name: 'Plastic', icon: '', type: 'solid' },
+			plastic_mold: { name: 'Plastic Mold', icon: '', type: 'solid' },
+            osmium_reinforcement: { name: 'Osmium Reinforcement', icon: '', type: 'solid' },
+            quantum_data_compressor: { name: 'Quantum Data Compressor', icon: '', type: 'solid' },
+		};
+		const buildings = {
+			press: { name: 'Press', icon: '', power: 10, space: 10 },
+			furnace: { name: 'Furnace', icon: '', power: 10, space: 10 },
+			cutter: { name: 'Cutter', icon: '', power: 8, space: 2 },
+			welder: { name: 'Welder', icon: '', power: 15, space: 17 },
+			advanced_furnace: { name: 'Advanced Furnace', icon: '', power: 20, space: 76 },
+			advanced_cutter: { name: 'Advanced Cutter', icon: '', power: 15, space: 24 },
+			advanced_press: { name: 'Advanced Press', icon: '', power: 20, space: 23 },
+			manufacturer: { name: 'Manufacturer', icon: '', power: 15, space: 9 },
+            bifluxor: { name: 'Bifluxor', icon: '', power: 30, space: 48 },
+			chemical_infuser: { name: 'Chemical Infuser', icon: '', power: 45, space: 80 },
+			storage_packing: { name: 'Storage Packing', icon: '', power: 50, space: 100 },
+			dissolution_chamber: { name: 'Dissolution Chamber', icon: '', power: 25, space: 22 },
+			distilation_column: { name: 'Distilation Column', icon: '', power: 30, space: 22 },
+		};
+	const recipes = [
+            {
+                name: "Plastic Molds (Dissolution Chamber)",
+                building: "dissolution_chamber",
+                inputs: [
+                    { item: "plastic", rate: 120 },
+                    { item: "liquid_chloride", rate: 60 }
+                ],
+                outputs: [
+                    { item: "plastic_mold", rate: 60 }
+                ]
+            },
+            {
+                name: "Quantum Signal Relay (Copper Filaments)",
+                building: "manufacturer",
+                inputs: [
+                    { item: "plastic_mold", rate: 120 },
+                    { item: "copper_filament", rate: 60 },
+                    { item: "osmium_reinforcement", rate: 60 }
+                ],
+                outputs: [
+                    { item: "quantum_signal_relay", rate: 30 }
+                ]
+            },
+            {
+                name: "Quantum Signal Relay (Steel Sheets)",
+                building: "manufacturer",
+                inputs: [
+                    { item: "plastic_mold", rate: 120 },
+                    { item: "steel_sheet", rate: 60 },
+                    { item: "osmium_reinforcement", rate: 60 }
+                ],
+                outputs: [
+                    { item: "quantum_signal_relay", rate: 30 }
+                ]
+            },
+            
+            {
+                name: 'Condensed Helium-3 (Bifluxor)',
+                building: 'bifluxor',
+                inputs: [ { item: 'helium_3', rate: 60 } ],
+                outputs: [ { item: 'condensed_helium_3', rate: 60 } ],
+            },
+            {
+                name: 'Quantum Energy Solution (Chemical Infuser)',
+                building: 'chemical_infuser',
+                inputs: [ { item: 'superheated_plasma_core', rate: 60 }, { item: 'condensed_helium_3', rate: 60 } ],
+                outputs: [ { item: 'quantum_energy_solution', rate: 60 } ],
+            },
+            {
+                name: 'Quantum Plasma (Chemical Infuser)',
+                building: 'chemical_infuser',
+                inputs: [ { item: 'quantum_energy_solution', rate: 60 }, { item: 'chrono_catalyst_gel', rate: 60 } ],
+                outputs: [ { item: 'quantum_plasma', rate: 60 } ],
+            },
+            {
+                name: 'Uranium Ion Cell (Dissolution Chamber, Quantum)',
+                building: 'dissolution_chamber',
+                inputs: [ { item: 'quantum_plasma', rate: 60 }, { item: 'uranium', rate: 60 } ],
+                outputs: [ { item: 'uranium_ion_cell', rate: 20 } ],
+            },
+			{
+				name: 'Superluminal Relay Core (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'pulse_energy_matrix', rate: 60 },
+					{ item: 'tuned_quantum_processor', rate: 60 },
+					{ item: 'quantum_signal_relay', rate: 60 }
+				],
+				outputs: [ { item: 'superluminal_relay_core', rate: 60 } ],
+			},
+			{
+				name: 'Fractal Processing Prism (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'superluminal_relay_core', rate: 30 },
+					{ item: 'lattice_encoded_memory_bank', rate: 30 }
+				],
+				outputs: [ { item: 'fractal_processing_prism', rate: 30 } ],
+			},
+			{
+				name: 'Quantum-Resonant Lens Core (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'fractal_processing_prism', rate: 60 },
+					{ item: 'voidglass_focusing_array', rate: 120 }
+				],
+				outputs: [ { item: 'quantum_resonant_lens_core', rate: 60 } ],
+			},
+			{
+				name: 'Galactic Essence Singularity (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'fractured_singularity_mesh', rate: 60 },
+					{ item: 'quantum_resonant_lens_core' }
+				],
+				outputs: [ { item: 'galactic_essence_singularity', rate: 60 } ],
+			},
+			{
+				name: 'Chronium Crystal Core (Advanced Furnace)',
+				building: 'advanced_furnace',
+				inputs: [ { item: 'chronium_crystal', rate: 30 } ],
+				outputs: [ { item: 'chronium_crystal_core', rate: 30 } ],
+			},
+			{
+				name: 'Chronium Crystal Core (Furnace)',
+				building: 'furnace',
+				inputs: [ { item: 'chronium_crystal', rate: 15 } ],
+				outputs: [ { item: 'chronium_crystal_core', rate: 15 } ],
+			},
+			{
+				name: 'Luminary Crystal Core (Welder)',
+		    	building: 'welder',
+				inputs: [ { item: 'astralite_fragment', rate: 60 }, { item: 'chronium_crystal_core', rate: 30 } ],
+				outputs: [ { item: 'luminary_crystal_core', rate: 30 } ],
+			},
+			{
+				name: 'Sapphire Conduit (Welder, Alt)',
+				building: 'welder',
+				inputs: [ { item: 'sapphire', rate: 120 }, { item: 'luminary_crystal_core', rate: 60 } ],
+				outputs: [ { item: 'sapphire_conduit', rate: 60 } ],
+			},
+			{
+				name: 'Pulse Energy Matrix (Storage Packing)',
+				building: 'storage_packing',
+			    inputs: [ { item: 'sapphire_conduit', rate: 60 }, { item: 'chronium_suspension' } ],
+				outputs: [ { item: 'pulse_energy_matrix', rate: 60 } ],
+			},
+			{
+				name: 'Pulse Energy Matrix (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'sapphire_conduit', rate: 60 }, { item: 'ether_quartz', rate: 120 }, { item: 'chronium_suspension' } ],
+				outputs: [ { item: 'pulse_energy_matrix', rate: 30 } ],
+			},
+			{
+				name: 'Tuned Quantum Processor (Welder)',
+				building: 'welder',
+				inputs: [ { item: 'crystallized_diamond_core', rate: 60 }, { item: 'aluminum_coating', rate: 120 } ],
+				outputs: [ { item: 'tuned_quantum_processor', rate: 60 } ],
+			},
+			{
+				name: 'Tuned Quantum Processor (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [ { item: 'crystallized_diamond_core', rate: 60 }, { item: 'railway_line', rate: 120 } ],
+				outputs: [ { item: 'tuned_quantum_processor', rate: 120 } ],
+			},
+			{
+				name: 'Reinforced Nails (Advanced Furnace)',
+				building: 'advanced_furnace',
+				inputs: [ { item: 'iron_bar', rate: 60 }, { item: 'coal', rate: 60 } ],
+				outputs: [ { item: 'reinforced_nails', rate: 60 } ],
+			},
+			{
+				name: 'Railway Tracks (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [ { item: 'iron_bar', rate: 120 }, { item: 'stone_block', rate: 60 }, { item: 'wooden_plank', rate: 120 } ],
+				outputs: [ { item: 'railway_tracks', rate: 60 } ],
+			},
+			{
+				name: 'Railway Tracks (Manufacturer, Alt)',
+				building: 'manufacturer',
+				inputs: [ { item: 'copper_bar', rate: 60 }, { item: 'stone', rate: 120 }, { item: 'wooden_plank', rate: 60 } ],
+				outputs: [ { item: 'railway_tracks', rate: 30 } ],
+			},
+			{
+				name: 'Railway Line (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [ { item: 'reinforced_nails', rate: 60 }, { item: 'railway_tracks', rate: 60 }, { item: 'reinforced_concrete', rate: 60 } ],
+				outputs: [ { item: 'railway_line', rate: 60 } ],
+			},
+			{
+				name: 'Railway Line (Welder)',
+				building: 'welder',
+				inputs: [ { item: 'reinforced_nails', rate: 120 }, { item: 'railway_tracks', rate: 60 } ],
+				outputs: [ { item: 'railway_line', rate: 120 } ],
+			},
+			{
+				name: 'Iron Bar (Press)',
+				building: 'press',
+				inputs: [{ item: 'iron', rate: 60 }],
+				outputs: [{ item: 'iron_bar', rate: 60 }],
+			},
+			{
+				name: 'Iron Ingot (Furnace)',
+				building: 'furnace',
+				inputs: [ { item: 'iron', rate: 60 } ],
+				outputs: [ { item: 'iron_ingot', rate: 60 } ],
+			},
+			{
+				name: 'Sapphire Conduit (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'sapphire', rate: 120 },
+					{ item: 'structural_cable', rate: 60 }
+				],
+				outputs: [ { item: 'sapphire_conduit', rate: 60 } ],
+			},
+			{
+				name: 'Silicon Diode (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ 
+                    { item: 'silicon', rate: 120 }, 
+                    { item: 'light_oil' } 
+                ],
+				outputs: [ { item: 'silicon_diode', rate: 60 } ],
+			},
+			{
+				name: 'Titanium Alloy Plate (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [ 
+                    { item: 'titanium', rate: 120 }, 
+                    { item: 'silicon_diode', rate: 60 }, 
+                    { item: 'iron_ingot', rate: 60 } 
+                ],
+				outputs: [ { item: 'titanium_alloy_plate', rate: 120 } ],
+			},
+            {
+				name: 'Astralite Fragment (Cutter)',
+				building: 'cutter',
+				inputs: [ { item: 'astralite', rate: 120 } ],
+				outputs: [ { item: 'astralite_fragment', rate: 60 } ],
+			},
+			{
+				name: 'Astralite Fragment (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [ { item: 'astralite', rate: 60 } ],
+				outputs: [ { item: 'astralite_fragment', rate: 60 } ],
+			},
+			{
+				name: 'Astral Reinforcement Panel (Manufacturer, Astralite)',
+				building: 'manufacturer',
+				inputs: [ 
+                    { item: 'quartz_insulated_glass', rate: 60 }, 
+                    { item: 'titanium_alloy_plate', rate: 60 }, 
+                    { item: 'astralite_fragment', rate: 120 } 
+                ],
+				outputs: [ { item: 'astral_reinforcement_panel', rate: 60 } ],
+			},
+			{
+				name: 'Wood Board (Press)',
+				building: 'press',
+				inputs: [ { item: 'wood', rate: 60 } ],
+				outputs: [ { item: 'wood_board', rate: 60 } ],
+			},
+			{
+				name: 'Astral Reinforcement Panel (Manufacturer, Wood)',
+				building: 'manufacturer',
+				inputs: [ 
+                    { item: 'quartz_insulated_glass', rate: 60 }, 
+                    { item: 'titanium_alloy_plate', rate: 60 }, 
+                    { item: 'wood_board', rate: 120 } 
+                ],
+				outputs: [ { item: 'astral_reinforcement_panel', rate: 60 } ],
+			},
+            {
+		        name: 'Uranium Suspension (Dissolution Chamber)',
+		        building: 'dissolution_chamber',
+		        inputs: [ { item: 'uranium_ion_cell', rate: 20 } ],
+		        outputs: [ { item: 'uranium_suspension'} ],
+            },
+	        {
+		        name: 'Refined Uranium Rod (Storage Packing)',
+		        building: 'storage_packing',
+		        inputs: [ 
+                    { item: 'uranium', rate: 120 }, 
+                    { item: 'uranium_suspension'} 
+                ],
+		        outputs: [ { item: 'refined_uranium_rod', rate: 60 } ],
+	        },
+            {
+                name: 'Refined Uranium Rod (Dissolution Chamber)',
+                building: 'dissolution_chamber',
+                inputs: [ 
+                    { item: 'uranium', rate: 120 }, 
+                    { item: 'uranium_suspension'} 
+                ],
+                outputs: [ { item: 'refined_uranium_rod', rate: 30 } ],
+            },
+            {
+                name: 'Titanium Mesh (Advanced Press)',
+                building: 'advanced_press',
+                inputs: [ 
+                    { item: 'titanium', rate: 60 }, 
+                    { item: 'aluminum', rate: 60 } 
+                ],
+                outputs: [ { item: 'titanium_mesh', rate: 30 } ],
+            },
+            {
+                name: 'Titanium Mesh (Advanced Furnace)',
+                building: 'advanced_furnace',
+                inputs: [ 
+                    { item: 'titanium', rate: 120 }, 
+                    { item: 'aluminum', rate: 120 } 
+                ],
+                outputs: [ { item: 'titanium_mesh', rate: 60 } ],
+            },
+            {
+		        name: "Fractured Singularity Mesh (Manufacturer)",
+		        building: "manufacturer",
+		        inputs: [
+			        { item: "singularity_infused_actuator", rate: 60 },
+			        { item: "voidglass_focusing_array", rate: 120 },
+			        { item: "lattice_encoded_memory_bank", rate: 60 }
+		        ],
+		        outputs: [
+			        { item: 'fractured_singularity_mesh', rate: 60 }
+		    ]
+	        },
+            {
+                name: 'Singularity-Infused Actuator (Manufacturer)',
+                building: 'manufacturer',
+                inputs: [ 
+                    { item: 'automated_singularity_converter', rate: 120 }, 
+                    { item: 'refined_uranium_rod', rate: 60 }, 
+                    { item: 'titanium_mesh', rate: 240 } 
+                ],
+                outputs: [ { item: 'singularity_infused_actuator', rate: 60 } ],
+            },
+            {
+                name: 'Quartz Insulated Glass (Furnace)',
+                building: 'furnace',
+                inputs: [ { item: 'quartz', rate: 60 } ],
+                outputs: [ { item: 'quartz_insulated_glass', rate: 30 } ],
+            },
+            {
+                name: 'Photonic Diamond Layer (Press)',
+                building: 'press',
+                inputs: [ { item: 'diamond', rate: 60 } ],
+                outputs: [ { item: 'photonic_diamond_layer', rate: 120 } ],
+            },
+			{
+				name: 'Copper Pipe (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'copper', rate: 60 }],
+				outputs: [{ item: 'copper_pipe', rate: 120 }],
+			},
+			{
+				name: 'Wood to Coal (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'wood', rate: 60 }],
+				outputs: [{ item: 'coal', rate: 60 }],
+			},
+			{
+				name: 'Wood to Wooden Plank (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'wood', rate: 60 }],
+				outputs: [{ item: 'wooden_plank', rate: 60 }],
+			},
+			{
+				name: 'Wood to Wooden Plank (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [{ item: 'wood', rate: 60 }],
+				outputs: [{ item: 'wooden_plank', rate: 120 }],
+			},
+			{
+				name: 'Wooden Plank to Coal (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'wooden_plank', rate: 60 }],
+				outputs: [{ item: 'coal', rate: 120 }],
+			},
+			{
+				name: 'Steel (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'coal', rate: 60 },
+					{ item: 'iron', rate: 120 }
+				],
+				outputs: [{ item: 'steel', rate: 60 }],
+			},
+			{
+				name: 'Steel (Advanced Furnace)',
+				building: 'advanced_furnace',
+				inputs: [
+					{ item: 'coal', rate: 60 },
+					{ item: 'iron', rate: 60 }
+				],
+				outputs: [{ item: 'steel', rate: 120 }],
+			},
+			{
+				name: 'Steel Sheet (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'steel', rate: 60 }],
+				outputs: [{ item: 'steel_sheet', rate: 120 }],
+			},
+			{
+				name: 'Quantum Core Singularity (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'copper_pipe', rate: 60 },
+					{ item: 'steel_sheet', rate: 60 }
+				],
+				outputs: [{ item: 'quantum_core_singularity', rate: 60 }],
+			},
+			{
+				name: 'Copper Filament (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'copper', rate: 60 }],
+				outputs: [{ item: 'copper_filament', rate: 120 }],
+			},
+			{
+				name: 'Reinforced Steel Plate (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'steel', rate: 60 }],
+				outputs: [{ item: 'reinforced_steel_plate', rate: 60 }],
+			},
+			{
+				name: 'Structural Cable (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'copper_filament', rate: 120 },
+					{ item: 'reinforced_steel_plate', rate: 60 }
+				],
+				outputs: [{ item: 'structural_cable', rate: 60 }],
+			},
+			{
+				name: 'Copper Bar (Press)',
+				building: 'press',
+				inputs: [{ item: 'copper', rate: 60 }],
+				outputs: [{ item: 'copper_bar', rate: 60 }],
+			},
+			{
+				name: 'Structural Cable (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'copper_filament', rate: 120 },
+					{ item: 'copper_bar', rate: 60 }
+				],
+				outputs: [{ item: 'structural_cable', rate: 60 }],
+			},
+			{
+				name: 'Power Cable (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'structural_cable', rate: 30 }],
+				outputs: [{ item: 'power_cable', rate: 30 }],
+			},
+			{
+				name: 'Power Cable (Advanced Press)',
+				building: 'advanced_press',
+				inputs: [{ item: 'structural_cable', rate: 60 }],
+				outputs: [{ item: 'power_cable', rate: 60 }],
+			},
+			{
+				name: 'Stellar Nexus Singularity (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'power_cable', rate: 120 },
+					{ item: 'quantum_core_singularity', rate: 120 }
+				],
+				outputs: [{ item: 'stellar_nexus_singularity', rate: 120 }],
+			},
+			{
+				name: 'Stone Block (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'stone', rate: 60 }],
+				outputs: [{ item: 'stone_block', rate: 60 }],
+			},
+			{
+				name: 'Support Beam (Advanced Press)',
+				building: 'advanced_press',
+				inputs: [
+					{ item: 'iron_pipe', rate: 60 },
+					{ item: 'stone_block', rate: 60 }
+				],
+				outputs: [{ item: 'support_beam', rate: 60 }],
+			},
+			{
+				name: 'Support Beam (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'copper_pipe', rate: 120 },
+					{ item: 'stone_block', rate: 120 }
+				],
+				outputs: [{ item: 'support_beam', rate: 120 }],
+			},
+			{
+				name: 'Stellar Nexus Singularity (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'support_beam', rate: 120 },
+					{ item: 'quantum_core_singularity', rate: 120 }
+				],
+				outputs: [{ item: 'stellar_nexus_singularity', rate: 60 }],
+			},
+			{
+				name: 'Iron Pipe (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'iron', rate: 60 }],
+				outputs: [{ item: 'iron_pipe', rate: 120 }],
+			},
+			{
+				name: 'Liquid Chloride (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'chloride' }],
+				outputs: [{ item: 'liquid_chloride' }],
+			},
+			{
+				name: 'Aluminum Coating (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'aluminum_ingot', rate: 60 },
+					{ item: 'aluminum_bar', rate: 60 },
+					{ item: 'liquid_chloride' }
+				],
+				outputs: [{ item: 'aluminum_coating', rate: 60 }],
+			},
+			{
+				name: 'Advanced Solar Module (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'solar_cell', rate: 60 },
+					{ item: 'aluminum_frame', rate: 60 },
+					{ item: 'aluminum_coating', rate: 120 }
+				],
+				outputs: [{ item: 'advanced_solar_module', rate: 60 }],
+			},
+			{
+				name: 'Automated Singularity Converter (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'advanced_solar_module', rate: 60 },
+					{ item: 'sapphire_energy_cell', rate: 60 },
+					{ item: 'cosmic_singularity', rate: 60 }
+				],
+				outputs: [{ item: 'automated_singularity_converter', rate: 60 }],
+			},
+			{
+				name: 'Sapphire Energy Cell (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'sapphire', rate: 60 },
+					{ item: 'refined_ether_quartz', rate: 60 }
+				],
+				outputs: [{ item: 'sapphire_energy_cell', rate: 30 }],
+			},
+			{
+				name: 'Polycrystalline Silicon (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'silicon', rate: 120 },
+					{ item: 'liquid_deuterium' }
+				],
+				outputs: [{ item: 'polycrystalline_silicon', rate: 60 }],
+			},
+			{
+				name: 'Heavy Oil & Light Oil (Distilation Column)',
+				building: 'distilation_column',
+				inputs: [{ item: 'oil' }],
+				outputs: [
+					{ item: 'heavy_oil' },
+					{ item: 'light_oil' }
+				],
+			},
+			{
+				name: 'Polycrystalline Silicon (Dissolution Chamber, Alt)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'silicon', rate: 120 },
+					{ item: 'heavy_oil' }
+				],
+				outputs: [{ item: 'polycrystalline_silicon', rate: 60 }],
+			},
+			{
+				name: 'Solar Cell (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'polycrystalline_silicon', rate: 60 },
+					{ item: 'aluminum_ingot', rate: 120 },
+					{ item: 'aluminum_bar', rate: 60 }
+				],
+				outputs: [{ item: 'solar_cell', rate: 60 }],
+			},
+			{
+				name: 'Solar Cell (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'polycrystalline_silicon', rate: 60 },
+					{ item: 'aluminum_profile', rate: 120 }
+				],
+				outputs: [{ item: 'solar_cell', rate: 60 }],
+			},
+			{
+				name: 'Refined Ether Quartz (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'ether_quartz', rate: 60 },
+					{ item: 'liquid_oxygen' }
+				],
+				outputs: [{ item: 'refined_ether_quartz', rate: 60 }],
+			},
+			{
+				name: 'Liquid Nitrogen (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'nitrogen' }],
+				outputs: [{ item: 'liquid_nitrogen' }],
+			},
+			{
+				name: 'Refined Ether Quartz (Dissolution Chamber, Alt 1)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'ether_quartz', rate: 60 },
+					{ item: 'liquid_nitrogen' }
+				],
+				outputs: [{ item: 'refined_ether_quartz', rate: 60 }],
+			},
+			{
+				name: 'Brine (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'salt', rate: 60 },
+					{ item: 'water' }
+				],
+				outputs: [{ item: 'brine' }],
+			},
+			{
+				name: 'Sodium & Chloride (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'brine' }],
+				outputs: [
+					{ item: 'sodium' },
+					{ item: 'chloride' }
+				],
+			},
+			{
+				name: 'Refined Ether Quartz (Dissolution Chamber, Alt 2)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'ether_quartz', rate: 60 },
+					{ item: 'sodium' }
+				],
+				outputs: [{ item: 'refined_ether_quartz', rate: 60 }],
+			},
+			{
+				name: 'Aluminum Ingot (Furnace)',
+				building: 'furnace',
+				inputs: [{ item: 'aluminum', rate: 60 }],
+				outputs: [{ item: 'aluminum_ingot', rate: 60 }],
+			},
+			{
+				name: 'Aluminum Bar (Press)',
+				building: 'press',
+				inputs: [{ item: 'aluminum', rate: 60 }],
+				outputs: [{ item: 'aluminum_bar', rate: 120 }],
+			},
+			{
+				name: 'Aluminum Profile (Cutter)',
+				building: 'cutter',
+				inputs: [{ item: 'aluminum', rate: 120 }],
+				outputs: [{ item: 'aluminum_profile', rate: 60 }],
+			},
+			{
+				name: 'Aluminum Profile (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [{ item: 'aluminum', rate: 60 }],
+				outputs: [{ item: 'aluminum_profile', rate: 60 }],
+			},
+			{
+				name: 'Aluminum Frame (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [
+					{ item: 'aluminum_profile', rate: 60 },
+					{ item: 'aluminum_bar', rate: 30 },
+					{ item: 'sulfuric_acid' }
+				],
+				outputs: [{ item: 'aluminum_frame', rate: 30 }],
+			},
+			{
+				name: 'Aluminum Frame (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'aluminum_profile', rate: 120 },
+					{ item: 'aluminum_bar', rate: 120 }
+				],
+				outputs: [{ item: 'aluminum_frame', rate: 60 }],
+			},
+			{
+				name: 'Aluminum Coating (Welder)',
+				building: 'welder',
+				inputs: [
+					{ item: 'aluminum_ingot', rate: 30 },
+					{ item: 'aluminum_bar', rate: 30 }
+				],
+				outputs: [{ item: 'aluminum_coating', rate: 30 }],
+			},
+			{
+				name: 'Liquid Oxygen (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'oxygen' }],
+				outputs: [{ item: 'liquid_oxygen' }],
+			},
+			{
+				name: 'Deuterium (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'heavy_water' }],
+				outputs: [{ item: 'deuterium' }],
+			},
+			{
+				name: 'Liquid Deuterium (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'deuterium' }],
+				outputs: [{ item: 'liquid_deuterium' }],
+			},
+			{
+				name: 'Sulfur Dioxide (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [{ item: 'sulfur', rate: 60 }],
+				outputs: [{ item: 'sulfur_dioxide' }],
+			},
+			{
+				name: 'Water Steam (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [{ item: 'water' }],
+				outputs: [{ item: 'water_steam' }],
+			},
+			{
+				name: 'Sulfur Trioxide (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [
+					{ item: 'sulfur_dioxide' },
+					{ item: 'water_steam' }
+				],
+				outputs: [{ item: 'sulfur_trioxide' }],
+			},
+			{
+				name: 'Sulfuric Acid (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [
+					{ item: 'sulfur_trioxide' },
+					{ item: 'water_steam' }
+				],
+				outputs: [{ item: 'sulfuric_acid' }],
+			},
+			{
+				name: 'LV Transformer (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'power_cable', rate: 120 },
+					{ item: 'steel_sheet', rate: 120 },
+					{ item: 'reinforced_steel_plate', rate: 60 }
+				],
+				outputs: [{ item: 'lv_transformer', rate: 60 }],
+			},
+			{
+				name: 'HV Transformer (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'lv_transformer', rate: 60 },
+					{ item: 'copper_bar', rate: 120 }
+				],
+				outputs: [{ item: 'hv_transformer', rate: 60 }],
+			},
+			{
+				name: 'HV Transformer (Advanced Cutter, Alt)',
+				building: 'advanced_cutter',
+				inputs: [
+					{ item: 'lv_transformer', rate: 30 },
+					{ item: 'iron_pipe', rate: 120 }
+				],
+				outputs: [{ item: 'hv_transformer', rate: 30 }],
+			},
+			{
+				name: 'Cosmic Singularity (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'hv_transformer', rate: 60 },
+					{ item: 'stellar_nexus_singularity', rate: 60 }
+				],
+				outputs: [{ item: 'cosmic_singularity', rate: 60 }],
+			},
+			{
+				name: 'Cosmic Singularity (Manufacturer, Alt)',
+				building: 'manufacturer',
+				inputs: [
+					{ item: 'lv_transformer', rate: 120 },
+					{ item: 'stellar_nexus_singularity', rate: 60 }
+				],
+				outputs: [{ item: 'cosmic_singularity', rate: 60 }],
+			},
+			{
+				name: 'Hydrogen & Oxygen (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'water' }],
+				outputs: [
+					{ item: 'hydrogen' },
+					{ item: 'oxygen' }
+				]
+			},
+			{
+				name: 'Ionized Hydrogen (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [{ item: 'hydrogen' }],
+				outputs: [{ item: 'ionized_hydrogen' }]
+			},
+			{
+				name: 'Plasma Arc Energy (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [{ item: 'ionized_hydrogen' }],
+				outputs: [{ item: 'plasma_arc_energy' }]
+			},
+			{
+				name: 'Superheated Plasma Core (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [{ item: 'plasma_arc_energy' }],
+				outputs: [{ item: 'superheated_plasma_core' }]
+			},
+			{
+				name: 'Uranium Ion Cell (Storage Packing)',
+				building: 'storage_packing',
+				inputs: [
+					{ item: 'uranium', rate: 60 },
+					{ item: 'superheated_plasma_core' }
+				],
+				outputs: [
+					{ item: 'uranium_ion_cell', rate: 10 }
+				]
+			},
+			{
+				name: 'Liquid Hydrogen (Bifluxor)',
+				building: 'bifluxor',
+				inputs: [ { item: 'hydrogen' } ],
+				outputs: [ { item: 'liquid_hydrogen' } ],
+			},
+			{
+				name: 'Substrate & Ethylene (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'water' }, { item: 'liquid_hydrogen' }, { item: 'biomass', rate: 60 } ],
+				outputs: [ { item: 'substrate', rate: 60 }, { item: 'ethylene' } ],
+			},
+			{
+				name: 'Etheric Binder Gel (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'substrate', rate: 60 } ],
+				outputs: [ { item: 'etheric_binder_gel' } ],
+			},
+			{
+				name: 'Reinforced Uranium Suspension (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [ { item: 'uranium_suspension' }, { item: 'etheric_binder_gel' } ],
+				outputs: [ { item: 'reinforced_uranium_suspension' } ],
+			},
+			{
+				name: 'Voidglass Focusing Array (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'astral_reinforcement_panel', rate: 60 }, { item: 'refined_uranium_rod', rate: 60 }, { item: 'uranium_ion_cell', rate: 60 }, { item: 'reinforced_uranium_suspension' } ],
+				outputs: [ { item: 'voidglass_focusing_array', rate: 120 } ],
+			},
+			{
+				name: 'Voidglass Focusing Array (Dissolution Chamber, Alt)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'astral_reinforcement_panel', rate: 60 }, { item: 'refined_uranium_rod', rate: 60 }, { item: 'photonic_memory_core', rate: 60 } ],
+				outputs: [ { item: 'voidglass_focusing_array', rate: 60 } ],
+			},
+			{
+				name: 'Iridium-Plated Cable (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [ { item: 'iridium', rate: 60 }, { item: 'power_cable', rate: 30 } ],
+				outputs: [ { item: 'iridium_plated_cable', rate: 30 } ],
+			},
+			{
+				name: 'Iridium-Plated Cable (Manufacturer, Alt)',
+				building: 'manufacturer',
+				inputs: [ { item: 'iridium', rate: 60 }, { item: 'structural_cable', rate: 120 } ],
+				outputs: [ { item: 'iridium_plated_cable', rate: 120 } ],
+			},
+			{
+				name: 'Diamond Dust (Cutter)',
+				building: 'cutter',
+				inputs: [ { item: 'diamond', rate: 120 } ],
+				outputs: [ { item: 'diamond_dust', rate: 30 } ],
+			},
+			{
+				name: 'Diamond Dust (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [ { item: 'diamond', rate: 120 } ],
+				outputs: [ { item: 'diamond_dust', rate: 60 } ],
+			},
+			{
+				name: 'Titanium Lattice (Welder)',
+				building: 'welder',
+				inputs: [ { item: 'titanium', rate: 30 }, { item: 'diamond_dust', rate: 30 } ],
+				outputs: [ { item: 'titanium_lattice', rate: 60 } ],
+			},
+			{
+				name: 'Crystallized Diamond Core (Furnace)',
+				building: 'furnace',
+				inputs: [ { item: 'diamond', rate: 60 } ],
+				outputs: [ { item: 'crystallized_diamond_core', rate: 30 } ],
+			},
+			{
+				name: 'Titanium Lattice (Welder, Alt)',
+				building: 'welder',
+				inputs: [ { item: 'titanium', rate: 30 }, { item: 'crystallized_diamond_core', rate: 30 } ],
+				outputs: [ { item: 'titanium_lattice', rate: 120 } ],
+			},
+			{
+				name: 'Lattice Reinforced Conduit (Welder)',
+				building: 'welder',
+				inputs: [ { item: 'iridium_plated_cable', rate: 60 }, { item: 'titanium_lattice', rate: 60 } ],
+				outputs: [ { item: 'lattice_reinforced_conduit', rate: 60 } ],
+			},
+            {
+				name: 'Photonic Memory Core (Welder)',
+				building: 'welder',
+				inputs: [ { item: 'photonic_diamond_layer', rate: 30 }, { item: 'chronium_crystal', rate: 15 } ],
+				outputs: [ { item: 'photonic_memory_core', rate: 15 } ],
+			},
+			{
+				name: 'Diamond Slurry (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'diamond', rate: 60 } ],
+				outputs: [ { item: 'diamond_slurry' } ],
+			},
+			{
+				name: 'Chronium Suspension (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'chronium_crystal', rate: 60 } ],
+				outputs: [ { item: 'chronium_suspension' } ],
+			},
+			{
+				name: 'Iridium Solution (Dissolution Chamber)',
+				building: 'dissolution_chamber',
+				inputs: [ { item: 'iridium', rate: 60 } ],
+				outputs: [ { item: 'iridium_solution' } ],
+			},
+			{
+				name: 'Temporal Circuit Slurry (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [ { item: 'diamond_slurry' }, { item: 'chronium_suspension' } ],
+				outputs: [ { item: 'temporal_circuit_slurry' } ],
+			},
+			{
+				name: 'Stabilized Iridium Matrix (Distilation Column)',
+				building: 'distilation_column',
+				inputs: [ { item: 'iridium_solution' } ],
+				outputs: [ { item: 'stabilized_iridium_matrix' } ],
+			},
+			{
+				name: 'Chrono Catalyst Gel (Chemical Infuser)',
+				building: 'chemical_infuser',
+				inputs: [ { item: 'stabilized_iridium_matrix' }, { item: 'temporal_circuit_slurry' } ],
+				outputs: [ { item: 'chrono_catalyst_gel' } ],
+			},
+			{
+				name: 'Photonic Memory Core (Storage Packing)',
+				building: 'storage_packing',
+				inputs: [ { item: 'photonic_diamond_layer', rate: 120 }, { item: 'chrono_catalyst_gel' } ],
+				outputs: [ { item: 'photonic_memory_core', rate: 60 } ],
+			},
+			{
+				name: 'Ruby Lens (Advanced Cutter)',
+				building: 'advanced_cutter',
+				inputs: [ { item: 'ruby', rate: 60 } ],
+				outputs: [ { item: 'ruby_lens', rate: 30 } ],
+			},
+			{
+				name: 'Lens (Cutter)',
+				building: 'cutter',
+				inputs: [ { item: 'ruby', rate: 120 } ],
+				outputs: [ { item: 'lens', rate: 30 } ],
+			},
+			{
+				name: 'Tri-Crystal Fusion Node (Manufacturer)',
+				building: 'manufacturer',
+				inputs: [ { item: 'refined_ether_quartz', rate: 120 }, { item: 'sapphire_energy_cell', rate: 60 }, { item: 'ruby_lens', rate: 120 } ],
+				outputs: [ { item: 'tri_crystal_fusion_node', rate: 60 } ],
+			},
+			{
+				name: 'Quantum Data Compressor (Advanced Cutter, Alt)',
+				building: 'advanced_cutter',
+				inputs: [ { item: 'tri_crystal_fusion_node', rate: 60 }, { item: 'phase_synced_relay_circuit', rate: 60 } ],
+				outputs: [ { item: 'quantum_data_compressor', rate: 120 } ],
+			},
+			{
+				name: 'Osmium Reinforcement (Advanced Press, Alt)',
+				building: 'advanced_press',
+				inputs: [ { item: 'osmium', rate: 120 }, { item: 'quantum_data_compressor', rate: 60 } ],
+				outputs: [ { item: 'osmium_reinforcement', rate: 240 } ],
+			},
+		];
+
+		// Populate item dropdown
+		const itemSelect = document.getElementById('item-select');
+		const rateInput = document.getElementById('rate-input');
+		Object.entries(items).forEach(([key, item]) => {
+			const opt = document.createElement('option');
+			opt.value = key;
+			opt.textContent = item.name;
+			itemSelect.appendChild(opt);
+		});
+
+				// Modal logic for available items
+						let availableItemsList = [];
+						// Load from localStorage if present
+						try {
+							const saved = localStorage.getItem('availableItemsList');
+							if (saved) {
+								availableItemsList = JSON.parse(saved);
+							}
+						} catch(e) {}
+				const modal = document.getElementById('available-items-modal');
+				const openModalBtn = document.getElementById('edit-available-items-btn');
+				const closeModalBtn = document.getElementById('close-available-items-modal');
+				const addRowBtn = document.getElementById('add-available-item-row');
+				const tableBody = document.querySelector('#available-items-table tbody');
+				const form = document.getElementById('available-items-form');
+
+				function renderAvailableItemsTable() {
+					// Combine duplicate items (solids only, sum amounts)
+					const combined = [];
+					for (const row of availableItemsList) {
+						const type = items[row.item]?.type;
+						if (type === 'fluid' || type === 'gas') {
+							if (!combined.some(r => r.item === row.item)) {
+								combined.push({ item: row.item });
+							}
+						} else {
+							const existing = combined.find(r => r.item === row.item);
+							if (existing) {
+								existing.amount = (existing.amount || 0) + (row.amount || 0);
+							} else {
+								combined.push({ item: row.item, amount: row.amount });
+							}
+						}
+					}
+					// Replace availableItemsList with combined
+					availableItemsList = combined;
+					tableBody.innerHTML = '';
+					availableItemsList.forEach((row, idx) => {
+						const type = items[row.item]?.type;
+						const tr = document.createElement('tr');
+						tr.innerHTML = `
+							<td><select>${Object.entries(items).map(([k, i]) => `<option value="${k}"${row.item===k?' selected':''}>${i.name}</option>`).join('')}</select></td>
+							<td>${type === 'fluid' || type === 'gas' ? '<span style="color:#888;">N/A</span>' : `<input type="number" min="0" step="1" value="${row.amount ?? ''}" style="width:80px;">`}</td>
+							<td><button type="button" data-row="${idx}" class="remove-available-item-row">Remove</button></td>
+						`;
+						tableBody.appendChild(tr);
+					});
+				}
+
+						openModalBtn.addEventListener('click', () => {
+							if (availableItemsList.length === 0) {
+								availableItemsList.push({ item: Object.keys(items)[0], amount: 1 });
+							}
+							renderAvailableItemsTable();
+							modal.style.display = 'flex';
+						});
+				closeModalBtn.addEventListener('click', () => {
+					modal.style.display = 'none';
+				});
+				addRowBtn.addEventListener('click', () => {
+					availableItemsList.push({ item: Object.keys(items)[0], amount: 1 });
+					renderAvailableItemsTable();
+				});
+				tableBody.addEventListener('click', (e) => {
+					if (e.target.classList.contains('remove-available-item-row')) {
+						const idx = parseInt(e.target.getAttribute('data-row'));
+						availableItemsList.splice(idx, 1);
+						renderAvailableItemsTable();
+					}
+				});
+				tableBody.addEventListener('change', (e) => {
+					const tr = e.target.closest('tr');
+					const idx = Array.from(tableBody.children).indexOf(tr);
+					if (e.target.tagName === 'SELECT') {
+						availableItemsList[idx].item = e.target.value;
+						// If new item is fluid/gas, clear amount
+						if (['fluid','gas'].includes(items[e.target.value]?.type)) {
+							availableItemsList[idx].amount = null;
+						}
+						renderAvailableItemsTable();
+					} else if (e.target.tagName === 'INPUT') {
+						// Only allow input for solids
+						if (!['fluid','gas'].includes(items[availableItemsList[idx].item]?.type)) {
+							availableItemsList[idx].amount = parseInt(e.target.value) || 0;
+						}
+					}
+				});
+						form.addEventListener('submit', (e) => {
+							e.preventDefault();
+							// Save to localStorage, but remove amount for fluids/gases
+							try {
+								const filtered = availableItemsList.map(row => {
+									const type = items[row.item]?.type;
+									return type === 'fluid' || type === 'gas' ? { item: row.item } : row;
+								});
+								localStorage.setItem('availableItemsList', JSON.stringify(filtered));
+							} catch(e) {}
+							modal.style.display = 'none';
+						});
+
+		// Disable rate input for fluid/gas
+		itemSelect.addEventListener('change', function() {
+			const selectedType = items[this.value]?.type;
+			if (selectedType === 'fluid' || selectedType === 'gas') {
+				rateInput.value = '';
+				rateInput.disabled = true;
+				rateInput.placeholder = 'No rate needed';
+			} else {
+				rateInput.disabled = false;
+				rateInput.placeholder = 'Rate per minute';
+			}
+		});
+
+
+		// --- Basic calculation and display logic ---
+		document.getElementById('calculate-btn').addEventListener('click', () => {
+			const selectedItem = itemSelect.value;
+			let rate = parseFloat(rateInput.value);
+			const planDiv = document.getElementById('production-plan');
+			const selectedType = items[selectedItem]?.type;
+			const optimizeBy = document.getElementById('optimize-select').value;
+			// Get available items and amounts from modal
+			const availableItems = availableItemsList.map(row => row.item);
+			const availableAmounts = {};
+			availableItemsList.forEach(row => { availableAmounts[row.item] = row.amount; });
+			if (!selectedItem || (selectedType !== 'fluid' && selectedType !== 'gas' && (isNaN(rate) || rate <= 0))) {
+				planDiv.innerHTML = '<div class="placeholder-graph">Please select an item and enter a valid rate.</div>';
+				return;
+			}
+			// For fluid/gas, set rate to 1 (arbitrary, since rate is not needed)
+			if (selectedType === 'fluid' || selectedType === 'gas') {
+				rate = 1;
+			}
+
+			// Helper: get all recipes for an item
+			function getRecipesForItem(itemKey) {
+				return recipes.filter(r => r.outputs.some(o => o.item === itemKey));
+			}
+
+			// Helper: select best recipe for an item based on optimization
+			function selectRecipe(itemKey, requiredRate, availableAmountsCopy = null) {
+				const all = getRecipesForItem(itemKey);
+				if (all.length === 0) return null;
+				// Always allow recipes, but check available items only at the base resource level
+				let best = null;
+				let bestScore = Infinity;
+				for (const r of all) {
+					const output = r.outputs.find(o => o.item === itemKey);
+					const outRate = output && output.rate ? output.rate : 1;
+					const buildingCount = requiredRate && outRate ? (requiredRate / outRate) : 1;
+					const building = buildings[r.building];
+					let score = 0;
+					if (optimizeBy === 'space') score = building.space * buildingCount;
+					else if (optimizeBy === 'power') score = building.power * buildingCount;
+					else if (optimizeBy === 'buildings') score = buildingCount;
+					if (score < bestScore) {
+						best = r;
+						bestScore = score;
+					}
+				}
+				return best;
+			}
+
+			// Recursive function to build input tree
+			function buildInputTree(itemKey, requiredRate, depth = 0, totals = { power: 0, space: 0, buildings: 0 }, producedFluids = {}, overclockedMap = {}) {
+				const item = items[itemKey];
+				if (!item) {
+					console.log(`Unknown item: ${itemKey}`);
+					return `<li style='color:#f55;'>Unknown item: <b>${itemKey}</b></li>`;
+				}
+				const recipe = selectRecipe(itemKey, requiredRate);
+				// If no recipe, treat as base resource and check available amounts
+				if (!recipe) {
+					if (availableItems.length && !availableItems.includes(itemKey)) {
+						console.log(`Cannot make ${item.name}: not in available items.`);
+						return `<li style='color:#f55;'>${requiredRate ? requiredRate.toFixed(2) + ' ' : ''}<b>${item.name}</b> (not available)</li>`;
+					}
+					if (typeof availableAmounts[itemKey] !== 'undefined' && requiredRate > availableAmounts[itemKey]) {
+						console.log(`Cannot make ${item.name}: need ${requiredRate}, have ${availableAmounts[itemKey]}`);
+						return `<li style='color:#f55;'>${requiredRate.toFixed(2)} <b>${item.name}</b> (need ${requiredRate}, have ${availableAmounts[itemKey]})</li>`;
+					}
+					return `<li>${requiredRate ? requiredRate.toFixed(2) + ' ' : ''}<b>${item.name}</b>${depth === 0 ? ' per minute' : ''}</li>`;
+				}
+				// Find output rate for this item
+				const output = recipe.outputs.find(o => o.item === itemKey);
+				let outRate = output && output.rate ? output.rate : 1;
+				let building = buildings[recipe.building];
+				// Overclocking logic
+				let isOverclocked = overclockedMap[itemKey + '_' + depth] || false;
+				if (isOverclocked) {
+					outRate *= 2;
+				}
+				const buildingCount = requiredRate && outRate ? (requiredRate / outRate) : 1;
+				let totalPower = building ? building.power * buildingCount : 0;
+				if (isOverclocked && building) totalPower *= 2.5;
+				const totalSpace = building ? building.space * buildingCount : 0;
+				if (building) {
+					totals.power += totalPower;
+					totals.space += totalSpace;
+					totals.buildings += buildingCount;
+				}
+				let html = `<li>`;
+				html += `${requiredRate ? requiredRate.toFixed(2) + ' ' : ''}<b>${item.name}</b>${depth === 0 ? ' per minute' : ''}`;
+				html += `<ul style=\"margin:0.5rem 0 0 1.5rem;\">`;
+				html += `<li><b>${buildingCount.toFixed(2)}</b> x <span>${building ? building.name : 'Unknown Building'}</span> &mdash; <span>Power: <b>${totalPower.toFixed(2)}</b></span>, <span>Space: <b>${totalSpace.toFixed(2)}</b></span> <span style='color:#aaa'>(via ${recipe.name})</span> <label style='margin-left:1em;'><input type='checkbox' class='overclock-toggle' data-key='${itemKey}_${depth}' ${isOverclocked ? 'checked' : ''}/> Overclock</label></li>`;
+				recipe.inputs.forEach(input => {
+					const inputType = items[input.item]?.type;
+					const inputHasRecipe = getRecipesForItem(input.item).length > 0;
+					let inputRate = (input.rate ?? 0) * buildingCount;
+					if (isOverclocked) inputRate *= 2;
+					if ((inputType === 'fluid' || inputType === 'gas')) {
+						if (!producedFluids[input.item]) {
+							// Only produce this fluid/gas once
+							producedFluids[input.item] = true;
+							if (inputHasRecipe) {
+								html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, overclockedMap);
+							} else {
+								html += `<li><b>${items[input.item].name}</b></li>`;
+							}
+						} else {
+							html += `<li><b>${items[input.item].name}</b> (already produced)</li>`;
+						}
+					} else if (inputHasRecipe) {
+						// Recursively expand any item with a recipe, regardless of type
+						html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, overclockedMap);
+					} else {
+						html += `<li>${inputRate.toFixed(2)} <b>${items[input.item].name}</b>${depth === 0 ? ' per minute' : ''}</li>`;
+					}
+				});
+				html += `</ul></li>`;
+				return html;
+			}
+
+
+			// Show the full production tree for the selected item and totals
+			// Overclocking state
+			let overclockedMap = {};
+			// Try to load from sessionStorage
+			try {
+				overclockedMap = JSON.parse(sessionStorage.getItem('overclockedMap') || '{}');
+			} catch(e) {}
+			function renderTreeWithOverclock() {
+				const totals = { power: 0, space: 0, buildings: 0 };
+				const treeHtml = buildInputTree(selectedItem, rate, 0, totals, {}, overclockedMap);
+				document.getElementById('plan-tree-html').innerHTML = `
+					<div style="font-size:1.3rem;margin-bottom:1rem;">
+						<b>${rate}</b> <span>${items[selectedItem].name}</span> per minute
+					</div>
+					<div style="margin-bottom:1rem;font-size:1.1rem;">
+						Total Power: <b>${totals.power.toFixed(2)}</b> &nbsp; | &nbsp; Total Space: <b>${totals.space.toFixed(2)}</b> &nbsp; | &nbsp; Total Buildings: <b>${totals.buildings.toFixed(2)}</b>
+					</div>
+					<ul style="margin:0.5rem 0 0 1.5rem;">${treeHtml}</ul>
+				`;
+				// Add event listeners for overclock toggles
+				document.querySelectorAll('.overclock-toggle').forEach(cb => {
+					cb.addEventListener('change', function() {
+						overclockedMap[this.getAttribute('data-key')] = this.checked;
+						sessionStorage.setItem('overclockedMap', JSON.stringify(overclockedMap));
+						renderTreeWithOverclock();
+					});
+				});
+			}
+			renderTreeWithOverclock();
+
+			// --- Network Graph Visualization ---
+			function buildGraphData(itemKey, requiredRate, nodes = [], edges = [], parentId = null, nodeMap = {}, depth = 0, producedFluids = {}) {
+				const item = items[itemKey];
+				const recipe = selectRecipe(itemKey, requiredRate);
+				const nodeId = itemKey + '_' + depth + '_' + (parentId || 'root');
+				if (!nodeMap[nodeId]) {
+					nodes.push({ id: nodeId, label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`, shape: 'box', color: '#ffb347', font: { color: '#23272b', size: 18 } });
+					nodeMap[nodeId] = true;
+				}
+				if (parentId) {
+					edges.push({ from: nodeId, to: parentId, arrows: 'to', color: '#fff' });
+				}
+				if (!recipe) return { nodes, edges };
+				const output = recipe.outputs.find(o => o.item === itemKey);
+				const outRate = output && output.rate ? output.rate : 1;
+				const buildingCount = requiredRate && outRate ? (requiredRate / outRate) : 1;
+				recipe.inputs.forEach(input => {
+					const inputType = items[input.item]?.type;
+					const inputHasRecipe = getRecipesForItem(input.item).length > 0;
+					const inputRate = (input.rate ?? 0) * buildingCount;
+					const childId = input.item + '_' + (depth + 1) + '_' + nodeId;
+					if (!nodeMap[childId]) {
+						const inputItemObj = items[input.item];
+						if (!inputItemObj) {
+							console.log(`Unknown item in graph: ${input.item}`);
+							nodes.push({ id: childId, label: `Unknown: ${input.item}\n${inputRate ? inputRate.toFixed(2) : ''}`, shape: 'ellipse', color: '#f55', font: { color: '#23272b', size: 16 } });
+						} else {
+							nodes.push({ id: childId, label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`, shape: 'ellipse', color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'), font: { color: '#23272b', size: 16 } });
+						}
+						nodeMap[childId] = true;
+					}
+					edges.push({ from: childId, to: nodeId, arrows: 'to', color: '#aaa' });
+					if ((inputType === 'fluid' || inputType === 'gas')) {
+						if (!producedFluids[input.item]) {
+							producedFluids[input.item] = true;
+							if (inputHasRecipe) {
+								buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids);
+							}
+						}
+					} else if (inputHasRecipe) {
+						buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids);
+					}
+				});
+				return { nodes, edges };
+			}
+
+			// Render the network graph
+			const graphDiv = document.getElementById('network-graph');
+			if (graphDiv) {
+				graphDiv.innerHTML = '';
+				const data = buildGraphData(selectedItem, rate, [], [], null, {}, 0, {});
+				if (data && data.nodes.length > 0) {
+					const network = new vis.Network(graphDiv, data, {
+						nodes: {
+							borderWidth: 2,
+							shadow: true,
+							shape: 'box',
+							color: { background: '#ffb347', border: '#23272b', highlight: { background: '#ffd580', border: '#23272b' } },
+							font: { color: '#23272b', size: 18, face: 'Roboto' }
+						},
+						edges: {
+							color: '#fff',
+							arrows: 'to',
+							smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 }
+						},
+						layout: {
+							hierarchical: {
+								direction: 'UD',
+								sortMethod: 'directed',
+								nodeSpacing: 180,
+								levelSeparation: 120
+							}
+						},
+						physics: false
+					});
+				} else {
+					graphDiv.innerHTML = '<div style="color:#888;text-align:center;margin-top:2rem;">No graph data available.</div>';
+				}
+			}
+		});
+		</script>
+	</div>
+</body>
+</html>
