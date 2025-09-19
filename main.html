@@ -184,6 +184,7 @@
 			reinforced_concrete: { name: 'Reinforced Concrete', icon: '', type: 'solid' },
 			silicon: { name: 'Silicon', icon: '', type: 'solid' },
 			polycrystalline_silicon: { name: 'Polycrystalline Silicon', icon: '', type: 'solid' },
+			ruby_circuit_inlay: { name: 'Ruby Circuit Inlay', icon: '', type: 'solid' },
 			oil: { name: 'Oil', icon: '', type: 'fluid' },
 			heavy_oil: { name: 'Heavy Oil', icon: '', type: 'fluid' },
 			light_oil: { name: 'Light Oil', icon: '', type: 'fluid' },
@@ -254,7 +255,6 @@
 			crystallized_diamond_core: { name: 'Crystallized Diamond Core', icon: '', type: 'solid' },
 			lattice_reinforced_conduit: { name: 'Lattice Reinforced Conduit', icon: '', type: 'solid' },
 			ruby_lens: { name: 'Ruby Lens', icon: '', type: 'solid' },
-            lens: { name: 'Lens', icon: '', type: 'solid' },
             tri_crystal_fusion_node: { name: 'Tri-Crystal Fusion Node', icon: '', type: 'solid' },
 			osmium: { name: 'Osmium', icon: '', type: 'solid' },
             lattice_encoded_memory_bank: { name: 'Lattice-Encoded Memory Bank', icon: '', type: 'solid' },
@@ -376,7 +376,7 @@
 				building: 'welder',
 				inputs: [
 					{ item: 'fractured_singularity_mesh', rate: 60 },
-					{ item: 'quantum_resonant_lens_core' }
+					{ item: 'quantum_resonant_lens_core', rate: 60 }
 				],
 				outputs: [ { item: 'galactic_essence_singularity', rate: 60 } ],
 			},
@@ -1236,10 +1236,10 @@
 				outputs: [ { item: 'ruby_lens', rate: 30 } ],
 			},
 			{
-				name: 'Lens (Cutter)',
+				name: 'Ruby Lens (Cutter)',
 				building: 'cutter',
 				inputs: [ { item: 'ruby', rate: 120 } ],
-				outputs: [ { item: 'lens', rate: 30 } ],
+				outputs: [ { item: 'ruby_lens', rate: 30 } ],
 			},
 			{
 				name: 'Tri-Crystal Fusion Node (Manufacturer)',
@@ -1254,11 +1254,18 @@
 				outputs: [ { item: 'quantum_data_compressor', rate: 120 } ],
 			},
 			{
-				name: 'Osmium Reinforcement (Advanced Press, Alt)',
-				building: 'advanced_press',
-				inputs: [ { item: 'osmium', rate: 120 }, { item: 'quantum_data_compressor', rate: 60 } ],
+				name: 'Phase-Synced Relay Circuit (advanced furnace)',
+				building: 'advanced_furnace',
+				inputs: [ { item: 'ruby_circuit_inlay', rate: 120 }, { item: 'polycrystalline_silicon', rate: 240 } ],
 				outputs: [ { item: 'osmium_reinforcement', rate: 240 } ],
 			},
+			{
+				name: 'Phase-Synced Relay Circuit (advanced furnace)',
+				building: 'advanced_furnace',
+				inputs: [ { item: 'ruby', rate: 60 }],
+				outputs: [ { item: 'ruby_circuit_inlay', rate: 60 } ],
+			},
+		
 		];
 
 		// Populate item dropdown
@@ -1443,13 +1450,30 @@
 						return t === 'fluid' || t === 'gas';
 					});
 					variants.push({ recipe: r, outRate, overclocked: false });
+					// Prevent overclocking if not enough available items for any input
+					let canOverclock = true;
 					if (!onlyFluidOrGas) {
-						variants.push({ recipe: r, outRate: outRate * 2, overclocked: true });
+						if (typeof availableAmounts !== 'undefined') {
+							for (const input of r.inputs) {
+								const inputType = items[input.item]?.type;
+								if (inputType !== 'fluid' && inputType !== 'gas' && typeof availableAmounts[input.item] === 'number') {
+									// Overclocked input rate is doubled
+									const required = (input.rate ?? 1) * 2;
+									if (availableAmounts[input.item] < required) {
+										canOverclock = false;
+										break;
+									}
+								}
+							}
+						}
+						if (canOverclock) {
+							variants.push({ recipe: r, outRate: outRate * 2, overclocked: true });
+						}
 					}
 				}
 				// Try all combinations of building counts for each variant (integer, sum >= needed)
 				// For N variants, try all combinations of building counts up to a reasonable max
-				const maxBuildings = 16; // limit for performance
+				const maxBuildings = 8; // limit for performance
 				let bestPlan = null;
 				let bestValue = Infinity;
 				let comboCount = 0;
@@ -1770,6 +1794,19 @@
 							navigationButtons: true,
 							keyboard: true
 						}
+					});
+
+					// Highlight connected nodes on select
+					network.on('selectNode', function(params) {
+						const selected = params.nodes[0];
+						const connectedNodes = network.getConnectedNodes(selected);
+						network.selectNodes([selected, ...connectedNodes]);
+						// Optionally, highlight edges too
+						const connectedEdges = network.getConnectedEdges(selected);
+						network.setSelection({ nodes: [selected, ...connectedNodes], edges: connectedEdges });
+					});
+					network.on('deselectNode', function() {
+						network.unselectAll();
 					});
 				} else {
 					graphDiv.innerHTML = '<div style="color:#888;text-align:center;margin-top:2rem;">No graph data available.</div>';
