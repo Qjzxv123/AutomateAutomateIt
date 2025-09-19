@@ -1389,9 +1389,12 @@
 		// --- Basic calculation and display logic ---
 		document.getElementById('calculate-btn').addEventListener('click', () => {
 			const selectedItem = itemSelect.value;
-			let rate = parseFloat(rateInput.value);
-			const planDiv = document.getElementById('production-plan');
 			const selectedType = items[selectedItem]?.type;
+			let rate = 1;
+			if (!(selectedType === 'fluid' || selectedType === 'gas')) {
+				rate = parseFloat(rateInput.value);
+			}
+			const planDiv = document.getElementById('production-plan');
 			const optimizeBy = document.getElementById('optimize-select').value;
 			// Get available items and amounts from modal
 			const availableItems = availableItemsList.map(row => row.item);
@@ -1434,8 +1437,15 @@
 				for (const r of all) {
 					const output = r.outputs.find(o => o.item === itemKey);
 					const outRate = output && output.rate ? output.rate : 1;
+					// Check if all outputs are fluids or gases
+					const onlyFluidOrGas = r.outputs.every(o => {
+						const t = items[o.item]?.type;
+						return t === 'fluid' || t === 'gas';
+					});
 					variants.push({ recipe: r, outRate, overclocked: false });
-					variants.push({ recipe: r, outRate: outRate * 2, overclocked: true });
+					if (!onlyFluidOrGas) {
+						variants.push({ recipe: r, outRate: outRate * 2, overclocked: true });
+					}
 				}
 				// Try all combinations of building counts for each variant (integer, sum >= needed)
 				// For N variants, try all combinations of building counts up to a reasonable max
@@ -1612,10 +1622,11 @@
 				const nodeId = itemKey + '_' + depth;
 				if (!nodeMap[nodeId]) {
 					let nodeObj;
+					let showRate = !(item.type === 'fluid' || item.type === 'gas');
 					if (item.icon) {
 						nodeObj = {
 							id: nodeId,
-							label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+							label: showRate ? `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${item.name}`,
 							shape: 'image',
 							image: item.icon,
 							color: '#ffb347',
@@ -1625,7 +1636,7 @@
 					} else {
 						nodeObj = {
 							id: nodeId,
-							label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+							label: showRate ? `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${item.name}`,
 							shape: 'box',
 							color: '#ffb347',
 							font: { color: '#fff', size: 18, multi: true },
@@ -1637,7 +1648,8 @@
 				} else {
 					nodeMap[nodeId].rate += requiredRate;
 					nodeMap[nodeId].count += 1;
-					nodeMap[nodeId].label = `${item.name}\n${nodeMap[nodeId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}`;
+					let showRate = !(item.type === 'fluid' || item.type === 'gas');
+					nodeMap[nodeId].label = showRate ? `${item.name}\n${nodeMap[nodeId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${item.name}`;
 				}
 				if (parentId) {
 					// Only add unique edges
@@ -1666,10 +1678,11 @@
 								nodes.push(nodeMap[childId]);
 							} else {
 								let nodeObj;
+								let showRate = !(inputItemObj.type === 'fluid' || inputItemObj.type === 'gas');
 								if (inputItemObj.icon) {
 									nodeObj = {
 										id: childId,
-										label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+										label: showRate ? `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${inputItemObj.name}`,
 										shape: 'image',
 										image: inputItemObj.icon,
 										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
@@ -1679,7 +1692,7 @@
 								} else {
 									nodeObj = {
 										id: childId,
-										label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+										label: showRate ? `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${inputItemObj.name}`,
 										shape: 'ellipse',
 										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
 										font: { color: '#23272b', size: 16, multi: true },
@@ -1692,9 +1705,10 @@
 						} else {
 							nodeMap[childId].rate += inputRate;
 							nodeMap[childId].count += 1;
-							// Update label to show combined rate
+							// Update label to show combined rate, but hide for fluid/gas
 							let labelName = nodeMap[childId].label.split('\n')[0];
-							nodeMap[childId].label = `${labelName}\n${nodeMap[childId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}`;
+							let showRate = !(items[input.item]?.type === 'fluid' || items[input.item]?.type === 'gas');
+							nodeMap[childId].label = showRate ? `${labelName}\n${nodeMap[childId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${labelName}`;
 						}
 						// Only add unique edges
 						if (!nodeMap[childId].parents.has(nodeId)) {
