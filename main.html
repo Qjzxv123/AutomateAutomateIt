@@ -198,7 +198,7 @@
 			liquid_chloride: { name: 'Liquid Chloride', icon: '', type: 'fluid' },
 			advanced_solar_module: { name: 'Advanced Solar Module', icon: '', type: 'solid' },
 			automated_singularity_converter: { name: 'Automated Singularity Converter', icon: '', type: 'solid' },
-			aluminum: { name: 'Aluminum', icon: '', type: 'solid' },
+			aluminum: { name: 'Aluminum', icon: 'icons/aluminum.png', type: 'solid' },
 			aluminum_ingot: { name: 'Aluminum Ingot', icon: '', type: 'solid' },
 			aluminum_bar: { name: 'Aluminum Bar', icon: '', type: 'solid' },
 			aluminum_profile: { name: 'Aluminum Profile', icon: '', type: 'solid' },
@@ -1611,10 +1611,30 @@
 				// Use a composite key to merge like items at the same depth
 				const nodeId = itemKey + '_' + depth;
 				if (!nodeMap[nodeId]) {
-					nodeMap[nodeId] = { id: nodeId, label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`, shape: 'box', color: '#ffb347', font: { color: '#23272b', size: 18 }, rate: requiredRate, count: 1, parents: new Set() };
-					nodes.push(nodeMap[nodeId]);
+					let nodeObj;
+					if (item.icon) {
+						nodeObj = {
+							id: nodeId,
+							label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+							shape: 'image',
+							image: item.icon,
+							color: '#ffb347',
+							font: { color: '#fff', size: 18, multi: true },
+							rate: requiredRate, count: 1, parents: new Set()
+						};
+					} else {
+						nodeObj = {
+							id: nodeId,
+							label: `${item.name}\n${requiredRate ? requiredRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+							shape: 'box',
+							color: '#ffb347',
+							font: { color: '#fff', size: 18, multi: true },
+							rate: requiredRate, count: 1, parents: new Set()
+						};
+					}
+					nodeMap[nodeId] = nodeObj;
+					nodes.push(nodeObj);
 				} else {
-					// If already exists, sum the rates and increment count
 					nodeMap[nodeId].rate += requiredRate;
 					nodeMap[nodeId].count += 1;
 					nodeMap[nodeId].label = `${item.name}\n${nodeMap[nodeId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}`;
@@ -1645,8 +1665,29 @@
 								nodeMap[childId] = { id: childId, label: `Unknown: ${input.item}\n${inputRate ? inputRate.toFixed(2) : ''}`, shape: 'ellipse', color: '#f55', font: { color: '#23272b', size: 16 }, rate: inputRate, count: 1, parents: new Set() };
 								nodes.push(nodeMap[childId]);
 							} else {
-								nodeMap[childId] = { id: childId, label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`, shape: 'ellipse', color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'), font: { color: '#23272b', size: 16 }, rate: inputRate, count: 1, parents: new Set() };
-								nodes.push(nodeMap[childId]);
+								let nodeObj;
+								if (inputItemObj.icon) {
+									nodeObj = {
+										id: childId,
+										label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+										shape: 'image',
+										image: inputItemObj.icon,
+										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
+										font: { color: '#fff', size: 16, multi: true },
+										rate: inputRate, count: 1, parents: new Set()
+									};
+								} else {
+									nodeObj = {
+										id: childId,
+										label: `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}`,
+										shape: 'ellipse',
+										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
+										font: { color: '#23272b', size: 16, multi: true },
+										rate: inputRate, count: 1, parents: new Set()
+									};
+								}
+								nodeMap[childId] = nodeObj;
+								nodes.push(nodeObj);
 							}
 						} else {
 							nodeMap[childId].rate += inputRate;
