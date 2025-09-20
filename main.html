@@ -322,25 +322,25 @@
             {
                 name: 'Condensed Helium-3 (Bifluxor)',
                 building: 'bifluxor',
-                inputs: [ { item: 'helium_3', rate: 60 } ],
-                outputs: [ { item: 'condensed_helium_3', rate: 60 } ],
+                inputs: [ { item: 'helium_3'} ],
+                outputs: [ { item: 'condensed_helium_3'} ],
             },
             {
                 name: 'Quantum Energy Solution (Chemical Infuser)',
                 building: 'chemical_infuser',
-                inputs: [ { item: 'superheated_plasma_core', rate: 60 }, { item: 'condensed_helium_3', rate: 60 } ],
-                outputs: [ { item: 'quantum_energy_solution', rate: 60 } ],
+                inputs: [ { item: 'superheated_plasma_core'}, { item: 'condensed_helium_3'} ],
+                outputs: [ { item: 'quantum_energy_solution'} ],
             },
             {
                 name: 'Quantum Plasma (Chemical Infuser)',
                 building: 'chemical_infuser',
-                inputs: [ { item: 'quantum_energy_solution', rate: 60 }, { item: 'chrono_catalyst_gel', rate: 60 } ],
-                outputs: [ { item: 'quantum_plasma', rate: 60 } ],
+                inputs: [ { item: 'quantum_energy_solution'}, { item: 'chrono_catalyst_gel'} ],
+                outputs: [ { item: 'quantum_plasma'} ],
             },
             {
                 name: 'Uranium Ion Cell (Dissolution Chamber, Quantum)',
                 building: 'dissolution_chamber',
-                inputs: [ { item: 'quantum_plasma', rate: 60 }, { item: 'uranium', rate: 60 } ],
+                inputs: [ { item: 'quantum_plasma'}, { item: 'uranium', rate: 60 } ],
                 outputs: [ { item: 'uranium_ion_cell', rate: 20 } ],
             },
 			{
@@ -1181,6 +1181,12 @@
 				inputs: [ { item: 'iridium_plated_cable', rate: 60 }, { item: 'titanium_lattice', rate: 60 } ],
 				outputs: [ { item: 'lattice_reinforced_conduit', rate: 60 } ],
 			},
+			{
+				name: 'Lattice Encoded Memory Bank (Advanced Press)',
+				building: 'advanced_press',
+				inputs: [ { item: 'lattice_reinforced_conduit', rate: 120 }, { item: 'photonic_diamond_layer', rate: 60 } ],
+				outputs: [ { item: 'lattice_encoded_memory_bank', rate: 60} ],
+			},
             {
 				name: 'Photonic Memory Core (Welder)',
 				building: 'welder',
@@ -1532,14 +1538,29 @@
 						if (optimizeBy === 'space') value = totalSpace;
 						else if (optimizeBy === 'power') value = totalPower;
 						else if (optimizeBy === 'buildings') value = totalBld;
-						// Only use tie-breaking if value is exactly equal
-						if (value < bestValue || (value === bestValue && totalBld < (bestPlan ? bestPlan.reduce((s,p)=>s+p.buildingCount,0) : Infinity))) {
+
+						// Tie-breaking rules (in order):
+						// 1) Lower metric value wins
+						// 2) If equal, fewer total buildings wins
+						// 3) If still equal, fewer overclocked buildings wins (prefer normal operation when possible)
+						const candidateBuildings = totalBld;
+						const bestBuildings = bestPlan ? bestPlan.reduce((s, p) => s + p.buildingCount, 0) : Infinity;
+						const candidateOverclocked = plan.reduce((s, p) => s + (p.overclocked ? p.buildingCount : 0), 0);
+						const bestOverclocked = bestPlan ? bestPlan.reduce((s, p) => s + (p.overclocked ? p.buildingCount : 0), 0) : Infinity;
+
+						const isBetter = (
+							value < bestValue ||
+							(value === bestValue && (
+								candidateBuildings < bestBuildings ||
+								(candidateBuildings === bestBuildings && candidateOverclocked < bestOverclocked)
+							))
+						);
+						if (isBetter) {
 							bestValue = value;
 							bestPlan = plan.map(p => ({ ...p }));
 						}
 					}
 				}
-				console.log(`[optimizeRecipes] ${itemKey}: tried ${comboCount} combinations for ${variants.length} variants`);
 				// Pool excess
 				if (bestPlan) {
 					let produced = bestPlan.reduce((sum, p) => sum + p.amount, 0);
@@ -1552,7 +1573,7 @@
 			}
 
 			// Recursive function to build input tree
-			function buildInputTree(itemKey, requiredRate, depth = 0, totals = { power: 0, space: 0, buildings: 0 }, producedFluids = {}, excessPool = {}) {
+			function buildInputTree(itemKey, requiredRate, depth = 0, totals = { power: 0, space: 0, buildings: 0 }, producedFluids = {}, excessPool = {}, requirements = {}, fullRequirements = {}) {
 				const item = items[itemKey];
 				if (!item) {
 					console.log(`Unknown item: ${itemKey}`);
@@ -1599,21 +1620,27 @@
 						   const inputHasRecipe = getRecipesForItem(input.item).length > 0;
 						   let inputRate = (input.rate ?? 0) * buildingCount;
 						   if (isOverclocked) inputRate *= 2;
+						   // Always accumulate into full BOM (including intermediates)
+						   fullRequirements[input.item] = (fullRequirements[input.item] || 0) + inputRate;
 						   if ((inputType === 'fluid' || inputType === 'gas')) {
 							   if (!producedFluids[input.item]) {
 								   producedFluids[input.item] = true;
 								   if (inputHasRecipe) {
-									   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool);
+									   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool, requirements, fullRequirements);
 								   } else {
 									   html += `<li><b>${items[input.item].name}</b></li>`;
+									   // Fluids/gases without a recipe are externally supplied
+									   requirements[input.item] = (requirements[input.item] || 0) + inputRate;
 								   }
 							   } else {
 								   html += `<li><b>${items[input.item].name}</b> (already produced)</li>`;
 							   }
 						   } else if (inputHasRecipe) {
-							   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool);
+							   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool, requirements, fullRequirements);
 						   } else {
 							   html += `<li>${inputRate.toFixed(2)} <b>${items[input.item].name}</b>${depth === 0 ? ' per minute' : ''}</li>`;
+							   // Base item with no recipe: add to requirements
+							   requirements[input.item] = (requirements[input.item] || 0) + inputRate;
 						   }
 					   });
 				   });
@@ -1625,7 +1652,21 @@
 			// Show the full production tree for the selected item and totals
 			function renderTreeAutoOverclock() {
 				const totals = { power: 0, space: 0, buildings: 0 };
-				const treeHtml = buildInputTree(selectedItem, rate, 0, totals, {}, {});
+				const requirements = {};
+				const fullRequirements = {};
+				const treeHtml = buildInputTree(selectedItem, rate, 0, totals, {}, {}, requirements, fullRequirements);
+				// Build a sorted Bill of Materials (base requirements)
+				const reqEntries = Object.entries(requirements);
+				reqEntries.sort((a, b) => items[a[0]].name.localeCompare(items[b[0]].name));
+				const reqListHtml = reqEntries.length
+					? `<ul style="margin:0.5rem 0 0 1.5rem;">${reqEntries.map(([key, val]) => `<li>${val.toFixed(2)} <b>${items[key]?.name || key}</b> per minute</li>`).join('')}</ul>`
+					: '<div style="color:#888;">No external items required.</div>';
+				// Build full Bill of Materials (including intermediates)
+				const fullReqEntries = Object.entries(fullRequirements);
+				fullReqEntries.sort((a, b) => items[a[0]].name.localeCompare(items[b[0]].name));
+				const fullReqListHtml = fullReqEntries.length
+					? `<ul style=\"margin:0.5rem 0 0 1.5rem;\">${fullReqEntries.map(([key, val]) => `<li>${val.toFixed(2)} <b>${items[key]?.name || key}</b> per minute</li>`).join('')}</ul>`
+					: '<div style=\"color:#888;\">No inputs required.</div>';
 				document.getElementById('plan-tree-html').innerHTML = `
 					<div style="font-size:1.3rem;margin-bottom:1rem;">
 						<b>${rate}</b> <span>${items[selectedItem].name}</span> per minute
@@ -1633,13 +1674,19 @@
 					<div style="margin-bottom:1rem;font-size:1.1rem;">
 						Total Power: <b>${totals.power.toFixed(2)}</b> &nbsp; | &nbsp; Total Space: <b>${totals.space.toFixed(2)}</b> &nbsp; | &nbsp; Total Buildings: <b>${totals.buildings.toFixed(2)}</b>
 					</div>
+					<div style="margin-bottom:0.5rem;font-size:1.1rem;">
+						<b>Required items per minute</b>
+					<div style=\"margin-top:1rem;margin-bottom:0.5rem;font-size:1.1rem;\">\n                        <b>Full bill of materials (incl. intermediates)</b>\n                    </div>
+					${fullReqListHtml}
+					</div>
+					${reqListHtml}
 					<ul style="margin:0.5rem 0 0 1.5rem;">${treeHtml}</ul>
 				`;
 			}
 			renderTreeAutoOverclock();
 
 			// --- Network Graph Visualization ---
-			function buildGraphData(itemKey, requiredRate, nodes = [], edges = [], parentId = null, nodeMap = {}, depth = 0, producedFluids = {}) {
+			function buildGraphData(itemKey, requiredRate, nodes = [], edges = [], parentId = null, nodeMap = {}, depth = 0, producedFluids = {}, edgeLabels = {}, edgeIndex = {}) {
 				const item = items[itemKey];
 				const plans = optimizeRecipes(itemKey, requiredRate);
 				// Use a composite key to merge like items at the same depth
@@ -1734,20 +1781,32 @@
 							let showRate = !(items[input.item]?.type === 'fluid' || items[input.item]?.type === 'gas');
 							nodeMap[childId].label = showRate ? `${labelName}\n${nodeMap[childId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${labelName}`;
 						}
-						// Only add unique edges
+						// Label edges with building used; combine labels if multiple
+						const buildingName = buildings[recipe.building]?.name || recipe.building;
+						const edgeKey = childId + '->' + nodeId;
+						if (!edgeLabels[edgeKey]) edgeLabels[edgeKey] = new Set();
+						edgeLabels[edgeKey].add(buildingName);
+						// Only add unique edges; otherwise update the label
 						if (!nodeMap[childId].parents.has(nodeId)) {
-							edges.push({ from: childId, to: nodeId, arrows: 'to', color: '#aaa', width: 1.5 });
+							const labelText = Array.from(edgeLabels[edgeKey]).join(', ');
+							edges.push({ from: childId, to: nodeId, arrows: 'to', color: '#aaa', width: 1.5, label: labelText, font: { color: '#ffb347', size: 12, strokeWidth: 0 } });
+							edgeIndex[edgeKey] = edges.length - 1;
 							nodeMap[childId].parents.add(nodeId);
+						} else {
+							const idx = edgeIndex[edgeKey];
+							if (typeof idx === 'number' && edges[idx]) {
+								edges[idx].label = Array.from(edgeLabels[edgeKey]).join(', ');
+							}
 						}
 						if ((inputType === 'fluid' || inputType === 'gas')) {
 							if (!producedFluids[input.item]) {
 								producedFluids[input.item] = true;
 								if (inputHasRecipe) {
-									buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids);
+									buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids, edgeLabels, edgeIndex);
 								}
 							}
 						} else if (inputHasRecipe) {
-							buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids);
+							buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids, edgeLabels, edgeIndex);
 						}
 					});
 				});
@@ -1758,7 +1817,7 @@
 			const graphDiv = document.getElementById('network-graph');
 			if (graphDiv) {
 				graphDiv.innerHTML = '';
-				const data = buildGraphData(selectedItem, rate, [], [], null, {}, 0, {});
+				const data = buildGraphData(selectedItem, rate, [], [], null, {}, 0, {}, {}, {});
 				if (data && data.nodes.length > 0) {
 					// Remove .parents property from nodes for vis-network
 					data.nodes.forEach(n => { if (n.parents) delete n.parents; });
