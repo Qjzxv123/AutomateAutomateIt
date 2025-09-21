@@ -106,15 +106,15 @@
 
 				<!-- Modal for available items -->
 					<div id="available-items-modal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
-						<div style="background:#23272b;padding:2rem 2.5rem;border-radius:12px;min-width:350px;max-width:90vw;max-height:80vh;overflow-y:auto;">
+						<div style="background:#23272b;padding:2rem 2.5rem;border-radius:12px;min-width:720px;width:85vw;max-width:1200px;min-height:60vh;max-height:90vh;overflow:auto;display:flex;flex-direction:column;">
 						<h2 style="margin-top:0;">Set Available Items</h2>
-						<form id="available-items-form">
+							<form id="available-items-form" style="display:flex;flex-direction:column;gap:1rem;flex:1 1 auto;">
 							<table id="available-items-table" style="width:100%;margin-bottom:1rem;">
 								<thead><tr><th>Item</th><th>Amount</th><th></th></tr></thead>
 								<tbody></tbody>
 							</table>
 							<button type="button" id="add-available-item-row">Add New Item</button>
-							<div style="margin-top:1.5rem;text-align:right;">
+								<div style="margin-top:auto;text-align:right;position:sticky;bottom:0;background:#23272b;padding-top:1rem;">
 								<button type="button" id="close-available-items-modal" style="margin-right:1rem;">Cancel</button>
 								<button type="submit">Save</button>
 							</div>
@@ -455,7 +455,7 @@
                     { item: "liquid_chloride", rate: 60 }
                 ],
                 outputs: [
-                    { item: "plastic_mold", rate: 60 }
+                    { item: "P", rate: 60 }
                 ]
             },
             {
@@ -1479,7 +1479,7 @@
 				itemSelect.value = key;
 				itemSelectLabel.textContent = item.name || key;
 				if (item.icon) {
-					itemSelectIcon.src = 'Icons/Automate It Icons/' + item.icon;
+					itemSelectIcon.src = item.icon;
 					itemSelectIcon.style.display = 'inline-block';
 				} else {
 					itemSelectIcon.style.display = 'none';
@@ -1549,14 +1549,87 @@
 					tableBody.innerHTML = '';
 					availableItemsList.forEach((row, idx) => {
 						const type = items[row.item]?.type;
+						const selectedItem = items[row.item];
 						const tr = document.createElement('tr');
 						tr.innerHTML = `
-							<td><select><option value=""${!row.item?' selected':''}>Select item</option>${Object.entries(items).map(([k, i]) => `<option value="${k}"${row.item===k?' selected':''}>${i.name}</option>`).join('')}</select></td>
-							<td>${type === 'nonsolid' ? '<span style="color:#888;">N/A</span>' : `<input type="number" min="0" step="1" value="${row.amount ?? ''}" style="width:80px;">`}</td>
+							<td>
+								<div class="avail-item-select-container" style="position:relative;display:inline-block;">
+									<input type="hidden" class="avail-item-select" value="${row.item ?? ''}">
+									<button type="button" class="avail-item-toggle" style="background:#2b2f33;color:#fff;border:none;padding:0.3rem 0.5rem;border-radius:8px;display:inline-flex;align-items:center;gap:0.5rem;cursor:pointer;">
+										<img class="avail-item-icon" src="${selectedItem?.icon ? selectedItem.icon : ''}" alt="" style="width:22px;height:22px;${selectedItem?.icon ? '' : 'display:none;'}object-fit:contain;border-radius:4px;">
+										<span class="avail-item-label">${selectedItem?.name || 'Select Item'}</span>
+										<span style="margin-left:8px;font-size:0.85rem;opacity:0.8;">▾</span>
+									</button>
+									<div class="avail-item-options" style="display:none;position:absolute;left:0;top:calc(100% + 6px);background:#23272b;border:1px solid #333;border-radius:8px;max-height:260px;overflow:auto;z-index:1000;min-width:260px;padding:4px;box-shadow:0 6px 18px rgba(0,0,0,0.6);"></div>
+								</div>
+							</td>
+							<td>${type === 'nonsolid' ? '<span style="color:#888;">N/A</span>' : `<input type=\"number\" min=\"0\" step=\"1\" value=\"${row.amount ?? ''}\" style=\"width:80px;\">`}</td>
 							<td><button type="button" data-row="${idx}" class="remove-available-item-row">Remove</button></td>
 						`;
 						tableBody.appendChild(tr);
+
+						// Wire up custom dropdown for this row
+						const container = tr.querySelector('.avail-item-select-container');
+						const hiddenInput = container.querySelector('.avail-item-select');
+						const toggleBtn = container.querySelector('.avail-item-toggle');
+						const labelEl = container.querySelector('.avail-item-label');
+						const iconEl = container.querySelector('.avail-item-icon');
+						const optionsEl = container.querySelector('.avail-item-options');
+
+						// Build options list
+						optionsEl.innerHTML = '';
+						Object.entries(items).forEach(([k, it]) => {
+							const optRow = document.createElement('div');
+							optRow.style.display = 'flex';
+							optRow.style.alignItems = 'center';
+							optRow.style.gap = '0.5rem';
+							optRow.style.padding = '6px';
+							optRow.style.borderRadius = '6px';
+							optRow.style.cursor = 'pointer';
+							optRow.dataset.key = k;
+							const oimg = document.createElement('img');
+							oimg.src = it.icon ? (it.icon) : '';
+							oimg.alt = it.name || k;
+							oimg.style.width = '24px';
+							oimg.style.height = '24px';
+							oimg.style.objectFit = 'contain';
+							oimg.style.borderRadius = '4px';
+							const ospan = document.createElement('span');
+							ospan.textContent = it.name || k;
+							ospan.style.flex = '1';
+							optRow.appendChild(oimg);
+							optRow.appendChild(ospan);
+							optRow.addEventListener('mouseenter', () => { optRow.style.background = '#2b2f33'; });
+							optRow.addEventListener('mouseleave', () => { optRow.style.background = 'transparent'; });
+							optRow.addEventListener('click', (ev) => {
+								ev.stopPropagation();
+								availableItemsList[idx].item = k;
+								if (items[k]?.type === 'nonsolid') {
+									availableItemsList[idx].amount = null;
+								}
+								// Re-render to reflect new selection and amount cell
+								renderAvailableItemsTable();
+							});
+							optionsEl.appendChild(optRow);
+						});
+
+						// Toggle behavior
+						toggleBtn.addEventListener('click', (ev) => {
+							ev.stopPropagation();
+							// Close other open dropdowns in the table
+							Array.from(tableBody.querySelectorAll('.avail-item-options')).forEach(el => { if (el !== optionsEl) el.style.display = 'none'; });
+							optionsEl.style.display = optionsEl.style.display === 'block' ? 'none' : 'block';
+						});
 					});
+
+					// One-time document click to close any open modal dropdowns
+					if (!window.__availDropdownCloserBound) {
+						window.__availDropdownCloserBound = true;
+						document.addEventListener('click', (e) => {
+							if (!document.getElementById('available-items-modal').contains(e.target)) return;
+							Array.from(document.querySelectorAll('#available-items-table .avail-item-options')).forEach(el => el.style.display = 'none');
+						});
+					}
 				}
 
 						openModalBtn.addEventListener('click', () => {
@@ -1581,17 +1654,10 @@
 						renderAvailableItemsTable();
 					}
 				});
-				tableBody.addEventListener('change', (e) => {
+				tableBody.addEventListener('input', (e) => {
 					const tr = e.target.closest('tr');
 					const idx = Array.from(tableBody.children).indexOf(tr);
-					if (e.target.tagName === 'SELECT') {
-						availableItemsList[idx].item = e.target.value;
-						// If new item is nonsolid, clear amount
-						if (items[e.target.value]?.type === 'nonsolid') {
-							availableItemsList[idx].amount = null;
-						}
-						renderAvailableItemsTable();
-					} else if (e.target.tagName === 'INPUT') {
+					if (e.target.tagName === 'INPUT') {
 						// Only allow input for solids
 						if (items[availableItemsList[idx].item]?.type !== 'nonsolid') {
 							availableItemsList[idx].amount = parseInt(e.target.value) || 0;
