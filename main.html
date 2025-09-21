@@ -2029,7 +2029,18 @@
 				const fullReqListHtml = fullReqEntries.length
 					? `<ul style=\"margin:0.5rem 0 0 1.5rem;\">${fullReqEntries.map(([key, val]) => `<li>${val.toFixed(2)} <b>${items[key]?.name || key}</b> per minute</li>`).join('')}</ul>`
 					: '<div style=\"color:#888;\">No inputs required.</div>';
-				document.getElementById('plan-tree-html').innerHTML = `
+				let planTreeEl = document.getElementById('plan-tree-html');
+				if (!planTreeEl) {
+					const planContainer = document.getElementById('production-plan');
+					if (planContainer) {
+						planTreeEl = document.createElement('div');
+						planTreeEl.id = 'plan-tree-html';
+						planContainer.appendChild(planTreeEl);
+					} else {
+						return; // Nowhere to render
+					}
+				}
+				planTreeEl.innerHTML = `
 					<div style="font-size:1.3rem;margin-bottom:1rem;">
 						<b>${rate}</b> <span>${items[selectedItem].name}</span> per minute
 					</div>
