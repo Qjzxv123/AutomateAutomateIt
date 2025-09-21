@@ -134,153 +134,308 @@
 		<script>
 		// --- Data structures for Automate It ---
 	const items = {
-		helium_3: { name: 'Helium-3', icon: '', type: 'gas' },
-		condensed_helium_3: { name: 'Condensed Helium-3', icon: '', type: 'gas' },
-		quantum_energy_solution: { name: 'Quantum Energy Solution', icon: '', type: 'fluid' },
-		quantum_plasma: { name: 'Quantum Plasma', icon: '', type: 'fluid' },
-			superluminal_relay_core: { name: 'Superluminal Relay Core', icon: '', type: 'solid' },
-			fractal_processing_prism: { name: 'Fractal Processing Prism', icon: '', type: 'solid' },
-			quantum_resonant_lens_core: { name: 'Quantum-Resonant Lens Core', icon: '', type: 'solid' },
-			galactic_essence_singularity: { name: 'Galactic Essence Singularity', icon: '', type: 'solid' },
-			chronium_crystal_core: { name: 'Chronium Crystal Core', icon: '', type: 'solid' },
-			luminary_crystal_core: { name: 'Luminary Crystal Core', icon: '', type: 'solid' },
-			pulse_energy_matrix: { name: 'Pulse Energy Matrix', icon: '', type: 'solid' },
-			tuned_quantum_processor: { name: 'Tuned Quantum Processor', icon: '', type: 'solid' },
-			reinforced_nails: { name: 'Reinforced Nails', icon: '', type: 'solid' },
-			railway_tracks: { name: 'Railway Tracks', icon: '', type: 'solid' },
-			railway_line: { name: 'Railway Line', icon: '', type: 'solid' },
-			iron: { name: 'Iron', icon: '', type: 'solid' },
-			iron_bar: { name: 'Iron Bar', icon: '', type: 'solid' },
-			iron_pipe: { name: 'Iron Pipe', icon: '', type: 'solid' },
-			copper: { name: 'Copper', icon: '', type: 'solid' },
-			copper_filament: { name: 'Copper Filament', icon: '', type: 'solid' },
-			reinforced_steel_plate: { name: 'Reinforced Steel Plate', icon: '', type: 'solid' },
-			structural_cable: { name: 'Structural Cable', icon: '', type: 'solid' },
-			copper_bar: { name: 'Copper Bar', icon: '', type: 'solid' },
-			power_cable: { name: 'Power Cable', icon: '', type: 'solid' },
-			stone: { name: 'Stone', icon: '', type: 'solid' },
-			stone_block: { name: 'Stone Block', icon: '', type: 'solid' },
-			support_beam: { name: 'Support Beam', icon: '', type: 'solid' },
-			stellar_nexus_singularity: { name: 'Stellar Nexus Singularity', icon: '', type: 'solid' },
-			lv_transformer: { name: 'LV Transformer', icon: '', type: 'solid' },
-			hv_transformer: { name: 'HV Transformer', icon: '', type: 'solid' },
-			cosmic_singularity: { name: 'Cosmic Singularity', icon: '', type: 'solid' },
-			copper_pipe: { name: 'Copper Pipe', icon: '', type: 'solid' },
-			wood: { name: 'Wood', icon: '', type: 'solid' },
-			wooden_plank: { name: 'Wooden Plank', icon: '', type: 'solid' },
-			coal: { name: 'Coal', icon: '', type: 'solid' },
-			steel: { name: 'Steel', icon: '', type: 'solid' },
-			steel_sheet: { name: 'Steel Sheet', icon: '', type: 'solid' },
-			water: { name: 'Water', icon: '', type: 'fluid' },
-			quantum_core_singularity: { name: 'Quantum Core Singularity', icon: '', type: 'solid' },
-			hydrogen: { name: 'Hydrogen', icon: '', type: 'gas' },
-			ether_quartz: { name: 'Ether Quartz', icon: '', type: 'solid' },
-			sapphire: { name: 'Sapphire', icon: '', type: 'solid' },
-			sapphire_energy_cell: { name: 'Sapphire Energy Cell', icon: '', type: 'solid' },
-			ruby: { name: 'Ruby', icon: '', type: 'solid' },
-			titanium: { name: 'Titanium', icon: '', type: 'solid' },
-			quartz: { name: 'Quartz', icon: '', type: 'solid' },
-			diamond: { name: 'Diamond', icon: '', type: 'solid' },
-			reinforced_concrete: { name: 'Reinforced Concrete', icon: '', type: 'solid' },
-			silicon: { name: 'Silicon', icon: '', type: 'solid' },
-			polycrystalline_silicon: { name: 'Polycrystalline Silicon', icon: '', type: 'solid' },
-			ruby_circuit_inlay: { name: 'Ruby Circuit Inlay', icon: '', type: 'solid' },
-			oil: { name: 'Oil', icon: '', type: 'fluid' },
-			heavy_oil: { name: 'Heavy Oil', icon: '', type: 'fluid' },
-			light_oil: { name: 'Light Oil', icon: '', type: 'fluid' },
-			solar_cell: { name: 'Solar Cell', icon: '', type: 'solid' },
-			refined_ether_quartz: { name: 'Refined Ether Quartz', icon: '', type: 'solid' },
-			nitrogen: { name: 'Nitrogen', icon: '', type: 'gas' },
-			liquid_nitrogen: { name: 'Liquid Nitrogen', icon: '', type: 'fluid' },
-			salt: { name: 'Salt', icon: '', type: 'solid' },
-			brine: { name: 'Brine', icon: '', type: 'fluid' },
-			sodium: { name: 'Sodium', icon: '', type: 'fluid' },
-			chloride: { name: 'Chloride', icon: '', type: 'gas' },
-			liquid_chloride: { name: 'Liquid Chloride', icon: '', type: 'fluid' },
-			advanced_solar_module: { name: 'Advanced Solar Module', icon: '', type: 'solid' },
-			automated_singularity_converter: { name: 'Automated Singularity Converter', icon: '', type: 'solid' },
-			aluminum: { name: 'Aluminum', icon: 'icons/aluminum.png', type: 'solid' },
-			aluminum_ingot: { name: 'Aluminum Ingot', icon: '', type: 'solid' },
-			aluminum_bar: { name: 'Aluminum Bar', icon: '', type: 'solid' },
-			aluminum_profile: { name: 'Aluminum Profile', icon: '', type: 'solid' },
-			aluminum_frame: { name: 'Aluminum Frame', icon: '', type: 'solid' },
-			aluminum_coating: { name: 'Aluminum Coating', icon: '', type: 'solid' },
-			liquid_oxygen: { name: 'Liquid Oxygen', icon: '', type: 'fluid' },
-			heavy_water: { name: 'Heavy Water', icon: '', type: 'fluid' },
-			deuterium: { name: 'Deuterium', icon: '', type: 'gas' },
-			liquid_deuterium: { name: 'Liquid Deuterium', icon: '', type: 'fluid' },
-			sulfur: { name: 'Sulfur', icon: '', type: 'solid' },
-			sulfur_dioxide: { name: 'Sulfur Dioxide', icon: '', type: 'gas' },
-			water_steam: { name: 'Water Steam', icon: '', type: 'gas' },
-			sulfur_trioxide: { name: 'Sulfur Trioxide', icon: '', type: 'gas' },
-			sulfuric_acid: { name: 'Sulfuric Acid', icon: '', type: 'fluid' },
-			oxygen: { name: 'Oxygen', icon: '', type: 'gas' },
-			ionized_hydrogen: { name: 'Ionized Hydrogen', icon: '', type: 'gas' },
-			plasma_arc_energy: { name: 'Plasma Arc Energy', icon: '', type: 'gas' },
-			superheated_plasma_core: { name: 'Superheated Plasma Core', icon: '', type: 'gas' },
-			uranium: { name: 'Uranium', icon: '', type: 'solid' },
-			uranium_ion_cell: { name: 'Uranium Ion Cell', icon: '', type: 'solid' },
-			uranium_suspension: { name: 'Uranium Suspension', icon: '', type: 'fluid' },
-			refined_uranium_rod: { name: 'Refined Uranium Rod', icon: '', type: 'solid' },
-			titanium_mesh: { name: 'Titanium Mesh', icon: '', type: 'solid' },
-			singularity_infused_actuator: { name: 'Singularity-Infused Actuator', icon: '', type: 'solid' },
-			quartz_insulated_glass: { name: 'Quartz Insulated Glass', icon: '', type: 'solid' },
-			photonic_diamond_layer: { name: 'Photonic Diamond Layer', icon: '', type: 'solid' },
-			iron_ingot: { name: 'Iron Ingot', icon: '', type: 'solid' },
-			silicon_diode: { name: 'Silicon Diode', icon: '', type: 'solid' },
-			titanium_alloy_plate: { name: 'Titanium Alloy Plate', icon: '', type: 'solid' },
-			astralite: { name: 'Astralite', icon: '', type: 'solid' },
-			astralite_fragment: { name: 'Astralite Fragment', icon: '', type: 'solid' },
-			astral_reinforcement_panel: { name: 'Astral Reinforcement Panel', icon: '', type: 'solid' },
-			wood_board: { name: 'Wood Board', icon: '', type: 'solid' },
-			biomass: { name: 'Biomass', icon: '', type: 'solid' },
-			liquid_hydrogen: { name: 'Liquid Hydrogen', icon: '', type: 'fluid' },
-			substrate: { name: 'Substrate', icon: '', type: 'solid' },
-			ethylene: { name: 'Ethylene', icon: '', type: 'gas' },
-			etheric_binder_gel: { name: 'Etheric Binder Gel', icon: '', type: 'fluid' },
-			reinforced_uranium_suspension: { name: 'Reinforced Uranium Suspension', icon: '', type: 'fluid' },
-			voidglass_focusing_array: { name: 'Voidglass Focusing Array', icon: '', type: 'solid' },
-			photonic_memory_core: { name: 'Photonic Memory Core', icon: '', type: 'solid' },
-			chronium_crystal: { name: 'Chronium Crystal', icon: '', type: 'solid' },
-			diamond_slurry: { name: 'Diamond Slurry', icon: '', type: 'fluid' },
-			chronium_suspension: { name: 'Chronium Suspension', icon: '', type: 'fluid' },
-			iridium: { name: 'Iridium', icon: '', type: 'solid' },
-			iridium_solution: { name: 'Iridium Solution', icon: '', type: 'fluid' },
-			temporal_circuit_slurry: { name: 'Temporal Circuit Slurry', icon: '', type: 'fluid' },
-			stabilized_iridium_matrix: { name: 'Stabilized Iridium Matrix', icon: '', type: 'fluid' },
-			chrono_catalyst_gel: { name: 'Chrono Catalyst Gel', icon: '', type: 'fluid' },
-			iridium_plated_cable: { name: 'Iridium-Plated Cable', icon: '', type: 'solid' },
-			diamond_dust: { name: 'Diamond Dust', icon: '', type: 'solid' },
-			titanium_lattice: { name: 'Titanium Lattice', icon: '', type: 'solid' },
-			crystallized_diamond_core: { name: 'Crystallized Diamond Core', icon: '', type: 'solid' },
-			lattice_reinforced_conduit: { name: 'Lattice Reinforced Conduit', icon: '', type: 'solid' },
-			ruby_lens: { name: 'Ruby Lens', icon: '', type: 'solid' },
-            tri_crystal_fusion_node: { name: 'Tri-Crystal Fusion Node', icon: '', type: 'solid' },
-			osmium: { name: 'Osmium', icon: '', type: 'solid' },
-            lattice_encoded_memory_bank: { name: 'Lattice-Encoded Memory Bank', icon: '', type: 'solid' },
-            fractured_singularity_mesh: { name: 'Fractured Singularity Mesh', icon: '', type: 'solid' },
-            phase_synced_relay_circuit: { name: 'Phase-Synced Relay Circuit', icon: '', type: 'solid' },
-            sapphire_conduit: { name: 'Sapphire Conduit', icon: '', type: 'solid' },
-			quantum_signal_relay: { name: 'Quantum Signal Relay', icon: '', type: 'solid' },
-			plastic: { name: 'Plastic', icon: '', type: 'solid' },
-			plastic_mold: { name: 'Plastic Mold', icon: '', type: 'solid' },
-            osmium_reinforcement: { name: 'Osmium Reinforcement', icon: '', type: 'solid' },
-            quantum_data_compressor: { name: 'Quantum Data Compressor', icon: '', type: 'solid' },
-		};
-		const buildings = {
-			press: { name: 'Press', icon: '', power: 10, space: 10 },
-			furnace: { name: 'Furnace', icon: '', power: 10, space: 10 },
-			cutter: { name: 'Cutter', icon: '', power: 8, space: 2 },
-			welder: { name: 'Welder', icon: '', power: 15, space: 17 },
-			advanced_furnace: { name: 'Advanced Furnace', icon: '', power: 20, space: 76 },
-			advanced_cutter: { name: 'Advanced Cutter', icon: '', power: 15, space: 24 },
-			advanced_press: { name: 'Advanced Press', icon: '', power: 20, space: 23 },
-			manufacturer: { name: 'Manufacturer', icon: '', power: 15, space: 9 },
-            bifluxor: { name: 'Bifluxor', icon: '', power: 30, space: 48 },
-			chemical_infuser: { name: 'Chemical Infuser', icon: '', power: 45, space: 80 },
-			storage_packing: { name: 'Storage Packing', icon: '', power: 50, space: 100 },
-			dissolution_chamber: { name: 'Dissolution Chamber', icon: '', power: 25, space: 22 },
-			distilation_column: { name: 'Distilation Column', icon: '', power: 30, space: 22 },
+		AdvSolarModuleWithPanel: { name: 'Advanced Solar Module With Panel', icon: 't_icon_advsolarmodulewithpanel.png', type: 'solid' },
+		AdvancedHeatSink: { name: 'Advanced Heat Sink', icon: 't_icon_advancedheatsink.png', type: 'solid' },
+		AdvancedOpticalInverter: { name: 'Advanced Optical Inverter', icon: 't_icon_advancedopticalinverter.png', type: 'solid' },
+		AdvancedSolarModule: { name: 'Advanced Solar Module', icon: 't_icon_advancedsolarmodule.png', type: 'solid' },
+		AdvancedSolarTransmitter: { name: 'Advanced Solar Transmitter', icon: 't_icon_advancedsolartransmitter.png', type: 'solid' },
+		AlkalineCrystallizationAgent: { name: 'Alkaline Crystallization Agent', icon: 't_icon_alkalinecrystallizationagent.png', type: 'solid' },
+		AlloySuspendedMagneticFieldGenerator: { name: 'Alloy Suspended Magnetic Field Generator', icon: 't_icon_alloysuspendedmagneticfieldgenerator.png', type: 'solid' }, 
+		Aluminum: { name: 'Aluminum', icon: 't_icon_aluminum.png', type: 'solid' },
+		AluminumBar: { name: 'Aluminum Bar', icon: 't_icon_aluminumbar.png', type: 'solid' },
+		AluminumCoating: { name: 'Aluminum Coating', icon: 't_icon_aluminumcoating.png', type: 'solid' },
+		AluminumFrame: { name: 'Aluminum Frame', icon: 't_icon_aluminumframe.png', type: 'solid' },
+		AluminumIngot: { name: 'AluminumI ngot', icon: 't_icon_aluminumingot.png', type: 'solid' },
+		AluminumProfile: { name: 'Aluminum Profile', icon: 't_icon_aluminumprofile.png', type: 'solid' },
+		AstralEtherLens: { name: 'Astral Ether Lens', icon: 't_icon_astraletherlens.png', type: 'solid' },
+		AstralInfusedProcessingCrystal: { name: 'Astral Infused Processing Crystal', icon: 't_icon_astralinfusedprocessingcrystal.png', type: 'solid' },
+		AstralPowerCore: { name: 'Astral Power Core', icon: 't_icon_astralpowercore.png', type: 'solid' },
+		AstralShadowModule: { name: 'Astral Shadow Module', icon: 't_icon_astralshadowmodule.png', type: 'solid' },
+		AstralShadowOcilator: { name: 'Astral Shadow Ocilator', icon: 't_icon_astralshadowocilator.png', type: 'solid' },
+		AstralSignalTransponder: { name: 'Astral Signal Transponder', icon: 't_icon_astralsignaltransponder.png', type: 'solid' },
+		AstralVoidEnergyCascade: { name: 'Astral Void Energy Cascade', icon: 't_icon_astralvoidenergycascade.png', type: 'solid' },
+		Astralite: { name: '', icon: 't_icon_astralite.png', type: 'solid' },
+		AstraliteFragment: { name: '', icon: 't_icon_astralitefragment.png', type: 'solid' },
+		AstraliteInfusedCore: { name: '', icon: 't_icon_astraliteinfusedcore.png', type: 'solid' },
+		AstraliteReinforcementPanel: { name: '', icon: 't_icon_astralitereinforcementpanel.png', type: 'solid' },
+		AstraliteSingularityDrive: { name: '', icon: 't_icon_astralitesingularitydrive.png', type: 'solid' },
+		AutoIrrigation: { name: '', icon: 't_icon_autoirrigation.png', type: 'solid' },
+		AutomatedSingularityConverter: { name: '', icon: 't_icon_automatedsingularityconverter.png', type: 'solid' },
+		AutomaticControlPanel: { name: '', icon: 't_icon_automaticcontrolpanel.png', type: 'solid' },
+		AutomaticGreenhouse: { name: '', icon: 't_icon_automaticgreenhouse.png', type: 'solid' },
+		Barrel: { name: '', icon: 't_icon_barrel.png', type: 'solid' },
+		BarrelOfAstralShadow: { name: '', icon: 't_icon_barrelofastralshadow.png', type: 'solid' },
+		Basalt: { name: '', icon: 't_icon_basalt.png', type: 'solid' },
+		BasaltComposite: { name: '', icon: 't_icon_basaltcomposite.png', type: 'solid' },
+		BasaltHeatSink: { name: '', icon: 't_icon_basaltheatsink.png', type: 'solid' },
+		BioChemicalExtractionUnit: { name: '', icon: 't_icon_biochemicalextractionunit.png', type: 'solid' },
+		BioeletricExtractionCore: { name: '', icon: 't_icon_bioeletricextractioncore.png', type: 'solid' },
+		Biomass: { name: '', icon: 't_icon_biomass.png', type: 'solid' },
+		Bitumen: { name: '', icon: 't_icon_bitumen.png', type: 'solid' },
+		CelestialFluxEngine: { name: '', icon: 't_icon_celestialfluxengine.png', type: 'solid' },
+		ChromiumCrystal: { name: '', icon: 't_icon_chromiumcrystal.png', type: 'solid' },
+		ChromiumCrystalCore: { name: '', icon: 't_icon_chromiumcrystalcore.png', type: 'solid' },
+		ChromiumCrystalWafer: { name: '', icon: 't_icon_chromiumcrystalwafer.png', type: 'solid' },
+		ChromiumLuminaryMatrix: { name: '', icon: 't_icon_chromiumluminarymatrix.png', type: 'solid' },
+		ChronoReactorCoil: { name: '', icon: 't_icon_chronoreactorcoil.png', type: 'solid' },
+		ChronoResonanceMatrix: { name: '', icon: 't_icon_chronoresonancematrix.png', type: 'solid' },
+		ChronoShadowPlate: { name: '', icon: 't_icon_chronoshadowplate.png', type: 'solid' },
+		CircuitMemoryArray: { name: '', icon: 't_icon_circuitmemoryarray.png', type: 'solid' },
+		Coal: { name: '', icon: 't_icon_coal.png', type: 'solid' },
+		CompressedAlloyQuantumSandwich: { name: '', icon: 't_icon_compressedalloyquantumsandwich.png', type: 'solid' },
+		CompressedBasalt: { name: '', icon: 't_icon_compressedbasalt.png', type: 'solid' },
+		CompressedShadowOpal: { name: '', icon: 't_icon_compressedshadowopal.png', type: 'solid' },
+		Concrete: { name: '', icon: 't_icon_concrete.png', type: 'solid' },
+		ConcreteBlock: { name: '', icon: 't_icon_concreteblock.png', type: 'solid' },
+		CondensedEtherPulseEngine: { name: '', icon: 't_icon_condensedetherpulseengine.png', type: 'solid' },
+		Copper: { name: '', icon: 't_icon_copper.png', type: 'solid' },
+		CopperBars: { name: '', icon: 't_icon_copperbars.png', type: 'solid' },
+		CopperFilament: { name: '', icon: 't_icon_copperfilament.png', type: 'solid' },
+		CopperPipe: { name: '', icon: 't_icon_copperpipe.png', type: 'solid' },
+		CosmicGallon: { name: '', icon: 't_icon_cosmicgallon.png', type: 'solid' },
+		CryogenicFuelCell: { name: '', icon: 't_icon_cryogenicfuelcell.png', type: 'solid' },
+		CrystalPressureModulator: { name: '', icon: 't_icon_crystalpressuremodulator.png', type: 'solid' },
+		CrystallineSynchronizationPlate: { name: '', icon: 't_icon_crystallinesynchronizationplate.png', type: 'solid' },
+		CrystallizedDiamondCore: { name: '', icon: 't_icon_crystallizeddiamondcore.png', type: 'solid' },
+		DeepCoreSensorNode: { name: '', icon: 't_icon_deepcoresensornode.png', type: 'solid' },
+		Diamond: { name: '', icon: 't_icon_diamond.png', type: 'solid' },
+		DiamondDust: { name: '', icon: 't_icon_diamonddust.png', type: 'solid' },
+		DiamondSingularityCore: { name: '', icon: 't_icon_diamondsingularitycore.png', type: 'solid' },
+		EnergizedCrystalLens: { name: '', icon: 't_icon_energizedcrystallens.png', type: 'solid' },
+		EnrichedUraniumPellet: { name: '', icon: 't_icon_enricheduraniumpellet.png', type: 'solid' },
+		EtherGuidedFlowRod: { name: '', icon: 't_icon_etherguidedflowrod.png', type: 'solid' },
+		EtherQuartz: { name: '', icon: 't_icon_etherquartz.png', type: 'solid' },
+		EtherealChromiumEngine: { name: '', icon: 't_icon_etherealchromiumengine.png', type: 'solid' },
+		EtherealPrismaticSphere: { name: '', icon: 't_icon_etherealprismaticsphere.png', type: 'solid' },
+		EthericControlModule: { name: '', icon: 't_icon_ethericcontrolmodule.png', type: 'solid' },
+		EtheriumShadowPlate: { name: '', icon: 't_icon_etheriumshadowplate.png', type: 'solid' },
+		FiltredWaterGallon: { name: '', icon: 't_icon_filtredwatergallon.png', type: 'solid' },
+		Fluorite: { name: '', icon: 't_icon_fluorite.png', type: 'solid' },
+		FractalProcessingPrism: { name: '', icon: 't_icon_fractalprocessingprism.png', type: 'solid' },
+		FracturedSingularityMesh: { name: '', icon: 't_icon_fracturedsingularitymesh.png', type: 'solid' },
+		FusionFieldStabilizer: { name: '', icon: 't_icon_fusionfieldstabilizer.png', type: 'solid' },
+		FusionFuelRod: { name: '', icon: 't_icon_fusionfuelrod.png', type: 'solid' },
+		Gallon: { name: '', icon: 't_icon_gallon.png', type: 'solid' },
+		Glass: { name: '', icon: 't_icon_glass.png', type: 'solid' },
+		GravitationalCoreProcessor: { name: '', icon: 't_icon_gravitationalcoreprocessor.png', type: 'solid' },
+		HVTransformer: { name: '', icon: 't_icon_hvtransformer.png', type: 'solid' },
+		HardenedQuartzPlate: { name: '', icon: 't_icon_hardenedquartzplate.png', type: 'solid' },
+		HyperconductiveProcessingUnit: { name: '', icon: 't_icon_hyperconductiveprocessingunit.png', type: 'solid' },
+		IonFluxBeamEmitter: { name: '', icon: 't_icon_ionfluxbeamemitter.png', type: 'solid' },
+		Iridium: { name: '', icon: 't_icon_iridium.png', type: 'solid' },
+		IridiumCatalyst: { name: '', icon: 't_icon_iridiumcatalyst.png', type: 'solid' },
+		IridiumPlatedCable: { name: '', icon: 't_icon_iridiumplatedcable.png', type: 'solid' },
+		IridiumReflector: { name: '', icon: 't_icon_iridiumreflector.png', type: 'solid' },
+		Iron: { name: '', icon: 't_icon_iron.png', type: 'solid' },
+		IronBar: { name: '', icon: 't_icon_ironbar.png', type: 'solid' },
+		IronIngot: { name: '', icon: 't_icon_ironingot.png', type: 'solid' },
+		IronPipe: { name: '', icon: 't_icon_ironpipe.png', type: 'solid' },
+		IrrigationSystem: { name: '', icon: 't_icon_irrigationsystem.png', type: 'solid' },
+		LVTransformer: { name: '', icon: 't_icon_lvtransformer.png', type: 'solid' },
+		LatticeEncodedMemoryBank: { name: '', icon: 't_icon_latticeencodedmemorybank.png', type: 'solid' },
+		LatticeReinforcedConduit: { name: '', icon: 't_icon_latticereinforcedconduit.png', type: 'solid' },
+		LuminaryCrystalCore: { name: '', icon: 't_icon_luminarycrystalcore.png', type: 'solid' },
+		MagneticCoolingRegulator: { name: '', icon: 't_icon_magneticcoolingregulator.png', type: 'solid' },
+		MagneticIndunctionCoil: { name: '', icon: 't_icon_magneticindunctioncoil.png', type: 'solid' },
+		MagneticNickelRod: { name: '', icon: 't_icon_magneticnickelrod.png', type: 'solid' },
+		MultiphaseAlloyReactor: { name: '', icon: 't_icon_multiphasealloyreactor.png', type: 'solid' },
+		NanoInsulatedWiringSet: { name: '', icon: 't_icon_nanoinsulatedwiringset.png', type: 'solid' },
+		NanoMagneticFlowRegulator: { name: '', icon: 't_icon_nanomagneticflowregulator.png', type: 'solid' },
+		NebulaInfusedOpal: { name: '', icon: 't_icon_nebulainfusedopal.png', type: 'solid' },
+		Nebulite: { name: '', icon: 't_icon_nebulite.png', type: 'solid' },
+		NebulitePrism: { name: '', icon: 't_icon_nebuliteprism.png', type: 'solid' },
+		NeuralControlInterface: { name: '', icon: 't_icon_neuralcontrolinterface.png', type: 'solid' },
+		NeuralPhaseThread: { name: '', icon: 't_icon_neuralphasethread.png', type: 'solid' },
+		NeutronFluxGenerator: { name: '', icon: 't_icon_neutronfluxgenerator.png', type: 'solid' },
+		NeutronStabilizedCore: { name: '', icon: 't_icon_neutronstabilizedcore.png', type: 'solid' },
+		NeutroniumStabilizationBrace: { name: '', icon: 't_icon_neutroniumstabilizationbrace.png', type: 'solid' },
+		NeutronizedCoolingPillar: { name: '', icon: 't_icon_neutronizedcoolingpillar.png', type: 'solid' },
+		Nickel: { name: '', icon: 't_icon_nickel.png', type: 'solid' },
+		NickelInfusedWire: { name: '', icon: 't_icon_nickelinfusedwire.png', type: 'solid' },
+		OminidirectionalHeatFilter: { name: '', icon: 't_icon_ominidirectionalheatfilter.png', type: 'solid' },
+		OmniFusedRelayAmplifier: { name: '', icon: 't_icon_omnifusedrelayamplifier.png', type: 'solid' },
+		OmniversalEnergyNexus: { name: '', icon: 't_icon_omniversalenergynexus.png', type: 'solid' },
+		Osmium: { name: '', icon: 't_icon_osmium.png', type: 'solid' },
+		OsmiumFilament: { name: '', icon: 't_icon_osmiumfilament.png', type: 'solid' },
+		OsmiumReinforcement: { name: '', icon: 't_icon_osmiumreinforcement.png', type: 'solid' },
+		PhaseCompressionArray: { name: '', icon: 't_icon_phasecompressionarray.png', type: 'solid' },
+		PhaseSyncedRelayCircuit: { name: '', icon: 't_icon_phasesyncedrelaycircuit.png', type: 'solid' },
+		PhotonicDiamondLayer: { name: '', icon: 't_icon_photonicdiamondlayer.png', type: 'solid' },
+		PlasmaConductorArray: { name: '', icon: 't_icon_plasmaconductorarray.png', type: 'solid' },
+		Plastic: { name: '', icon: 't_icon_plastic.png', type: 'solid' },
+		PlasticFrame: { name: '', icon: 't_icon_plasticframe.png', type: 'solid' },
+		PlasticMold: { name: '', icon: 't_icon_plasticmold.png', type: 'solid' },
+		Platinum: { name: '', icon: 't_icon_platinum.png', type: 'solid' },
+		PlatinumCatalyst: { name: '', icon: 't_icon_platinumcatalyst.png', type: 'solid' },
+		PlatinumCoil: { name: '', icon: 't_icon_platinumcoil.png', type: 'solid' },
+		PlatinumPrecisionGear: { name: '', icon: 't_icon_platinumprecisiongear.png', type: 'solid' },
+		PlatonicMemoryCore: { name: '', icon: 't_icon_platonicmemorycore.png', type: 'solid' },
+		PolycrystallineSilicon: { name: '', icon: 't_icon_polycrystallinesilicon.png', type: 'solid' },
+		PowerCable: { name: '', icon: 't_icon_powercable.png', type: 'solid' },
+		PulseEnergyMatrix: { name: '', icon: 't_icon_pulseenergymatrix.png', type: 'solid' },
+		QuantumCooledReactorCasing: { name: '', icon: 't_icon_quantumcooledreactorcasing.png', type: 'solid' },
+		QuantumDataCompressor: { name: '', icon: 't_icon_quantumdatacompressor.png', type: 'solid' },
+		QuantumNebuliteSphere: { name: '', icon: 't_icon_quantumnebulitesphere.png', type: 'solid' },
+		QuantumQuartzCore: { name: '', icon: 't_icon_quantumquartzcore.png', type: 'solid' },
+		QuantumResonantLensCore: { name: '', icon: 't_icon_quantumresonantlenscore.png', type: 'solid' },
+		QuantumSignalRelay: { name: '', icon: 't_icon_quantumsignalrelay.png', type: 'solid' },
+		QuantumStabilizedAlloy: { name: '', icon: 't_icon_quantumstabilizedalloy.png', type: 'solid' },
+		Quartz: { name: '', icon: 't_icon_quartz.png', type: 'solid' },
+		QuartzInsulatedGlass: { name: '', icon: 't_icon_quartzinsulatedglass.png', type: 'solid' },
+		RadiantCrystalAmplifier: { name: '', icon: 't_icon_radiantcrystalamplifier.png', type: 'solid' },
+		RadiationShieldingPanel: { name: '', icon: 't_icon_radiationshieldingpanel.png', type: 'solid' },
+		RailwayTrack: { name: '', icon: 't_icon_railwaytrack.png', type: 'solid' },
+		Railwayline: { name: '', icon: 't_icon_railwayline.png', type: 'solid' },
+		ReactiveAlloyCasing: { name: '', icon: 't_icon_reactivealloycasing.png', type: 'solid' },
+		ReactiveFlowManipulator: { name: '', icon: 't_icon_reactiveflowmanipulator.png', type: 'solid' },
+		RefinedEtherQuartz: { name: '', icon: 't_icon_refinedetherquartz.png', type: 'solid' },
+		RefinedUraniumRod: { name: '', icon: 't_icon_refineduraniumrod.png', type: 'solid' },
+		ReinforcedAluminumBeams: { name: '', icon: 't_icon_reinforcedaluminumbeams.png', type: 'solid' },
+		ReinforcedConcrete: { name: '', icon: 't_icon_reinforcedconcrete.png', type: 'solid' },
+		ReinforcedGlassScreen: { name: '', icon: 't_icon_reinforcedglassscreen.png', type: 'solid' },
+		ReinforcedNail: { name: '', icon: 't_icon_reinforcednail.png', type: 'solid' },
+		ReinforcedSteelPlate: { name: '', icon: 't_icon_reinforcedsteelplate.png', type: 'solid' },
+		Ruby: { name: '', icon: 't_icon_ruby.png', type: 'solid' },
+		RubyCircuitInlay: { name: '', icon: 't_icon_rubycircuitinlay.png', type: 'solid' },
+		RubyLens: { name: '', icon: 't_icon_rubylens.png', type: 'solid' },
+		Salt: { name: '', icon: 't_icon_salt.png', type: 'solid' },
+		Saphire: { name: '', icon: 't_icon_saphire.png', type: 'solid' },
+		SapphireConduit: { name: '', icon: 't_icon_sapphireconduit.png', type: 'solid' },
+		SapphireEnergyCell: { name: '', icon: 't_icon_sapphireenergycell.png', type: 'solid' },
+		ShadowNebulaCore: { name: '', icon: 't_icon_shadownebulacore.png', type: 'solid' },
+		ShadowOpal: { name: '', icon: 't_icon_shadowopal.png', type: 'solid' },
+		ShadowOpalShard: { name: '', icon: 't_icon_shadowopalshard.png', type: 'solid' },
+		ShadowglassCapacitor: { name: '', icon: 't_icon_shadowglasscapacitor.png', type: 'solid' },
+		Silicon: { name: '', icon: 't_icon_silicon.png', type: 'solid' },
+		SiliconDiode: { name: '', icon: 't_icon_silicondiode.png', type: 'solid' },
+		SiliconPlate: { name: '', icon: 't_icon_siliconplate.png', type: 'solid' },
+		Singularity1: { name: '', icon: 't_icon_singularity1.png', type: 'solid' },
+		Singularity2: { name: '', icon: 't_icon_singularity2.png', type: 'solid' },
+		Singularity3: { name: '', icon: 't_icon_singularity3.png', type: 'solid' },
+		Singularity4: { name: '', icon: 't_icon_singularity4.png', type: 'solid' },
+		Singularity5: { name: '', icon: 't_icon_singularity5.png', type: 'solid' },
+		SingularityInfusedActuator: { name: '', icon: 't_icon_singularityinfusedactuator.png', type: 'solid' },
+		SolarCell: { name: '', icon: 't_icon_solarcell.png', type: 'solid' },
+		SolarControlPanel: { name: '', icon: 't_icon_solarcontrolpanel.png', type: 'solid' },
+		SolarLantern: { name: '', icon: 't_icon_solarlantern.png', type: 'solid' },
+		SolarLightingModule: { name: '', icon: 't_icon_solarlightingmodule.png', type: 'solid' },
+		SolarLightingTower: { name: '', icon: 't_icon_solarlightingtower.png', type: 'solid' },
+		SolarPanel: { name: '', icon: 't_icon_solarpanel.png', type: 'solid' },
+		Steel: { name: '', icon: 't_icon_steel.png', type: 'solid' },
+		SteelSheets: { name: '', icon: 't_icon_steelsheets.png', type: 'solid' },
+		StellarChromiumModule: { name: '', icon: 't_icon_stellarchromiummodule.png', type: 'solid' },
+		Stone: { name: '', icon: 't_icon_stone.png', type: 'solid' },
+		StoneBlock: { name: '', icon: 't_icon_stoneblock.png', type: 'solid' },
+		StructuralCable: { name: '', icon: 't_icon_structuralcable.png', type: 'solid' },
+		Substrate: { name: '', icon: 't_icon_substrate.png', type: 'solid' },
+		Sulfur: { name: '', icon: 't_icon_sulfur.png', type: 'solid' },
+		SupercompressedPhaseAlloy: { name: '', icon: 't_icon_supercompressedphasealloy.png', type: 'solid' },
+		SuperluminalRelayCore: { name: '', icon: 't_icon_superluminalrelaycore.png', type: 'solid' },
+		SupportBeams: { name: '', icon: 't_icon_supportbeams.png', type: 'solid' },
+		SynapticFiberCoil: { name: '', icon: 't_icon_synapticfibercoil.png', type: 'solid' },
+		SyntheticCircuitSubbrain: { name: '', icon: 't_icon_syntheticcircuitsubbrain.png', type: 'solid' },
+		TemporalDivergenceArray: { name: '', icon: 't_icon_temporaldivergencearray.png', type: 'solid' },
+		TemporalPrismCircuit: { name: '', icon: 't_icon_temporalprismcircuit.png', type: 'solid' },
+		TemporalRefractionInverter: { name: '', icon: 't_icon_temporalrefractioninverter.png', type: 'solid' },
+		ThermoeletricInterfaceChip: { name: '', icon: 't_icon_thermoeletricinterfacechip.png', type: 'solid' },
+		TitaniuMesh: { name: '', icon: 't_icon_titaniumesh.png', type: 'solid' },
+		Titanium: { name: '', icon: 't_icon_titanium.png', type: 'solid' },
+		TitaniumAlloyPlate: { name: '', icon: 't_icon_titaniumalloyplate.png', type: 'solid' },
+		TitaniumInfusionEngine: { name: '', icon: 't_icon_titaniuminfusionengine.png', type: 'solid' },
+		TitaniumLattice: { name: '', icon: 't_icon_titaniumlattice.png', type: 'solid' },
+		TriCrystalFusionNode: { name: '', icon: 't_icon_tricrystalfusionnode.png', type: 'solid' },
+		TunedQuantumProcessor: { name: '', icon: 't_icon_tunedquantumprocessor.png', type: 'solid' },
+		Uranium: { name: '', icon: 't_icon_uranium.png', type: 'solid' },
+		UraniumIonCell: { name: '', icon: 't_icon_uraniumioncell.png', type: 'solid' },
+		VoidNebulaReactor: { name: '', icon: 't_icon_voidnebulareactor.png', type: 'solid' },
+		VoidStabilizedContainmentRing: { name: '', icon: 't_icon_voidstabilizedcontainmentring.png', type: 'solid' },
+		VoidglassFocusingArray: { name: '', icon: 't_icon_voidglassfocusingarray.png', type: 'solid' },
+		VoidglassImplosionDamper: { name: '', icon: 't_icon_voidglassimplosiondamper.png', type: 'solid' },
+		WaterFiltrationDevice: { name: '', icon: 't_icon_waterfiltrationdevice.png', type: 'solid' },
+		Wood: { name: '', icon: 't_icon_wood.png', type: 'solid' },
+		WoodBoard: { name: '', icon: 't_icon_woodboard.png', type: 'solid' },
+		WoodPlank: { name: '', icon: 't_icon_woodplank.png', type: 'solid' },
+		Zinc: { name: '', icon: 't_icon_zinc.png', type: 'solid' },
+		ZincCarbonMatrix: { name: '', icon: 't_icon_zinccarbonmatrix.png', type: 'solid' },
+		ZincPlating: { name: '', icon: 't_icon_zincplating.png', type: 'solid' },
+		Brine: { name: '', icon: 't_icon_brine.png', type: 'nonsolid' },
+		Chloride: { name: '', icon: 't_icon_chloride.png', type: 'nonsolid' },
+		ChromiumSuspension: { name: '', icon: 't_icon_chromiumsuspension.png', type: 'nonsolid' },
+		ChronoCatalystGel: { name: '', icon: 't_icon_chronocatalystgel.png', type: 'nonsolid' },
+		CompressedAstralShadow: { name: '', icon: 't_icon_compressedastralshadow.png', type: 'nonsolid' },
+		CompressedTransformationSingularity: { name: '', icon: 't_icon_compressedtransformationsingularity.png', type: 'nonsolid' },
+		CondensedHelium3: { name: '', icon: 't_icon_condensedhelium3.png', type: 'nonsolid' },
+		CooperFluxVapor: { name: '', icon: 't_icon_cooperfluxvapor.png', type: 'nonsolid' },
+		CopperFluxSuspension: { name: '', icon: 't_icon_copperfluxsuspension.png', type: 'nonsolid' },
+		CryoalkalineSolution: { name: '', icon: 't_icon_cryoalkalinesolution.png', type: 'nonsolid' },
+		Deuterium: { name: '', icon: 't_icon_deuterium.png', type: 'nonsolid' },
+		DiamondSlurry: { name: '', icon: 't_icon_diamondslurry.png', type: 'nonsolid' },
+		EthericBinderGel: { name: '', icon: 't_icon_ethericbindergel.png', type: 'nonsolid' },
+		Ethylene: { name: '', icon: 't_icon_ethylene.png', type: 'nonsolid' },
+		FiltratedWater: { name: '', icon: 't_icon_filtratedwater.png', type: 'nonsolid' },
+		HeavyOil: { name: '', icon: 't_icon_heavyoil.png', type: 'nonsolid' },
+		HeavyWater: { name: '', icon: 't_icon_heavywater.png', type: 'nonsolid' },
+		Helium3: { name: '', icon: 't_icon_helium3.png', type: 'nonsolid' },
+		HydrofluoricAcid: { name: '', icon: 't_icon_hydrofluoricacid.png', type: 'nonsolid' },
+		Hydrogen: { name: '', icon: 't_icon_hydrogen.png', type: 'nonsolid' },
+		HydrogenChloride: { name: '', icon: 't_icon_hydrogenchloride.png', type: 'nonsolid' },
+		IonizedHydrogen: { name: '', icon: 't_icon_ionizedhydrogen.png', type: 'nonsolid' },
+		IridiumSolution: { name: '', icon: 't_icon_iridiumsolution.png', type: 'nonsolid' },
+		LightOil: { name: '', icon: 't_icon_lightoil.png', type: 'nonsolid' },
+		LiquidChloride: { name: '', icon: 't_icon_liquidchloride.png', type: 'nonsolid' },
+		LiquidDeuterium: { name: '', icon: 't_icon_liquiddeuterium.png', type: 'nonsolid' },
+		LiquidHydrofluoricAcid: { name: '', icon: 't_icon_liquidhydrofluoricacid.png', type: 'nonsolid' },
+		LiquidHydrogen: { name: '', icon: 't_icon_liquidhydrogen.png', type: 'nonsolid' },
+		LiquidHydrogenChloride: { name: '', icon: 't_icon_liquidhydrogenchloride.png', type: 'nonsolid' },
+		LiquidNitrogen: { name: '', icon: 't_icon_liquidnitrogen.png', type: 'nonsolid' },
+		LiquidOxygen: { name: '', icon: 't_icon_liquidoxygen.png', type: 'nonsolid' },
+		LiquidTransformationSingularity: { name: '', icon: 't_icon_liquidtransformationsingularity.png', type: 'nonsolid' },        
+		MeltedAstralShadow: { name: '', icon: 't_icon_meltedastralshadow.png', type: 'nonsolid' },
+		MeltedWaterFilter: { name: '', icon: 't_icon_meltedwaterfilter.png', type: 'nonsolid' },
+		Nitrogen: { name: '', icon: 't_icon_nitrogen.png', type: 'nonsolid' },
+		Oil: { name: '', icon: 't_icon_oil.png', type: 'nonsolid' },
+		Oxygen: { name: '', icon: 't_icon_oxygen.png', type: 'nonsolid' },
+		PlasmaArcEnergy: { name: '', icon: 't_icon_plasmaarcenergy.png', type: 'nonsolid' },
+		QuantumEnergySolution: { name: '', icon: 't_icon_quantumenergysolution.png', type: 'nonsolid' },
+		QuantumPlasma: { name: '', icon: 't_icon_quantumplasma.png', type: 'nonsolid' },
+		Sodium: { name: '', icon: 't_icon_sodium.png', type: 'nonsolid' },
+		SodiumHydroxide: { name: '', icon: 't_icon_sodiumhydroxide.png', type: 'nonsolid' },
+		StabilizedIridiumMatrix: { name: '', icon: 't_icon_stabilizediridiummatrix.png', type: 'nonsolid' },
+		SulfurDioxide: { name: '', icon: 't_icon_sulfurdioxide.png', type: 'nonsolid' },
+		SulfurTrioxide: { name: '', icon: 't_icon_sulfurtrioxide.png', type: 'nonsolid' },
+		SulfuricAcid: { name: '', icon: 't_icon_sulfuricacid.png', type: 'nonsolid' },
+		SuperheatedPlasmaCore: { name: '', icon: 't_icon_superheatedplasmacore.png', type: 'nonsolid' },
+		TemporalCircuitSlurry: { name: '', icon: 't_icon_temporalcircuitslurry.png', type: 'nonsolid' },
+		UraniumSuspension: { name: '', icon: 't_icon_uraniumsuspension.png', type: 'nonsolid' },
+		Water: { name: '', icon: 't_icon_water.png', type: 'nonsolid' },
+		WaterSteam: { name: '', icon: 't_icon_watersteam.png', type: 'nonsolid' },
+		ZincSolution: { name: '', icon: 't_icon_zincsolution.png', type: 'nonsolid' },
+		catalyzedcarbonbinder: { name: '', icon: 't_icon_catalyzedcarbonbinder.png', type: 'nonsolid' },
+		etherealcoolant: { name: '', icon: 't_icon_etherealcoolant.png', type: 'nonsolid' },
+		hypercooledsuperfluid: { name: '', icon: 't_icon_hypercooledsuperfluid.png', type: 'nonsolid' },
+		liquidcarbon: { name: '', icon: 't_icon_liquidcarbon.png', type: 'nonsolid' },
+		plasmalinkedcatalystgel: { name: '', icon: 't_icon_plasmalinkedcatalystgel.png', type: 'nonsolid' },
+		reinforceduraniumsuspension: { name: '', icon: 't_icon_reinforceduraniumsuspension.png', type: 'nonsolid' },
+		shadowopalsolution: { name: '', icon: 't_icon_shadowopalsolution.png', type: 'nonsolid' },
+		stabilizedethericalkalinebase: { name: '', icon: 't_icon_stabilizedethericalkalinebase.png', type: 'nonsolid' },
+		stabilizedopalslurry: { name: '', icon: 't_icon_stabilizedopalslurry.png', type: 'nonsolid' },
+		voidreactionslurry: { name: '', icon: 't_icon_voidreactionslurry.png', type: 'nonsolid' },
+		voidstabilizer: { name: '', icon: 't_icon_voidstabilizer.png', type: 'nonsolid' },
+	}
+	const buildings = {
+		press: { name: 'Press', power: 10, space: 10 },
+		furnace: { name: 'Furnace', power: 10, space: 10 },
+		cutter: { name: 'Cutter', power: 8, space: 2 },
+		welder: { name: 'Welder', power: 15, space: 17 },
+		advanced_furnace: { name: 'Advanced Furnace', power: 20, space: 76 },
+		advanced_cutter: { name: 'Advanced Cutter', power: 15, space: 24 },
+		advanced_press: { name: 'Advanced Press', power: 20, space: 23 },
+		manufacturer: { name: 'Manufacturer', power: 15, space: 9 },
+        bifluxor: { name: 'Bifluxor', power: 30, space: 48 },
+		chemical_infuser: { name: 'Chemical Infuser', power: 45, space: 80 },
+		storage_packing: { name: 'Storage Packing', power: 50, space: 100 },
+		dissolution_chamber: { name: 'Dissolution Chamber', power: 25, space: 22 },
+		distilation_column: { name: 'Distilation Column', power: 30, space: 22 },
 		};
 	const recipes = [
             {
@@ -1305,7 +1460,7 @@
 					const combined = [];
 					for (const row of availableItemsList) {
 						const type = items[row.item]?.type;
-						if (type === 'fluid' || type === 'gas') {
+						if (type === 'nonsolid') {
 							if (!combined.some(r => r.item === row.item)) {
 								combined.push({ item: row.item });
 							}
@@ -1326,7 +1481,7 @@
 						const tr = document.createElement('tr');
 						tr.innerHTML = `
 							<td><select><option value=""${!row.item?' selected':''}>Select item</option>${Object.entries(items).map(([k, i]) => `<option value="${k}"${row.item===k?' selected':''}>${i.name}</option>`).join('')}</select></td>
-							<td>${type === 'fluid' || type === 'gas' ? '<span style="color:#888;">N/A</span>' : `<input type="number" min="0" step="1" value="${row.amount ?? ''}" style="width:80px;">`}</td>
+							<td>${type === 'nonsolid' ? '<span style="color:#888;">N/A</span>' : `<input type="number" min="0" step="1" value="${row.amount ?? ''}" style="width:80px;">`}</td>
 							<td><button type="button" data-row="${idx}" class="remove-available-item-row">Remove</button></td>
 						`;
 						tableBody.appendChild(tr);
@@ -1360,35 +1515,35 @@
 					const idx = Array.from(tableBody.children).indexOf(tr);
 					if (e.target.tagName === 'SELECT') {
 						availableItemsList[idx].item = e.target.value;
-						// If new item is fluid/gas, clear amount
-						if (['fluid','gas'].includes(items[e.target.value]?.type)) {
+						// If new item is nonsolid, clear amount
+						if (items[e.target.value]?.type === 'nonsolid') {
 							availableItemsList[idx].amount = null;
 						}
 						renderAvailableItemsTable();
 					} else if (e.target.tagName === 'INPUT') {
 						// Only allow input for solids
-						if (!['fluid','gas'].includes(items[availableItemsList[idx].item]?.type)) {
+						if (items[availableItemsList[idx].item]?.type !== 'nonsolid') {
 							availableItemsList[idx].amount = parseInt(e.target.value) || 0;
 						}
 					}
 				});
 						form.addEventListener('submit', (e) => {
 							e.preventDefault();
-							// Save to localStorage, but remove amount for fluids/gases
+					// Save to localStorage, but remove amount for nonsolids
 							try {
 								const filtered = availableItemsList.map(row => {
 									const type = items[row.item]?.type;
-									return type === 'fluid' || type === 'gas' ? { item: row.item } : row;
+							return type === 'nonsolid' ? { item: row.item } : row;
 								});
 								localStorage.setItem('availableItemsList', JSON.stringify(filtered));
 							} catch(e) {}
 							modal.style.display = 'none';
 						});
 
-		// Disable rate input for fluid/gas
+		// Disable rate input for nonsolid
 		itemSelect.addEventListener('change', function() {
 			const selectedType = items[this.value]?.type;
-			if (selectedType === 'fluid' || selectedType === 'gas') {
+			if (selectedType === 'nonsolid') {
 				rateInput.value = '';
 				rateInput.disabled = true;
 				rateInput.placeholder = 'No rate needed';
@@ -1404,7 +1559,7 @@
 			const selectedItem = itemSelect.value;
 			const selectedType = items[selectedItem]?.type;
 			let rate = 1;
-			if (!(selectedType === 'fluid' || selectedType === 'gas')) {
+			if (selectedType !== 'nonsolid') {
 				rate = parseFloat(rateInput.value);
 			}
 			const planDiv = document.getElementById('production-plan');
@@ -1413,12 +1568,12 @@
 			const availableItems = availableItemsList.map(row => row.item);
 			const availableAmounts = {};
 			availableItemsList.forEach(row => { availableAmounts[row.item] = row.amount; });
-			if (!selectedItem || (selectedType !== 'fluid' && selectedType !== 'gas' && (isNaN(rate) || rate <= 0))) {
+			if (!selectedItem || (selectedType !== 'nonsolid' && (isNaN(rate) || rate <= 0))) {
 				planDiv.innerHTML = '<div class="placeholder-graph">Please select an item and enter a valid rate.</div>';
 				return;
 			}
-			// For fluid/gas, set rate to 1 (arbitrary, since rate is not needed)
-			if (selectedType === 'fluid' || selectedType === 'gas') {
+			// For nonsolid, set rate to 1 (arbitrary, since rate is not needed)
+			if (selectedType === 'nonsolid') {
 				rate = 1;
 			}
 
@@ -1450,19 +1605,19 @@
 				for (const r of all) {
 					const output = r.outputs.find(o => o.item === itemKey);
 					const outRate = output && output.rate ? output.rate : 1;
-					// Check if all outputs are fluids or gases
-					const onlyFluidOrGas = r.outputs.every(o => {
+					// Check if all outputs are nonsolid
+					const onlyNonsolid = r.outputs.every(o => {
 						const t = items[o.item]?.type;
-						return t === 'fluid' || t === 'gas';
+						return t === 'nonsolid';
 					});
 					variants.push({ recipe: r, outRate, overclocked: false });
 					// Prevent overclocking if not enough available items for any input
 					let canOverclock = true;
-					if (!onlyFluidOrGas) {
+					if (!onlyNonsolid) {
 						if (typeof availableAmounts !== 'undefined') {
 							for (const input of r.inputs) {
 								const inputType = items[input.item]?.type;
-								if (inputType !== 'fluid' && inputType !== 'gas' && typeof availableAmounts[input.item] === 'number') {
+								if (inputType !== 'nonsolid' && typeof availableAmounts[input.item] === 'number') {
 									// Overclocked input rate is doubled
 									const required = (input.rate ?? 1) * 2;
 									if (availableAmounts[input.item] < required) {
@@ -1573,7 +1728,7 @@
 			}
 
 			// Recursive function to build input tree
-			function buildInputTree(itemKey, requiredRate, depth = 0, totals = { power: 0, space: 0, buildings: 0 }, producedFluids = {}, excessPool = {}, requirements = {}, fullRequirements = {}) {
+			function buildInputTree(itemKey, requiredRate, depth = 0, totals = { power: 0, space: 0, buildings: 0 }, producedNonsolids = {}, excessPool = {}, requirements = {}, fullRequirements = {}) {
 				const item = items[itemKey];
 				if (!item) {
 					console.log(`Unknown item: ${itemKey}`);
@@ -1622,21 +1777,21 @@
 						   if (isOverclocked) inputRate *= 2;
 						   // Always accumulate into full BOM (including intermediates)
 						   fullRequirements[input.item] = (fullRequirements[input.item] || 0) + inputRate;
-						   if ((inputType === 'fluid' || inputType === 'gas')) {
-							   if (!producedFluids[input.item]) {
-								   producedFluids[input.item] = true;
+						   if (inputType === 'nonsolid') {
+							   if (!producedNonsolids[input.item]) {
+								   producedNonsolids[input.item] = true;
 								   if (inputHasRecipe) {
-									   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool, requirements, fullRequirements);
+									   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedNonsolids, excessPool, requirements, fullRequirements);
 								   } else {
 									   html += `<li><b>${items[input.item].name}</b></li>`;
-									   // Fluids/gases without a recipe are externally supplied
+									   // Nonsolids without a recipe are externally supplied
 									   requirements[input.item] = (requirements[input.item] || 0) + inputRate;
 								   }
 							   } else {
 								   html += `<li><b>${items[input.item].name}</b> (already produced)</li>`;
 							   }
 						   } else if (inputHasRecipe) {
-							   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedFluids, excessPool, requirements, fullRequirements);
+							   html += buildInputTree(input.item, inputRate, depth + 1, totals, producedNonsolids, excessPool, requirements, fullRequirements);
 						   } else {
 							   html += `<li>${inputRate.toFixed(2)} <b>${items[input.item].name}</b>${depth === 0 ? ' per minute' : ''}</li>`;
 							   // Base item with no recipe: add to requirements
@@ -1686,14 +1841,14 @@
 			renderTreeAutoOverclock();
 
 			// --- Network Graph Visualization ---
-			function buildGraphData(itemKey, requiredRate, nodes = [], edges = [], parentId = null, nodeMap = {}, depth = 0, producedFluids = {}, edgeLabels = {}, edgeIndex = {}) {
+			function buildGraphData(itemKey, requiredRate, nodes = [], edges = [], parentId = null, nodeMap = {}, depth = 0, producedNonsolids = {}, edgeLabels = {}, edgeIndex = {}) {
 				const item = items[itemKey];
 				const plans = optimizeRecipes(itemKey, requiredRate);
 				// Use a composite key to merge like items at the same depth
 				const nodeId = itemKey + '_' + depth;
 				if (!nodeMap[nodeId]) {
 					let nodeObj;
-					let showRate = !(item.type === 'fluid' || item.type === 'gas');
+					let showRate = item.type !== 'nonsolid';
 					if (item.icon) {
 						nodeObj = {
 							id: nodeId,
@@ -1719,7 +1874,7 @@
 				} else {
 					nodeMap[nodeId].rate += requiredRate;
 					nodeMap[nodeId].count += 1;
-					let showRate = !(item.type === 'fluid' || item.type === 'gas');
+					let showRate = item.type !== 'nonsolid';
 					nodeMap[nodeId].label = showRate ? `${item.name}\n${nodeMap[nodeId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${item.name}`;
 				}
 				if (parentId) {
@@ -1749,14 +1904,14 @@
 								nodes.push(nodeMap[childId]);
 							} else {
 								let nodeObj;
-								let showRate = !(inputItemObj.type === 'fluid' || inputItemObj.type === 'gas');
+								let showRate = inputItemObj.type !== 'nonsolid';
 								if (inputItemObj.icon) {
 									nodeObj = {
 										id: childId,
 										label: showRate ? `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${inputItemObj.name}`,
 										shape: 'image',
 										image: inputItemObj.icon,
-										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
+										color: inputType === 'nonsolid' ? '#4fc3f7' : '#fff',
 										font: { color: '#fff', size: 16, multi: true },
 										rate: inputRate, count: 1, parents: new Set()
 									};
@@ -1765,7 +1920,7 @@
 										id: childId,
 										label: showRate ? `${inputItemObj.name}\n${inputRate ? inputRate.toFixed(2) : ''}${depth === 0 ? ' /min' : ''}` : `${inputItemObj.name}`,
 										shape: 'ellipse',
-										color: inputType === 'fluid' ? '#4fc3f7' : (inputType === 'gas' ? '#b388ff' : '#fff'),
+										color: inputType === 'nonsolid' ? '#4fc3f7' : '#fff',
 										font: { color: '#23272b', size: 16, multi: true },
 										rate: inputRate, count: 1, parents: new Set()
 									};
@@ -1776,9 +1931,9 @@
 						} else {
 							nodeMap[childId].rate += inputRate;
 							nodeMap[childId].count += 1;
-							// Update label to show combined rate, but hide for fluid/gas
+							// Update label to show combined rate, but hide for nonsolid
 							let labelName = nodeMap[childId].label.split('\n')[0];
-							let showRate = !(items[input.item]?.type === 'fluid' || items[input.item]?.type === 'gas');
+							let showRate = items[input.item]?.type !== 'nonsolid';
 							nodeMap[childId].label = showRate ? `${labelName}\n${nodeMap[childId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${labelName}`;
 						}
 						// Label edges with building used; combine labels if multiple
@@ -1798,15 +1953,15 @@
 								edges[idx].label = Array.from(edgeLabels[edgeKey]).join(', ');
 							}
 						}
-						if ((inputType === 'fluid' || inputType === 'gas')) {
-							if (!producedFluids[input.item]) {
-								producedFluids[input.item] = true;
+						if (inputType === 'nonsolid') {
+							if (!producedNonsolids[input.item]) {
+								producedNonsolids[input.item] = true;
 								if (inputHasRecipe) {
-									buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids, edgeLabels, edgeIndex);
+									buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedNonsolids, edgeLabels, edgeIndex);
 								}
 							}
 						} else if (inputHasRecipe) {
-							buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedFluids, edgeLabels, edgeIndex);
+							buildGraphData(input.item, inputRate, nodes, edges, childId, nodeMap, depth + 1, producedNonsolids, edgeLabels, edgeIndex);
 						}
 					});
 				});
