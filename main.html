@@ -451,18 +451,18 @@
                 name: "Plastic Molds (Dissolution Chamber)",
                 building: "dissolution_chamber",
                 inputs: [
-                    { item: "plastic", rate: 120 },
-                    { item: "liquid_chloride", rate: 60 }
+                    { item: "Plastic", rate: 120 },
+                    { item: "LiquidChloride", rate: 60 }
                 ],
                 outputs: [
-                    { item: "P", rate: 60 }
+                    { item: "PlasticMold", rate: 60 }
                 ]
             },
             {
                 name: "Quantum Signal Relay (Copper Filaments)",
                 building: "manufacturer",
                 inputs: [
-                    { item: "plastic_mold", rate: 120 },
+                    { item: "PlasticMold", rate: 120 },
                     { item: "copper_filament", rate: 60 },
                     { item: "osmium_reinforcement", rate: 60 }
                 ],
@@ -939,15 +939,15 @@
 				name: 'Liquid Chloride (Bifluxor)',
 				building: 'bifluxor',
 				inputs: [{ item: 'chloride' }],
-				outputs: [{ item: 'liquid_chloride' }],
+				outputs: [{ item: 'LiquidChloride' }],
 			},
 			{
 				name: 'Aluminum Coating (Dissolution Chamber)',
 				building: 'dissolution_chamber',
 				inputs: [
-					{ item: 'aluminum_ingot', rate: 60 },
+					{ item: 'AluminumIngot', rate: 60 },
 					{ item: 'aluminum_bar', rate: 60 },
-					{ item: 'liquid_chloride' }
+					{ item: 'LiquidChloride' }
 				],
 				outputs: [{ item: 'aluminum_coating', rate: 60 }],
 			},
@@ -1012,7 +1012,7 @@
 				building: 'manufacturer',
 				inputs: [
 					{ item: 'polycrystalline_silicon', rate: 60 },
-					{ item: 'aluminum_ingot', rate: 120 },
+					{ item: 'AluminumIngot', rate: 120 },
 					{ item: 'aluminum_bar', rate: 60 }
 				],
 				outputs: [{ item: 'solar_cell', rate: 60 }],
@@ -1081,7 +1081,7 @@
 				name: 'Aluminum Ingot (Furnace)',
 				building: 'furnace',
 				inputs: [{ item: 'aluminum', rate: 60 }],
-				outputs: [{ item: 'aluminum_ingot', rate: 60 }],
+				outputs: [{ item: 'AluminumIngot', rate: 60 }],
 			},
 			{
 				name: 'Aluminum Bar (Press)',
@@ -1124,7 +1124,7 @@
 				name: 'Aluminum Coating (Welder)',
 				building: 'welder',
 				inputs: [
-					{ item: 'aluminum_ingot', rate: 30 },
+					{ item: 'AluminumIngot', rate: 30 },
 					{ item: 'aluminum_bar', rate: 30 }
 				],
 				outputs: [{ item: 'aluminum_coating', rate: 30 }],
@@ -1447,60 +1447,99 @@
 		const itemSelectIcon = document.getElementById('item-select-icon');
 		const itemSelectContainer = document.getElementById('item-select-container');
 
-		// Build option rows
-		Object.entries(items).forEach(([key, item]) => {
-			const row = document.createElement('div');
-			row.className = 'item-option';
-			row.style.display = 'flex';
-			row.style.alignItems = 'center';
-			row.style.gap = '0.5rem';
-			row.style.padding = '6px';
-			row.style.borderRadius = '6px';
-			row.style.cursor = 'pointer';
-			row.dataset.key = key;
+		// Build searchable options
+		itemSelectOptions.innerHTML = '';
+		const mainSearchWrap = document.createElement('div');
+		mainSearchWrap.style.padding = '4px';
+		const mainSearch = document.createElement('input');
+		mainSearch.type = 'text';
+		mainSearch.placeholder = 'Search items...';
+		mainSearch.style.width = '100%';
+		mainSearch.style.boxSizing = 'border-box';
+		mainSearch.style.padding = '6px 8px';
+		mainSearch.style.marginBottom = '4px';
+		mainSearch.style.border = '1px solid #444';
+		mainSearch.style.borderRadius = '6px';
+		mainSearch.style.background = '#1f2327';
+		mainSearch.style.color = '#fff';
+		mainSearchWrap.appendChild(mainSearch);
+		itemSelectOptions.appendChild(mainSearchWrap);
 
-			const img = document.createElement('img');
-			img.src = item.icon ? (item.icon) : '';
-			img.alt = item.name || key;
-			img.style.width = '28px';
-			img.style.height = '28px';
-			img.style.objectFit = 'contain';
-			img.style.borderRadius = '4px';
+		const mainList = document.createElement('div');
+		itemSelectOptions.appendChild(mainList);
 
-			const span = document.createElement('span');
-			span.textContent = item.name || key;
-			span.style.flex = '1';
+		function renderMainOptions(filter = '') {
+			const f = filter.trim().toLowerCase();
+			mainList.innerHTML = '';
+			Object.entries(items).forEach(([key, item]) => {
+				const label = (item.name || key);
+				if (f && !(label.toLowerCase().includes(f) || key.toLowerCase().includes(f))) return;
+				const row = document.createElement('div');
+				row.className = 'item-option';
+				row.style.display = 'flex';
+				row.style.alignItems = 'center';
+				row.style.gap = '0.5rem';
+				row.style.padding = '6px';
+				row.style.borderRadius = '6px';
+				row.style.cursor = 'pointer';
+				row.dataset.key = key;
 
-			row.appendChild(img);
-			row.appendChild(span);
+				const img = document.createElement('img');
+				img.src = item.icon ? (item.icon) : '';
+				img.alt = label;
+				img.style.width = '28px';
+				img.style.height = '28px';
+				img.style.objectFit = 'contain';
+				img.style.borderRadius = '4px';
 
-			row.addEventListener('click', () => {
-				// Set hidden input value and update visible label/icon
-				itemSelect.value = key;
-				itemSelectLabel.textContent = item.name || key;
-				if (item.icon) {
-					itemSelectIcon.src = item.icon;
-					itemSelectIcon.style.display = 'inline-block';
-				} else {
-					itemSelectIcon.style.display = 'none';
-				}
-				// Trigger change so existing listeners (rate disabling, etc.) run
-				itemSelect.dispatchEvent(new Event('change'));
-				// Hide options
-				itemSelectOptions.style.display = 'none';
+				const span = document.createElement('span');
+				span.textContent = label;
+				span.style.flex = '1';
+
+				row.appendChild(img);
+				row.appendChild(span);
+
+				row.addEventListener('click', () => {
+					// Set hidden input value and update visible label/icon
+					itemSelect.value = key;
+					itemSelectLabel.textContent = label;
+					if (item.icon) {
+						itemSelectIcon.src = item.icon;
+						itemSelectIcon.style.display = 'inline-block';
+					} else {
+						itemSelectIcon.style.display = 'none';
+					}
+					// Trigger change so existing listeners (rate disabling, etc.) run
+					itemSelect.dispatchEvent(new Event('change'));
+					// Hide options
+					itemSelectOptions.style.display = 'none';
+				});
+
+				// Hover effect
+				row.addEventListener('mouseenter', () => { row.style.background = '#2b2f33'; });
+				row.addEventListener('mouseleave', () => { row.style.background = 'transparent'; });
+
+				mainList.appendChild(row);
 			});
+		}
 
-			// Hover effect
-			row.addEventListener('mouseenter', () => { row.style.background = '#2b2f33'; });
-			row.addEventListener('mouseleave', () => { row.style.background = 'transparent'; });
+		// Initial render
+		renderMainOptions('');
 
-			itemSelectOptions.appendChild(row);
+		// Search filter
+		mainSearch.addEventListener('input', () => {
+			renderMainOptions(mainSearch.value);
 		});
 
 		// Toggle dropdown visibility
 		itemSelectToggle.addEventListener('click', (e) => {
 			e.stopPropagation();
 			itemSelectOptions.style.display = itemSelectOptions.style.display === 'block' ? 'none' : 'block';
+			if (itemSelectOptions.style.display === 'block') {
+				// Focus search for quick filtering
+				const inp = itemSelectOptions.querySelector('input[type="text"]');
+				if (inp) setTimeout(() => inp.focus(), 0);
+			}
 		});
 
 		// Close dropdown when clicking outside
@@ -1576,42 +1615,70 @@
 						const iconEl = container.querySelector('.avail-item-icon');
 						const optionsEl = container.querySelector('.avail-item-options');
 
-						// Build options list
+						// Build options list with search
 						optionsEl.innerHTML = '';
-						Object.entries(items).forEach(([k, it]) => {
-							const optRow = document.createElement('div');
-							optRow.style.display = 'flex';
-							optRow.style.alignItems = 'center';
-							optRow.style.gap = '0.5rem';
-							optRow.style.padding = '6px';
-							optRow.style.borderRadius = '6px';
-							optRow.style.cursor = 'pointer';
-							optRow.dataset.key = k;
-							const oimg = document.createElement('img');
-							oimg.src = it.icon ? (it.icon) : '';
-							oimg.alt = it.name || k;
-							oimg.style.width = '24px';
-							oimg.style.height = '24px';
-							oimg.style.objectFit = 'contain';
-							oimg.style.borderRadius = '4px';
-							const ospan = document.createElement('span');
-							ospan.textContent = it.name || k;
-							ospan.style.flex = '1';
-							optRow.appendChild(oimg);
-							optRow.appendChild(ospan);
-							optRow.addEventListener('mouseenter', () => { optRow.style.background = '#2b2f33'; });
-							optRow.addEventListener('mouseleave', () => { optRow.style.background = 'transparent'; });
-							optRow.addEventListener('click', (ev) => {
-								ev.stopPropagation();
-								availableItemsList[idx].item = k;
-								if (items[k]?.type === 'nonsolid') {
-									availableItemsList[idx].amount = null;
-								}
-								// Re-render to reflect new selection and amount cell
-								renderAvailableItemsTable();
+						const searchWrap = document.createElement('div');
+						searchWrap.style.padding = '4px';
+						const searchInput = document.createElement('input');
+						searchInput.type = 'text';
+						searchInput.placeholder = 'Search items...';
+						searchInput.style.width = '100%';
+						searchInput.style.boxSizing = 'border-box';
+						searchInput.style.padding = '6px 8px';
+						searchInput.style.marginBottom = '4px';
+						searchInput.style.border = '1px solid #444';
+						searchInput.style.borderRadius = '6px';
+						searchInput.style.background = '#1f2327';
+						searchInput.style.color = '#fff';
+						searchWrap.appendChild(searchInput);
+						optionsEl.appendChild(searchWrap);
+
+						const list = document.createElement('div');
+						optionsEl.appendChild(list);
+
+						function renderOpts(filter = '') {
+							const f = filter.trim().toLowerCase();
+							list.innerHTML = '';
+							Object.entries(items).forEach(([k, it]) => {
+								const label = (it.name || k);
+								if (f && !(label.toLowerCase().includes(f) || k.toLowerCase().includes(f))) return;
+								const optRow = document.createElement('div');
+								optRow.style.display = 'flex';
+								optRow.style.alignItems = 'center';
+								optRow.style.gap = '0.5rem';
+								optRow.style.padding = '6px';
+								optRow.style.borderRadius = '6px';
+								optRow.style.cursor = 'pointer';
+								optRow.dataset.key = k;
+								const oimg = document.createElement('img');
+								oimg.src = it.icon ? (it.icon) : '';
+								oimg.alt = label;
+								oimg.style.width = '24px';
+								oimg.style.height = '24px';
+								oimg.style.objectFit = 'contain';
+								oimg.style.borderRadius = '4px';
+								const ospan = document.createElement('span');
+								ospan.textContent = label;
+								ospan.style.flex = '1';
+								optRow.appendChild(oimg);
+								optRow.appendChild(ospan);
+								optRow.addEventListener('mouseenter', () => { optRow.style.background = '#2b2f33'; });
+								optRow.addEventListener('mouseleave', () => { optRow.style.background = 'transparent'; });
+								optRow.addEventListener('click', (ev) => {
+									ev.stopPropagation();
+									availableItemsList[idx].item = k;
+									if (items[k]?.type === 'nonsolid') {
+										availableItemsList[idx].amount = null;
+									}
+									// Re-render to reflect new selection and amount cell
+									renderAvailableItemsTable();
+								});
+								list.appendChild(optRow);
 							});
-							optionsEl.appendChild(optRow);
-						});
+						}
+
+						renderOpts('');
+						searchInput.addEventListener('input', () => renderOpts(searchInput.value));
 
 						// Toggle behavior
 						toggleBtn.addEventListener('click', (ev) => {
@@ -1626,7 +1693,10 @@
 					if (!window.__availDropdownCloserBound) {
 						window.__availDropdownCloserBound = true;
 						document.addEventListener('click', (e) => {
-							if (!document.getElementById('available-items-modal').contains(e.target)) return;
+							const modalEl = document.getElementById('available-items-modal');
+							if (!modalEl.contains(e.target)) return;
+							const insideDropdown = e.target.closest && (e.target.closest('.avail-item-options') || e.target.closest('.avail-item-toggle'));
+							if (insideDropdown) return;
 							Array.from(document.querySelectorAll('#available-items-table .avail-item-options')).forEach(el => el.style.display = 'none');
 						});
 					}
@@ -2014,13 +2084,8 @@
 					let showRate = item.type !== 'nonsolid';
 					nodeMap[nodeId].label = showRate ? `${item.name}\n${nodeMap[nodeId].rate.toFixed(2)}${depth === 0 ? ' /min' : ''}` : `${item.name}`;
 				}
-				if (parentId) {
-					// Only add unique edges
-					if (!nodeMap[nodeId].parents.has(parentId)) {
-						edges.push({ from: nodeId, to: parentId, arrows: 'to', color: '#fff', width: 2 });
-						nodeMap[nodeId].parents.add(parentId);
-					}
-				}
+				// Note: intentionally do not add an edge from current node to parent here.
+				// All edges are drawn from input (child) -> current node to avoid bidirectional/circular arrows.
 				if (!plans) return { nodes, edges };
 				plans.forEach((plan, i) => {
 					const recipe = plan.recipe;
