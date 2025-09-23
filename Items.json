@@ -1,0 +1,1724 @@
+[	
+    {
+		"id": "AdvSolarModuleWithPanel",
+		"name": "Advanced Solar Module With Panel",
+		"icon": "Icons/T_Icon_advsolarmodulewithpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AdvancedHeatSink",
+		"name": "Advanced Heat Sink",
+		"icon": "Icons/T_Icon_advancedheatsink.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AdvancedOpticalInverter",
+		"name": "Advanced Optical Inverter",
+		"icon": "Icons/T_Icon_advancedopticalinverter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AdvancedSolarModule",
+		"name": "Advanced Solar Module",
+		"icon": "Icons/T_Icon_advancedsolarmodule.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AdvancedSolarTransmitter",
+		"name": "Advanced Solar Transmitter",
+		"icon": "Icons/T_Icon_advancedsolartransmitter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AlkalineCrystallizationAgent",
+		"name": "Alkaline Crystallization Agent",
+		"icon": "Icons/T_Icon_alkalinecrystallizationagent.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AlloySuspendedMagneticFieldGenerator",
+		"name": "Alloy Suspended Magnetic Field Generator",
+		"icon": "Icons/T_Icon_alloysuspendedmagneticfieldgenerator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Aluminum",
+		"name": "Aluminum",
+		"icon": "Icons/T_Icon_aluminum.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AluminumBar",
+		"name": "Aluminum Bar",
+		"icon": "Icons/T_Icon_aluminumbar.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AluminumCoating",
+		"name": "Aluminum Coating",
+		"icon": "Icons/T_Icon_aluminumcoating.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AluminumFrame",
+		"name": "Aluminum Frame",
+		"icon": "Icons/T_Icon_aluminumframe.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AluminumIngot",
+		"name": "Aluminum Ingot",
+		"icon": "Icons/T_Icon_aluminumingot.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AluminumProfile",
+		"name": "Aluminum Profile",
+		"icon": "Icons/T_Icon_aluminumprofile.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralEtherLens",
+		"name": "Astral Ether Lens",
+		"icon": "Icons/T_Icon_astraletherlens.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralInfusedProcessingCrystal",
+		"name": "Astral Infused Processing Crystal",
+		"icon": "Icons/T_Icon_astralinfusedprocessingcrystal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralPowerCore",
+		"name": "Astral Power Core",
+		"icon": "Icons/T_Icon_astralpowercore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralShadowModule",
+		"name": "Astral Shadow Module",
+		"icon": "Icons/T_Icon_astralshadowmodule.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralShadowOcilator",
+		"name": "Astral Shadow Ocilator",
+		"icon": "Icons/T_Icon_astralshadowocilator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralSignalTransponder",
+		"name": "Astral Signal Transponder",
+		"icon": "Icons/T_Icon_astralsignaltransponder.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstralVoidEnergyCascade",
+		"name": "Astral Void Energy Cascade",
+		"icon": "Icons/T_Icon_astralvoidenergycascade.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Astralite",
+		"name": "Astralite",
+		"icon": "Icons/T_Icon_astralite.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstraliteFragment",
+		"name": "Astralite Fragment",
+		"icon": "Icons/T_Icon_astralitefragment.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstraliteInfusedCore",
+		"name": "Astralite Infused Core",
+		"icon": "Icons/T_Icon_astraliteinfusedcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstraliteReinforcementPanel",
+		"name": "Astralite Reinforcement Panel",
+		"icon": "Icons/T_Icon_astralitereinforcementpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AstraliteSingularityDrive",
+		"name": "Astralite Singularity Drive",
+		"icon": "Icons/T_Icon_astralitesingularitydrive.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AutoIrrigation",
+		"name": "Auto Irrigation",
+		"icon": "Icons/T_Icon_autoirrigation.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AutomatedSingularityConverter",
+		"name": "Automated Singularity Converter",
+		"icon": "Icons/T_Icon_automatedsingularityconverter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AutomaticControlPanel",
+		"name": "Automatic Control Panel",
+		"icon": "Icons/T_Icon_automaticcontrolpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "AutomaticGreenhouse",
+		"name": "Automatic Greenhouse",
+		"icon": "Icons/T_Icon_automaticgreenhouse.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Barrel",
+		"name": "Barrel",
+		"icon": "Icons/T_Icon_barrel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "BarrelOfAstralShadow",
+		"name": "Barrel Of Astral Shadow",
+		"icon": "Icons/T_Icon_barrelofastralshadow.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Basalt",
+		"name": "Basalt",
+		"icon": "Icons/T_Icon_basalt.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "BasaltComposite",
+		"name": "Basalt Composite",
+		"icon": "Icons/T_Icon_basaltcomposite.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "BasaltHeatSink",
+		"name": "Basalt Heat Sink",
+		"icon": "Icons/T_Icon_basaltheatsink.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "BioChemicalExtractionUnit",
+		"name": "Bio Chemical Extraction Unit",
+		"icon": "Icons/T_Icon_biochemicalextractionunit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "BioeletricExtractionCore",
+		"name": "Bioeletric Extraction Core",
+		"icon": "Icons/T_Icon_bioeletricextractioncore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Biomass",
+		"name": "Biomass",
+		"icon": "Icons/T_Icon_biomass.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Bitumen",
+		"name": "Bitumen",
+		"icon": "Icons/T_Icon_bitumen.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CelestialFluxEngine",
+		"name": "Celestial Flux Engine",
+		"icon": "Icons/T_Icon_celestialfluxengine.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChromiumCrystal",
+		"name": "Chromium Crystal",
+		"icon": "Icons/T_Icon_chromiumcrystal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChromiumCrystalCore",
+		"name": "Chromium Crystal Core",
+		"icon": "Icons/T_Icon_chromiumcrystalcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChromiumCrystalWafer",
+		"name": "Chromium Crystal Wafer",
+		"icon": "Icons/T_Icon_chromiumcrystalwafer.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChromiumLuminaryMatrix",
+		"name": "Chromium Luminary Matrix",
+		"icon": "Icons/T_Icon_chromiumluminarymatrix.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChronoReactorCoil",
+		"name": "Chrono Reactor Coil",
+		"icon": "Icons/T_Icon_chronoreactorcoil.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChronoResonanceMatrix",
+		"name": "Chrono Resonance Matrix",
+		"icon": "Icons/T_Icon_chronoresonancematrix.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ChronoShadowPlate",
+		"name": "Chrono Shadow Plate",
+		"icon": "Icons/T_Icon_chronoshadowplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CircuitMemoryArray",
+		"name": "Circuit Memory Array",
+		"icon": "Icons/T_Icon_circuitmemoryarray.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Coal",
+		"name": "Coal",
+		"icon": "Icons/T_Icon_coal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CompressedAlloyQuantumSandwich",
+		"name": "Compressed Alloy Quantum Sandwich",
+		"icon": "Icons/T_Icon_compressedalloyquantumsandwich.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CompressedBasalt",
+		"name": "Compressed Basalt",
+		"icon": "Icons/T_Icon_compressedbasalt.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CompressedShadowOpal",
+		"name": "Compressed Shadow Opal",
+		"icon": "Icons/T_Icon_compressedshadowopal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Concrete",
+		"name": "Concrete",
+		"icon": "Icons/T_Icon_concrete.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ConcreteBlock",
+		"name": "Concrete Block",
+		"icon": "Icons/T_Icon_concreteblock.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CondensedEtherPulseEngine",
+		"name": "Condensed Ether Pulse Engine",
+		"icon": "Icons/T_Icon_condensedetherpulseengine.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Copper",
+		"name": "Copper",
+		"icon": "Icons/T_Icon_copper.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CopperBars",
+		"name": "Copper Bars",
+		"icon": "Icons/T_Icon_copperbars.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CopperFilament",
+		"name": "Copper Filament",
+		"icon": "Icons/T_Icon_copperfilament.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CopperPipe",
+		"name": "Copper Pipe",
+		"icon": "Icons/T_Icon_copperpipe.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CosmicGallon",
+		"name": "Cosmic Gallon",
+		"icon": "Icons/T_Icon_cosmicgallon.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CryogenicFuelCell",
+		"name": "Cryogenic Fuel Cell",
+		"icon": "Icons/T_Icon_cryogenicfuelcell.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CrystalPressureModulator",
+		"name": "Crystal Pressure Modulator",
+		"icon": "Icons/T_Icon_crystalpressuremodulator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CrystallineSynchronizationPlate",
+		"name": "Crystalline Synchronization Plate",
+		"icon": "Icons/T_Icon_crystallinesynchronizationplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "CrystallizedDiamondCore",
+		"name": "Crystallized Diamond Core",
+		"icon": "Icons/T_Icon_crystallizeddiamondcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "DeepCoreSensorNode",
+		"name": "Deep Core Sensor Node",
+		"icon": "Icons/T_Icon_deepcoresensornode.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Diamond",
+		"name": "Diamond",
+		"icon": "Icons/T_Icon_diamond.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "DiamondDust",
+		"name": "Diamond Dust",
+		"icon": "Icons/T_Icon_diamonddust.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "DiamondSingularityCore",
+		"name": "Diamond Singularity Core",
+		"icon": "Icons/T_Icon_diamondsingularitycore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EnergizedCrystalLens",
+		"name": "Energized Crystal Lens",
+		"icon": "Icons/T_Icon_energizedcrystallens.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EnrichedUraniumPellet",
+		"name": "Enriched Uranium Pellet",
+		"icon": "Icons/T_Icon_enricheduraniumpellet.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EtherGuidedFlowRod",
+		"name": "Ether Guided Flow Rod",
+		"icon": "Icons/T_Icon_etherguidedflowrod.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EtherQuartz",
+		"name": "Ether Quartz",
+		"icon": "Icons/T_Icon_etherquartz.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EtherealChromiumEngine",
+		"name": "Ethereal Chromium Engine",
+		"icon": "Icons/T_Icon_etherealchromiumengine.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EtherealPrismaticSphere",
+		"name": "Ethereal Prismatic Sphere",
+		"icon": "Icons/T_Icon_etherealprismaticsphere.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EthericControlModule",
+		"name": "Etheric Control Module",
+		"icon": "Icons/T_Icon_ethericcontrolmodule.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "EtheriumShadowPlate",
+		"name": "Etherium Shadow Plate",
+		"icon": "Icons/T_Icon_etheriumshadowplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "FiltredWaterGallon",
+		"name": "Filtred Water Gallon",
+		"icon": "Icons/T_Icon_filtredwatergallon.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Fluorite",
+		"name": "Fluorite",
+		"icon": "Icons/T_Icon_fluorite.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "FractalProcessingPrism",
+		"name": "Fractal Processing Prism",
+		"icon": "Icons/T_Icon_fractalprocessingprism.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "FracturedSingularityMesh",
+		"name": "Fractured Singularity Mesh",
+		"icon": "Icons/T_Icon_fracturedsingularitymesh.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "FusionFieldStabilizer",
+		"name": "Fusion Field Stabilizer",
+		"icon": "Icons/T_Icon_fusionfieldstabilizer.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "FusionFuelRod",
+		"name": "Fusion Fuel Rod",
+		"icon": "Icons/T_Icon_fusionfuelrod.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Gallon",
+		"name": "Gallon",
+		"icon": "Icons/T_Icon_gallon.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Glass",
+		"name": "Glass",
+		"icon": "Icons/T_Icon_glass.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "GravitationalCoreProcessor",
+		"name": "Gravitational Core Processor",
+		"icon": "Icons/T_Icon_gravitationalcoreprocessor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "HVTransformer",
+		"name": "HV Transformer",
+		"icon": "Icons/T_Icon_hvtransformer.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "HardenedQuartzPlate",
+		"name": "Hardened Quartz Plate",
+		"icon": "Icons/T_Icon_hardenedquartzplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "HyperconductiveProcessingUnit",
+		"name": "Hyperconductive Processing Unit",
+		"icon": "Icons/T_Icon_hyperconductiveprocessingunit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IonFluxBeamEmitter",
+		"name": "Ion Flux Beam Emitter",
+		"icon": "Icons/T_Icon_ionfluxbeamemitter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Iridium",
+		"name": "Iridium",
+		"icon": "Icons/T_Icon_iridium.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IridiumCatalyst",
+		"name": "Iridium Catalyst",
+		"icon": "Icons/T_Icon_iridiumcatalyst.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IridiumPlatedCable",
+		"name": "Iridium Plated Cable",
+		"icon": "Icons/T_Icon_iridiumplatedcable.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IridiumReflector",
+		"name": "Iridium Reflector",
+		"icon": "Icons/T_Icon_iridiumreflector.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Iron",
+		"name": "Iron",
+		"icon": "Icons/T_Icon_iron.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IronBar",
+		"name": "Iron Bar",
+		"icon": "Icons/T_Icon_ironbar.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IronIngot",
+		"name": "Iron Ingot",
+		"icon": "Icons/T_Icon_ironingot.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IronPipe",
+		"name": "Iron Pipe",
+		"icon": "Icons/T_Icon_ironpipe.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "IrrigationSystem",
+		"name": "Irrigation System",
+		"icon": "Icons/T_Icon_irrigationsystem.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "LVTransformer",
+		"name": "LV Transformer",
+		"icon": "Icons/T_Icon_lvtransformer.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "LatticeEncodedMemoryBank",
+		"name": "Lattice Encoded Memory Bank",
+		"icon": "Icons/T_Icon_latticeencodedmemorybank.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "LatticeReinforcedConduit",
+		"name": "Lattice Reinforced Conduit",
+		"icon": "Icons/T_Icon_latticereinforcedconduit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "LuminaryCrystalCore",
+		"name": "Luminary Crystal Core",
+		"icon": "Icons/T_Icon_luminarycrystalcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "MagneticCoolingRegulator",
+		"name": "Magnetic Cooling Regulator",
+		"icon": "Icons/T_Icon_magneticcoolingregulator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "MagneticIndunctionCoil",
+		"name": "Magnetic Induction Coil",
+		"icon": "Icons/T_Icon_magneticindunctioncoil.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "MagneticNickelRod",
+		"name": "Magnetic Nickel Rod",
+		"icon": "Icons/T_Icon_magneticnickelrod.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "MultiphaseAlloyReactor",
+		"name": "Multiphase Alloy Reactor",
+		"icon": "Icons/T_Icon_multiphasealloyreactor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NanoInsulatedWiringSet",
+		"name": "Nano Insulated Wiring Set",
+		"icon": "Icons/T_Icon_nanoinsulatedwiringset.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NanoMagneticFlowRegulator",
+		"name": "Nano Magnetic Flow Regulator",
+		"icon": "Icons/T_Icon_nanomagneticflowregulator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NebulaInfusedOpal",
+		"name": "Nebula Infused Opal",
+		"icon": "Icons/T_Icon_nebulainfusedopal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Nebulite",
+		"name": "Nebulite",
+		"icon": "Icons/T_Icon_nebulite.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NebulitePrism",
+		"name": "Nebulite Prism",
+		"icon": "Icons/T_Icon_nebuliteprism.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeuralControlInterface",
+		"name": "Neural Control Interface",
+		"icon": "Icons/T_Icon_neuralcontrolinterface.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeuralPhaseThread",
+		"name": "Neural Phase Thread",
+		"icon": "Icons/T_Icon_neuralphasethread.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeutronFluxGenerator",
+		"name": "Neutron Flux Generator",
+		"icon": "Icons/T_Icon_neutronfluxgenerator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeutronStabilizedCore",
+		"name": "Neutron Stabilized Core",
+		"icon": "Icons/T_Icon_neutronstabilizedcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeutroniumStabilizationBrace",
+		"name": "Neutronium Stabilization Brace",
+		"icon": "Icons/T_Icon_neutroniumstabilizationbrace.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NeutronizedCoolingPillar",
+		"name": "Neutronized Cooling Pillar",
+		"icon": "Icons/T_Icon_neutronizedcoolingpillar.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Nickel",
+		"name": "Nickel",
+		"icon": "Icons/T_Icon_nickel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "NickelInfusedWire",
+		"name": "Nickel Infused Wire",
+		"icon": "Icons/T_Icon_nickelinfusedwire.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "OminidirectionalHeatFilter",
+		"name": "Ominidirectional Heat Filter",
+		"icon": "Icons/T_Icon_ominidirectionalheatfilter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "OmniFusedRelayAmplifier",
+		"name": "Omni Fused Relay Amplifier",
+		"icon": "Icons/T_Icon_omnifusedrelayamplifier.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "OmniversalEnergyNexus",
+		"name": "Omniversal Energy Nexus",
+		"icon": "Icons/T_Icon_omniversalenergynexus.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Osmium",
+		"name": "Osmium",
+		"icon": "Icons/T_Icon_osmium.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "OsmiumFilament",
+		"name": "Osmium Filament",
+		"icon": "Icons/T_Icon_osmiumfilament.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "OsmiumReinforcement",
+		"name": "Osmium Reinforcement",
+		"icon": "Icons/T_Icon_osmiumreinforcement.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PhaseCompressionArray",
+		"name": "Phase Compression Array",
+		"icon": "Icons/T_Icon_phasecompressionarray.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PhaseSyncedRelayCircuit",
+		"name": "Phase Synced Relay Circuit",
+		"icon": "Icons/T_Icon_phasesyncedrelaycircuit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PhotonicDiamondLayer",
+		"name": "Photonic Diamond Layer",
+		"icon": "Icons/T_Icon_photonicdiamondlayer.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlasmaConductorArray",
+		"name": "Plasma Conductor Array",
+		"icon": "Icons/T_Icon_plasmaconductorarray.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Plastic",
+		"name": "Plastic",
+		"icon": "Icons/T_Icon_plastic.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlasticFrame",
+		"name": "Plastic Frame",
+		"icon": "Icons/T_Icon_plasticframe.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlasticMold",
+		"name": "Plastic Mold",
+		"icon": "Icons/T_Icon_plasticmold.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Platinum",
+		"name": "Platinum",
+		"icon": "Icons/T_Icon_platinum.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlatinumCatalyst",
+		"name": "Platinum Catalyst",
+		"icon": "Icons/T_Icon_platinumcatalyst.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlatinumCoil",
+		"name": "Platinum Coil",
+		"icon": "Icons/T_Icon_platinumcoil.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlatinumPrecisionGear",
+		"name": "Platinum Precision Gear",
+		"icon": "Icons/T_Icon_platinumprecisiongear.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PlatonicMemoryCore",
+		"name": "Platonic Memory Core",
+		"icon": "Icons/T_Icon_platonicmemorycore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PolycrystallineSilicon",
+		"name": "Polycrystalline Silicon",
+		"icon": "Icons/T_Icon_polycrystallinesilicon.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PowerCable",
+		"name": "Power Cable",
+		"icon": "Icons/T_Icon_powercable.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "PulseEnergyMatrix",
+		"name": "Pulse Energy Matrix",
+		"icon": "Icons/T_Icon_pulseenergymatrix.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumCooledReactorCasing",
+		"name": "Quantum Cooled Reactor Casing",
+		"icon": "Icons/T_Icon_quantumcooledreactorcasing.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumDataCompressor",
+		"name": "Quantum Data Compressor",
+		"icon": "Icons/T_Icon_quantumdatacompressor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumNebuliteSphere",
+		"name": "Quantum Nebulite Sphere",
+		"icon": "Icons/T_Icon_quantumnebulitesphere.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumQuartzCore",
+		"name": "Quantum Quartz Core",
+		"icon": "Icons/T_Icon_quantumquartzcore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumResonantLensCore",
+		"name": "Quantum Resonant Lens Core",
+		"icon": "Icons/T_Icon_quantumresonantlenscore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumSignalRelay",
+		"name": "Quantum Signal Relay",
+		"icon": "Icons/T_Icon_quantumsignalrelay.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuantumStabilizedAlloy",
+		"name": "Quantum Stabilized Alloy",
+		"icon": "Icons/T_Icon_quantumstabilizedalloy.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Quartz",
+		"name": "Quartz",
+		"icon": "Icons/T_Icon_quartz.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "QuartzInsulatedGlass",
+		"name": "Quartz Insulated Glass",
+		"icon": "Icons/T_Icon_quartzinsulatedglass.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RadiantCrystalAmplifier",
+		"name": "Radiant Crystal Amplifier",
+		"icon": "Icons/T_Icon_radiantcrystalamplifier.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RadiationShieldingPanel",
+		"name": "Radiation Shielding Panel",
+		"icon": "Icons/T_Icon_radiationshieldingpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RailwayTrack",
+		"name": "Railway Track",
+		"icon": "Icons/T_Icon_railwaytrack.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Railwayline",
+		"name": "Railway Line",
+		"icon": "Icons/T_Icon_railwayline.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReactiveAlloyCasing",
+		"name": "Reactive Alloy Casing",
+		"icon": "Icons/T_Icon_reactivealloycasing.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReactiveFlowManipulator",
+		"name": "Reactive Flow Manipulator",
+		"icon": "Icons/T_Icon_reactiveflowmanipulator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RefinedEtherQuartz",
+		"name": "Refined Ether Quartz",
+		"icon": "Icons/T_Icon_refinedetherquartz.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RefinedUraniumRod",
+		"name": "Refined Uranium Rod",
+		"icon": "Icons/T_Icon_refineduraniumrod.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReinforcedAluminumBeams",
+		"name": "Reinforced Aluminum Beams",
+		"icon": "Icons/T_Icon_reinforcedaluminumbeams.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReinforcedConcrete",
+		"name": "Reinforced Concrete",
+		"icon": "Icons/T_Icon_reinforcedconcrete.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReinforcedGlassScreen",
+		"name": "Reinforced Glass Screen",
+		"icon": "Icons/T_Icon_reinforcedglassscreen.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReinforcedNail",
+		"name": "Reinforced Nail",
+		"icon": "Icons/T_Icon_reinforcednail.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ReinforcedSteelPlate",
+		"name": "Reinforced Steel Plate",
+		"icon": "Icons/T_Icon_reinforcedsteelplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Ruby",
+		"name": "Ruby",
+		"icon": "Icons/T_Icon_ruby.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RubyCircuitInlay",
+		"name": "Ruby Circuit Inlay",
+		"icon": "Icons/T_Icon_rubycircuitinlay.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "RubyLens",
+		"name": "Ruby Lens",
+		"icon": "Icons/T_Icon_rubylens.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Salt",
+		"name": "Salt",
+		"icon": "Icons/T_Icon_salt.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Saphire",
+		"name": "Sapphire",
+		"icon": "Icons/T_Icon_saphire.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SapphireConduit",
+		"name": "Sapphire Conduit",
+		"icon": "Icons/T_Icon_sapphireconduit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SapphireEnergyCell",
+		"name": "Sapphire Energy Cell",
+		"icon": "Icons/T_Icon_sapphireenergycell.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ShadowNebulaCore",
+		"name": "Shadow Nebula Core",
+		"icon": "Icons/T_Icon_shadownebulacore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ShadowOpal",
+		"name": "Shadow Opal",
+		"icon": "Icons/T_Icon_shadowopal.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ShadowOpalShard",
+		"name": "Shadow Opal Shard",
+		"icon": "Icons/T_Icon_shadowopalshard.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ShadowglassCapacitor",
+		"name": "Shadowglass Capacitor",
+		"icon": "Icons/T_Icon_shadowglasscapacitor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Silicon",
+		"name": "Silicon",
+		"icon": "Icons/T_Icon_silicon.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SiliconDiode",
+		"name": "Silicon Diode",
+		"icon": "Icons/T_Icon_silicondiode.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SiliconPlate",
+		"name": "Silicon Plate",
+		"icon": "Icons/T_Icon_siliconplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Singularity1",
+		"name": "Quantum Core Singularity",
+		"icon": "Icons/T_Icon_singularity1.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Singularity2",
+		"name": "Stellar Nexus Singularity",
+		"icon": "Icons/T_Icon_singularity2.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Singularity3",
+		"name": "Cosmic Singularity",
+		"icon": "Icons/T_Icon_singularity3.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Singularity4",
+		"name": "Singularity 4",
+		"icon": "Icons/T_Icon_singularity4.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Singularity5",
+		"name": "Galactic Essence Singularity",
+		"icon": "Icons/T_Icon_singularity5.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SingularityInfusedActuator",
+		"name": "Singularity Infused Actuator",
+		"icon": "Icons/T_Icon_singularityinfusedactuator.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarCell",
+		"name": "Solar Cell",
+		"icon": "Icons/T_Icon_solarcell.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarControlPanel",
+		"name": "Solar Control Panel",
+		"icon": "Icons/T_Icon_solarcontrolpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarLantern",
+		"name": "Solar Lantern",
+		"icon": "Icons/T_Icon_solarlantern.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarLightingModule",
+		"name": "Solar Lighting Module",
+		"icon": "Icons/T_Icon_solarlightingmodule.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarLightingTower",
+		"name": "Solar Lighting Tower",
+		"icon": "Icons/T_Icon_solarlightingtower.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SolarPanel",
+		"name": "Solar Panel",
+		"icon": "Icons/T_Icon_solarpanel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Steel",
+		"name": "Steel",
+		"icon": "Icons/T_Icon_steel.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SteelSheets",
+		"name": "Steel Sheets",
+		"icon": "Icons/T_Icon_steelsheets.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "StellarChromiumModule",
+		"name": "Stellar Chromium Module",
+		"icon": "Icons/T_Icon_stellarchromiummodule.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Stone",
+		"name": "Stone",
+		"icon": "Icons/T_Icon_stone.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "StoneBlock",
+		"name": "Stone Block",
+		"icon": "Icons/T_Icon_stoneblock.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "StructuralCable",
+		"name": "Structural Cable",
+		"icon": "Icons/T_Icon_structuralcable.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Substrate",
+		"name": "Substrate",
+		"icon": "Icons/T_Icon_substrate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Sulfur",
+		"name": "Sulfur",
+		"icon": "Icons/T_Icon_sulfur.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SupercompressedPhaseAlloy",
+		"name": "Supercompressed Phase Alloy",
+		"icon": "Icons/T_Icon_supercompressedphasealloy.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SuperluminalRelayCore",
+		"name": "Superluminal Relay Core",
+		"icon": "Icons/T_Icon_superluminalrelaycore.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SupportBeams",
+		"name": "Support Beams",
+		"icon": "Icons/T_Icon_supportbeams.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SynapticFiberCoil",
+		"name": "Synaptic Fiber Coil",
+		"icon": "Icons/T_Icon_synapticfibercoil.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "SyntheticCircuitSubbrain",
+		"name": "Synthetic Circuit Subbrain",
+		"icon": "Icons/T_Icon_syntheticcircuitsubbrain.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TemporalDivergenceArray",
+		"name": "Temporal Divergence Array",
+		"icon": "Icons/T_Icon_temporaldivergencearray.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TemporalPrismCircuit",
+		"name": "Temporal Prism Circuit",
+		"icon": "Icons/T_Icon_temporalprismcircuit.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TemporalRefractionInverter",
+		"name": "Temporal Refraction Inverter",
+		"icon": "Icons/T_Icon_temporalrefractioninverter.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ThermoeletricInterfaceChip",
+		"name": "Thermoelectric Interface Chip",
+		"icon": "Icons/T_Icon_thermoeletricinterfacechip.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TitaniuMesh",
+		"name": "Titanium Mesh",
+		"icon": "Icons/T_Icon_titaniumesh.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Titanium",
+		"name": "Titanium",
+		"icon": "Icons/T_Icon_titanium.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TitaniumAlloyPlate",
+		"name": "Titanium Alloy Plate",
+		"icon": "Icons/T_Icon_titaniumalloyplate.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TitaniumInfusionEngine",
+		"name": "Titanium Infusion Engine",
+		"icon": "Icons/T_Icon_titaniuminfusionengine.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TitaniumLattice",
+		"name": "Titanium Lattice",
+		"icon": "Icons/T_Icon_titaniumlattice.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TriCrystalFusionNode",
+		"name": "Tri-Crystal Fusion Node",
+		"icon": "Icons/T_Icon_tricrystalfusionnode.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "TunedQuantumProcessor",
+		"name": "Tuned Quantum Processor",
+		"icon": "Icons/T_Icon_tunedquantumprocessor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Uranium",
+		"name": "Uranium",
+		"icon": "Icons/T_Icon_uranium.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "UraniumIonCell",
+		"name": "Uranium Ion Cell",
+		"icon": "Icons/T_Icon_uraniumioncell.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "VoidNebulaReactor",
+		"name": "Void Nebula Reactor",
+		"icon": "Icons/T_Icon_voidnebulareactor.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "VoidStabilizedContainmentRing",
+		"name": "Void Stabilized Containment Ring",
+		"icon": "Icons/T_Icon_voidstabilizedcontainmentring.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "VoidglassFocusingArray",
+		"name": "Voidglass Focusing Array",
+		"icon": "Icons/T_Icon_voidglassfocusingarray.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "VoidglassImplosionDamper",
+		"name": "Voidglass Implosion Damper",
+		"icon": "Icons/T_Icon_voidglassimplosiondamper.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "WaterFiltrationDevice",
+		"name": "Water Filtration Device",
+		"icon": "Icons/T_Icon_waterfiltrationdevice.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Wood",
+		"name": "Wood",
+		"icon": "Icons/T_Icon_wood.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "WoodBoard",
+		"name": "Wood Board",
+		"icon": "Icons/T_Icon_woodboard.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "WoodPlank",
+		"name": "Wood Plank",
+		"icon": "Icons/T_Icon_woodplank.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Zinc",
+		"name": "Zinc",
+		"icon": "Icons/T_Icon_zinc.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ZincCarbonMatrix",
+		"name": "Zinc Carbon Matrix",
+		"icon": "Icons/T_Icon_zinccarbonmatrix.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "ZincPlating",
+		"name": "Zinc Plating",
+		"icon": "Icons/T_Icon_zincplating.PNG",
+		"type": "solid"
+	},
+	{
+		"id": "Brine",
+		"name": "Brine",
+		"icon": "Icons/T_Icon_brine.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Chloride",
+		"name": "Chloride",
+		"icon": "Icons/T_Icon_chloride.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "ChromiumSuspension",
+		"name": "Chromium Suspension",
+		"icon": "Icons/T_Icon_chromiumsuspension.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "ChronoCatalystGel",
+		"name": "Chrono Catalyst Gel",
+		"icon": "Icons/T_Icon_chronocatalystgel.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CompressedAstralShadow",
+		"name": "Compressed Astral Shadow",
+		"icon": "Icons/T_Icon_compressedastralshadow.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CompressedTransformationSingularity",
+		"name": "Compressed Transformation Singularity",
+		"icon": "Icons/T_Icon_compressedtransformationsingularity.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CondensedHelium3",
+		"name": "Condensed Helium-3",
+		"icon": "Icons/T_Icon_condensedhelium3.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CooperFluxVapor",
+		"name": "Copper Flux Vapor",
+		"icon": "Icons/T_Icon_cooperfluxvapor.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CopperFluxSuspension",
+		"name": "Copper Flux Suspension",
+		"icon": "Icons/T_Icon_copperfluxsuspension.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "CryoalkalineSolution",
+		"name": "Cryoalkaline Solution",
+		"icon": "Icons/T_Icon_cryoalkalinesolution.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Deuterium",
+		"name": "Deuterium",
+		"icon": "Icons/T_Icon_deuterium.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "DiamondSlurry",
+		"name": "Diamond Slurry",
+		"icon": "Icons/T_Icon_diamondslurry.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "EthericBinderGel",
+		"name": "Etheric Binder Gel",
+		"icon": "Icons/T_Icon_ethericbindergel.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Ethylene",
+		"name": "Ethylene",
+		"icon": "Icons/T_Icon_ethylene.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "FiltratedWater",
+		"name": "Filtrated Water",
+		"icon": "Icons/T_Icon_filtratedwater.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "HeavyOil",
+		"name": "Heavy Oil",
+		"icon": "Icons/T_Icon_heavyoil.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "HeavyWater",
+		"name": "Heavy Water",
+		"icon": "Icons/T_Icon_heavywater.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Helium3",
+		"name": "Helium-3",
+		"icon": "Icons/T_Icon_helium3.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "HydrofluoricAcid",
+		"name": "Hydrofluoric Acid",
+		"icon": "Icons/T_Icon_hydrofluoricacid.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Hydrogen",
+		"name": "Hydrogen",
+		"icon": "Icons/T_Icon_hydrogen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "HydrogenChloride",
+		"name": "Hydrogen Chloride",
+		"icon": "Icons/T_Icon_hydrogenchloride.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "IonizedHydrogen",
+		"name": "Ionized Hydrogen",
+		"icon": "Icons/T_Icon_ionizedhydrogen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "IridiumSolution",
+		"name": "Iridium Solution",
+		"icon": "Icons/T_Icon_iridiumsolution.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LightOil",
+		"name": "Light Oil",
+		"icon": "Icons/T_Icon_lightoil.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidChloride",
+		"name": "Liquid Chloride",
+		"icon": "Icons/T_Icon_liquidchloride.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidDeuterium",
+		"name": "Liquid Deuterium",
+		"icon": "Icons/T_Icon_liquiddeuterium.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidHydrofluoricAcid",
+		"name": "Liquid Hydrofluoric Acid",
+		"icon": "Icons/T_Icon_liquidhydrofluoricacid.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidHydrogen",
+		"name": "Liquid Hydrogen",
+		"icon": "Icons/T_Icon_liquidhydrogen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidHydrogenChloride",
+		"name": "Liquid Hydrogen Chloride",
+		"icon": "Icons/T_Icon_liquidhydrogenchloride.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidNitrogen",
+		"name": "Liquid Nitrogen",
+		"icon": "Icons/T_Icon_liquidnitrogen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidOxygen",
+		"name": "Liquid Oxygen",
+		"icon": "Icons/T_Icon_liquidoxygen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "LiquidTransformationSingularity",
+		"name": "Liquid Transformation Singularity",
+		"icon": "Icons/T_Icon_liquidtransformationsingularity.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "MeltedAstralShadow",
+		"name": "Melted Astral Shadow",
+		"icon": "Icons/T_Icon_meltedastralshadow.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "MeltedWaterFilter",
+		"name": "Melted Water Filter",
+		"icon": "Icons/T_Icon_meltedwaterfilter.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Nitrogen",
+		"name": "Nitrogen",
+		"icon": "Icons/T_Icon_nitrogen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Oil",
+		"name": "Oil",
+		"icon": "Icons/T_Icon_oil.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Oxygen",
+		"name": "Oxygen",
+		"icon": "Icons/T_Icon_oxygen.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "PlasmaArcEnergy",
+		"name": "Plasma Arc Energy",
+		"icon": "Icons/T_Icon_plasmaarcenergy.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "QuantumEnergySolution",
+		"name": "Quantum Energy Solution",
+		"icon": "Icons/T_Icon_quantumenergysolution.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "QuantumPlasma",
+		"name": "Quantum Plasma",
+		"icon": "Icons/T_Icon_quantumplasma.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Sodium",
+		"name": "Sodium",
+		"icon": "Icons/T_Icon_sodium.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "SodiumHydroxide",
+		"name": "Sodium Hydroxide",
+		"icon": "Icons/T_Icon_sodiumhydroxide.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "StabilizedIridiumMatrix",
+		"name": "Stabilized Iridium Matrix",
+		"icon": "Icons/T_Icon_stabilizediridiummatrix.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "SulfurDioxide",
+		"name": "Sulfur Dioxide",
+		"icon": "Icons/T_Icon_sulfurdioxide.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "SulfurTrioxide",
+		"name": "Sulfur Trioxide",
+		"icon": "Icons/T_Icon_sulfurtrioxide.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "SulfuricAcid",
+		"name": "Sulfuric Acid",
+		"icon": "Icons/T_Icon_sulfuricacid.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "SuperheatedPlasmaCore",
+		"name": "Superheated Plasma Core",
+		"icon": "Icons/T_Icon_superheatedplasmacore.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "TemporalCircuitSlurry",
+		"name": "Temporal Circuit Slurry",
+		"icon": "Icons/T_Icon_temporalcircuitslurry.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "UraniumSuspension",
+		"name": "Uranium Suspension",
+		"icon": "Icons/T_Icon_uraniumsuspension.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "Water",
+		"name": "Water",
+		"icon": "Icons/T_Icon_water.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "WaterSteam",
+		"name": "Water Steam",
+		"icon": "Icons/T_Icon_watersteam.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "ZincSolution",
+		"name": "Zinc Solution",
+		"icon": "Icons/T_Icon_zincsolution.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "catalyzedcarbonbinder",
+		"name": "Catalyzed Carbon Binder",
+		"icon": "Icons/T_Icon_catalyzedcarbonbinder.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "etherealcoolant",
+		"name": "Ethereal Coolant",
+		"icon": "Icons/T_Icon_etherealcoolant.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "hypercooledsuperfluid",
+		"name": "Hypercooled Superfluid",
+		"icon": "Icons/T_Icon_hypercooledsuperfluid.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "liquidcarbon",
+		"name": "Liquid Carbon",
+		"icon": "Icons/T_Icon_liquidcarbon.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "plasmalinkedcatalystgel",
+		"name": "Plasmalinked Catalyst Gel",
+		"icon": "Icons/T_Icon_plasmalinkedcatalystgel.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "reinforceduraniumsuspension",
+		"name": "Reinforced Uranium Suspension",
+		"icon": "Icons/T_Icon_reinforceduraniumsuspension.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "shadowopalsolution",
+		"name": "Shadow Opal Solution",
+		"icon": "Icons/T_Icon_shadowopalsolution.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "stabilizedethericalkalinebase",
+		"name": "Stabilized Etheric Alkaline Base",
+		"icon": "Icons/T_Icon_stabilizedethericalkalinebase.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "stabilizedopalslurry",
+		"name": "Stabilized Opal Slurry",
+		"icon": "Icons/T_Icon_stabilizedopalslurry.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "voidreactionslurry",
+		"name": "Void Reaction Slurry",
+		"icon": "Icons/T_Icon_voidreactionslurry.PNG",
+		"type": "nonsolid"
+	},
+	{
+		"id": "voidstabilizer",
+		"name": "Void Stabilizer",
+		"icon": "Icons/T_Icon_voidstabilizer.PNG",
+		"type": "nonsolid"
+	}
+]
