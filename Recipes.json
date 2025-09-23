@@ -1,0 +1,3108 @@
+[
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "BasaltHeatSink", "rate": 30.0 },
+         {  "item": "ZincPlating", "rate": 120.0 },
+         { "item": "ReinforcedAluminumBeams", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "AdvancedHeatSink", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "BasaltHeatSink", "rate": 60.0 },
+         {  "item": "ZincPlating", "rate": 120.0 },
+         {  "item": "AluminumCoating", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AdvancedHeatSink", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "RubyCircuitInlay", "rate": 60.0 },
+         {  "item": "SiliconDiode", "rate": 180.0 },
+         {  "item": "SolarControlPanel", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AdvancedOpticalInverter", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "SolarCell", "rate": 60.0 },
+         {  "item": "AluminumFrame", "rate": 60.0 },
+         {  "item": "AluminumCoating", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AdvancedSolarModule", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "QuartzInsulatedGlass", "rate": 60.0 },
+         {  "item": "SolarCell", "rate": 120.0 },
+         {  "item": "SapphireConduit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AdvancedSolarTransmitter", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SolarCell", "rate": 120.0 },
+         {  "item": "LiquidHydrogenChloride" },
+         {  "item": "NebulaInfusedOpal", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AdvSolarModuleWithPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "WaterSteam" },
+         {  "item": "ZincSolution" }
+      ],
+      "output": [
+         {  "item": "AlkalineCrystallizationAgent", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "TitaniumInfusionEngine", "rate": 60.0 },
+         {  "item": "MultiphaseAlloyReactor", "rate": 60.0 },
+         {  "item": "ThermoeletricInterfaceChip", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AlloySuspendedMagneticFieldGenerator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Aluminum", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AluminumBar", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AluminumIngot", "rate": 30.0 },
+         {  "item": "AluminumBar", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "AluminumCoating", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AluminumIngot", "rate": 60.0 },
+         {  "item": "AluminumBar", "rate": 60.0 },
+         {  "item": "LiquidChloride" }
+      ],
+      "output": [
+         {  "item": "AluminumCoating", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AluminumProfile", "rate": 60.0 },
+         {  "item": "AluminumBar", "rate": 30.0 },
+         {  "item": "SulfuricAcid" }
+      ],
+      "output": [
+         {  "item": "AluminumFrame", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "AluminumProfile", "rate": 120.0 },
+         {  "item": "AluminumBar", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AluminumFrame", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Aluminum", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AluminumIngot", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Aluminum", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AluminumProfile", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Aluminum", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AluminumProfile", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "AstraliteInfusedCore", "rate": 60.0 },
+         {  "item": "RefinedEtherQuartz", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstralEtherLens", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AstraliteSingularityDrive", "rate": 60.0 },
+         {  "item": "SyntheticCircuitSubbrain", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstralInfusedProcessingCrystal", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Astralite", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteFragment", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Astralite", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteFragment", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Singularity1", "rate": 120.0 },
+         {  "item": "Astralite", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteInfusedCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "QuartzInsulatedGlass", "rate": 60.0 },
+         {  "item": "TitaniumAlloyPlate", "rate": 60.0 },
+         {  "item": "AstraliteFragment", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteReinforcementPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "QuartzInsulatedGlass", "rate": 60.0 },
+         {  "item": "TitaniumAlloyPlate", "rate": 60.0 },
+         {  "item": "WoodBoard", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteReinforcementPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AstralSignalTransponder", "rate": 60.0 },
+         {  "item": "AstraliteInfusedCore", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AstraliteSingularityDrive", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AstralSignalTransponder", "rate": 60.0 },
+         {  "item": "AdvancedSolarTransmitter", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstralPowerCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Sodium" },
+         {  "item": "EtheriumShadowPlate", "rate": 30.0 },
+         {  "item": "LuminaryCrystalCore", "rate": 30.0 },
+         {  "item": "ShadowNebulaCore", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "AstralShadowModule", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ReinforcedGlassScreen", "rate": 120.0 },
+         {  "item": "PlasticMold", "rate": 120.0 },
+         {  "item": "ShadowNebulaCore", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AstralShadowOcilator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "DiamondDust", "rate": 120.0 },
+         {  "item": "AstraliteInfusedCore", "rate": 30.0 },
+         {  "item": "SapphireConduit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstralSignalTransponder", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AstralShadowModule", "rate": 120.0 },
+         {  "item": "AstralInfusedProcessingCrystal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AstralVoidEnergyCascade", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "SolarControlPanel", "rate": 120.0 },
+         {  "item": "IrrigationSystem", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AutoIrrigation", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Singularity3", "rate": 60.0 },
+         {  "item": "SapphireEnergyCell", "rate": 60.0 },
+         {  "item": "AdvancedSolarModule", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "AutomatedSingularityConverter", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PlasticMold", "rate": 30.0 },
+         {  "item": "CopperBars", "rate": 30.0 },
+         {  "item": "SiliconPlate", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "AutomaticControlPanel", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "PlasticMold", "rate": 120.0 },
+         {  "item": "PowerCable", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "AutomaticControlPanel", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "VoidNebulaReactor", "rate": 60.0 },
+         {  "item": "LiquidHydrofluoricAcid" }
+      ],
+      "output": [
+         {  "item": "AutomaticGreenhouse", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "SteelSheets", "rate": 60.0 },
+         {  "item": "Bitumen", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "Barrel", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Barrel", "rate": 10.0 },
+         {  "item": "CompressedAstralShadow" }
+      ],
+      "output": [
+         {  "item": "BarrelOfAstralShadow", "rate": 10.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Basalt", "rate": 60.0 },
+         {  "item": "SulfuricAcid" }
+      ],
+      "output": [
+         {  "item": "BasaltComposite", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Basalt", "rate": 120.0 },
+         {  "item": "SuperheatedPlasmaCore" }
+      ],
+      "output": [
+         {  "item": "BasaltHeatSink", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Basalt", "rate": 240.0 },
+         {  "item": "QuantumPlasma" }
+      ],
+      "output": [
+         {  "item": "BasaltHeatSink", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ZincCarbonMatrix", "rate": 60.0 },
+         {  "item": "Biomass", "rate": 120.0 },
+         {  "item": "QuantumNebuliteSphere", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "BioChemicalExtractionUnit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "BioChemicalExtractionUnit", "rate": 60.0 },
+         {  "item": "ReactiveAlloyCasing", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "BioeletricExtractionCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Oil" }
+      ],
+      "output": [
+         {  "item": "Bitumen", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Water" },
+         {  "item": "Salt", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Brine" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "PlatinumCatalyst", "rate": 60.0 },
+         {  "item": "liquidcarbon" }
+      ],
+      "output": [
+         {  "item": "catalyzedcarbonbinder" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AstralEtherLens", "rate": 60.0 },
+         {  "item": "TemporalPrismCircuit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CelestialFluxEngine", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Brine" }
+      ],
+      "output": [
+         {  "item": "Sodium" },
+         {  "item": "Chloride" }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "ChromiumCrystal", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "ChromiumCrystalCore", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "ChromiumCrystal", "rate": 15.0 }
+      ],
+      "output": [
+         {  "item": "ChromiumCrystalCore", "rate": 15.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "ChromiumCrystal", "rate": 60.0 },
+         {  "item": "PowerCable", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "ChromiumCrystalWafer", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "LuminaryCrystalCore", "rate": 120.0 },
+         {  "item": "TemporalPrismCircuit", "rate": 120.0 },
+         {  "item": "NebulaInfusedOpal", "rate": 60.0 },
+         {  "item": "LiquidHydrogenChloride" },
+         {  "item": "stabilizedethericalkalinebase" }
+      ],
+      "output": [
+         {  "item": "ChromiumLuminaryMatrix", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ChromiumCrystal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ChromiumSuspension" }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "TemporalCircuitSlurry" },
+         {  "item": "StabilizedIridiumMatrix" }
+      ],
+      "output": [
+         {  "item": "ChronoCatalystGel" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "MagneticNickelRod", "rate": 120.0 },
+         {  "item": "TemporalPrismCircuit", "rate": 120.0 },
+         {  "item": "PlatinumPrecisionGear", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ChronoReactorCoil", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ChronoReactorCoil", "rate": 60.0 },
+         {  "item": "TemporalCircuitSlurry" },
+         {  "item": "AdvancedOpticalInverter", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ChronoResonanceMatrix", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Railwayline", "rate": 120.0 },
+         {  "item": "ShadowOpalShard", "rate": 120.0 },
+         {  "item": "LiquidHydrogen" }
+      ],
+      "output": [
+         {  "item": "ChronoShadowPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "HVTransformer", "rate": 60.0 },
+         {  "item": "ShadowOpalShard", "rate": 120.0 },
+         {  "item": "LiquidHydrogen" }
+      ],
+      "output": [
+         {  "item": "ChronoShadowPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "QuantumDataCompressor", "rate": 60.0 },
+         {  "item": "TriCrystalFusionNode", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "CircuitMemoryArray", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Wood", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Coal", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "WoodPlank", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Coal", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "MultiphaseAlloyReactor", "rate": 30.0 },
+         {  "item": "TitaniumInfusionEngine", "rate": 30.0 },
+         {  "item": "VoidglassFocusingArray", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CompressedAlloyQuantumSandwich", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "MeltedAstralShadow" }
+      ],
+      "output": [
+         {  "item": "CompressedAstralShadow" }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Basalt", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CompressedBasalt", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "ShadowOpal", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "CompressedShadowOpal", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "ShadowOpal", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "CompressedShadowOpal", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "LiquidTransformationSingularity" }
+      ],
+      "output": [
+         {  "item": "CompressedTransformationSingularity" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Concrete", "rate": 120.0 },
+         {  "item": "Sodium" }
+      ],
+      "output": [
+         {  "item": "ConcreteBlock", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Concrete", "rate": 120.0 },
+         {  "item": "LiquidHydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "ConcreteBlock", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AstralPowerCore", "rate": 60.0 },
+         {  "item": "FusionFuelRod", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CondensedEtherPulseEngine", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Helium3" }
+      ],
+      "output": [
+         {  "item": "CondensedHelium3" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "CopperFluxSuspension" }
+      ],
+      "output": [
+         {  "item": "CooperFluxVapor" }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Copper", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CopperBars", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Copper", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CopperFilament", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "CopperFilament", "rate": 60.0 },
+         {  "item": "SulfuricAcid" }
+      ],
+      "output": [
+         {  "item": "CopperFluxSuspension" }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Copper", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CopperPipe", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "ChronoShadowPlate", "rate": 60.0 },
+         {  "item": "SulfurTrioxide" },
+         {  "item": "LiquidDeuterium" }
+      ],
+      "output": [
+         {  "item": "CosmicGallon", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "LiquidNitrogen" },
+         {  "item": "SodiumHydroxide" }
+      ],
+      "output": [
+         {  "item": "CryoalkalineSolution" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "NeutronizedCoolingPillar", "rate": 60.0 },
+         {  "item": "EnergizedCrystalLens", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CryogenicFuelCell", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "QuantumDataCompressor", "rate": 60.0 },
+         {  "item": "EthericControlModule", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CrystallineSynchronizationPlate", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Diamond", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CrystallizedDiamondCore", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "CrystallizedDiamondCore", "rate": 60.0 },
+         {  "item": "ReinforcedGlassScreen", "rate": 60.0 },
+         {  "item": "SolarCell", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "CrystalPressureModulator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "BasaltComposite", "rate": 120.0 },
+         {  "item": "CopperFilament", "rate": 120.0 },
+         {  "item": "ReinforcedNail", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "DeepCoreSensorNode", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "BasaltComposite", "rate": 120.0 },
+         {  "item": "ReinforcedNail", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "DeepCoreSensorNode", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "HeavyWater" }
+      ],
+      "output": [
+         {  "item": "Deuterium" }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Diamond", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "DiamondDust", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Diamond", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "DiamondDust", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AstralInfusedProcessingCrystal", "rate": 60.0 },
+         {  "item": "CrystallineSynchronizationPlate", "rate": 60.0 },
+         {  "item": "CircuitMemoryArray", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "DiamondSingularityCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Diamond", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "DiamondSlurry" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "RubyLens", "rate": 60.0 },
+         {  "item": "SapphireEnergyCell", "rate": 60.0 },
+         {  "item": "RefinedEtherQuartz", "rate": 120.0 },
+         {  "item": "CopperFluxSuspension" }
+      ],
+      "output": [
+         {  "item": "EnergizedCrystalLens", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Uranium", "rate": 60.0 },
+         {  "item": "ChronoCatalystGel" }
+      ],
+      "output": [
+         {  "item": "EnrichedUraniumPellet", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ChromiumCrystalCore", "rate": 30.0 },
+         {  "item": "AluminumCoating", "rate": 60.0 },
+         {  "item": "AutomaticControlPanel", "rate": 60.0 },
+         {  "item": "LiquidHydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "EtherealChromiumEngine", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "reinforceduraniumsuspension" },
+         {  "item": "stabilizedethericalkalinebase" }
+      ],
+      "output": [
+         {  "item": "etherealcoolant" }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "QuantumNebuliteSphere", "rate": 60.0 },
+         {  "item": "AstralEtherLens", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "EtherealPrismaticSphere", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "NanoMagneticFlowRegulator", "rate": 30.0 },
+         {  "item": "TriCrystalFusionNode", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "EtherGuidedFlowRod", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Substrate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "EthericBinderGel" }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "RadiantCrystalAmplifier", "rate": 60.0 },
+         {  "item": "QuantumQuartzCore", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "EthericControlModule", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "RefinedEtherQuartz", "rate": 120.0 },
+         {  "item": "CompressedShadowOpal", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "EtheriumShadowPlate", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Water" },
+         {  "item": "LiquidHydrogen" },
+         {  "item": "Biomass", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Substrate", "rate": 60.0 },
+         {  "item": "Ethylene" }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "MeltedWaterFilter" },
+         {  "item": "Water" },
+         {  "item": "Hydrogen" },
+         {  "item": "Oxygen" }
+      ],
+      "output": [
+         {  "item": "FiltratedWater" }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Gallon", "rate": 60.0 },
+         {  "item": "FiltratedWater" }
+      ],
+      "output": [
+         {  "item": "FiltredWaterGallon", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "SuperluminalRelayCore", "rate": 30.0 },
+         {  "item": "LatticeEncodedMemoryBank", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "FractalProcessingPrism", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "SingularityInfusedActuator", "rate": 60.0 },
+         {  "item": "VoidglassFocusingArray", "rate": 120.0 },
+         {  "item": "LatticeEncodedMemoryBank", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "FracturedSingularityMesh", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "FusionFuelRod", "rate": 60.0 },
+         {  "item": "PlasmaArcEnergy" },
+         {  "item": "voidstabilizer" }
+      ],
+      "output": [
+         {  "item": "FusionFieldStabilizer", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "RefinedUraniumRod", "rate": 60.0 },
+         {  "item": "DiamondDust", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "FusionFuelRod", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "RefinedUraniumRod", "rate": 60.0 },
+         {  "item": "AstraliteFragment", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "FusionFuelRod", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "ReinforcedSteelPlate", "rate": 30.0 },
+         {  "item": "Bitumen", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "Gallon", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Quartz", "rate": 240.0 }
+      ],
+      "output": [
+         {  "item": "HardenedQuartzPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "distilation_column",
+      "input": [
+         {  "item": "Oil" }
+      ],
+      "output": [
+         {  "item": "LightOil" },
+         {  "item": "HeavyOil" }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "LVTransformer", "rate": 60.0 },
+         {  "item": "CopperBars", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "HVTransformer", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "LVTransformer", "rate": 30.0 },
+         {  "item": "IronPipe", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "HVTransformer", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SulfuricAcid" },
+         {  "item": "Fluorite", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "HydrofluoricAcid" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Water" }
+      ],
+      "output": [
+         {  "item": "Hydrogen" },
+         {  "item": "Oxygen" }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "Hydrogen" },
+         {  "item": "Chloride" }
+      ],
+      "output": [
+         {  "item": "HydrogenChloride" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "QuartzInsulatedGlass", "rate": 120.0 },
+         {  "item": "SolarLantern", "rate": 60.0 },
+         {  "item": "SapphireConduit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "HyperconductiveProcessingUnit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "QuartzInsulatedGlass", "rate": 120.0 },
+         {  "item": "IrrigationSystem", "rate": 60.0 },
+         {  "item": "SapphireConduit", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "HyperconductiveProcessingUnit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "QuantumPlasma" },
+         {  "item": "etherealcoolant" },
+         {  "item": "NeutronizedCoolingPillar", "rate": 120.0 },
+         {  "item": "RadiationShieldingPanel", "rate": 60.0 },
+         {  "item": "MagneticCoolingRegulator", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "hypercooledsuperfluid" }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "PlatinumCoil", "rate": 15.0 },
+         {  "item": "SapphireEnergyCell", "rate": 15.0 }
+      ],
+      "output": [
+         {  "item": "IonFluxBeamEmitter", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "Hydrogen" }
+      ],
+      "output": [
+         {  "item": "IonizedHydrogen" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Iridium", "rate": 120.0 },
+         {  "item": "EthericBinderGel" }
+      ],
+      "output": [
+         {  "item": "IridiumCatalyst", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Iridium", "rate": 60.0 },
+         {  "item": "PowerCable", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "IridiumPlatedCable", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Iridium", "rate": 60.0 },
+         {  "item": "StructuralCable", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "IridiumPlatedCable", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Iridium", "rate": 60.0 },
+         {  "item": "Glass", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "IridiumReflector", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Iridium", "rate": 60.0 },
+         {  "item": "Substrate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IridiumReflector", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Iridium", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IridiumSolution" }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Iron", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IronBar", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Iron", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IronIngot", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Iron", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IronPipe", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "StellarChromiumModule", "rate": 120.0 },
+         {  "item": "AstralEtherLens", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "IrrigationSystem", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "LatticeReinforcedConduit", "rate": 120.0 },
+         {  "item": "PhotonicDiamondLayer", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "LatticeEncodedMemoryBank", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "IridiumPlatedCable", "rate": 60.0 },
+         {  "item": "TitaniumLattice", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "LatticeReinforcedConduit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Chloride" }
+      ],
+      "output": [
+         {  "item": "LiquidChloride" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Deuterium" }
+      ],
+      "output": [
+         {  "item": "LiquidDeuterium" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "HydrofluoricAcid" }
+      ],
+      "output": [
+         {  "item": "LiquidHydrofluoricAcid" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Hydrogen" }
+      ],
+      "output": [
+         {  "item": "LiquidHydrogen" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "HydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "LiquidHydrogenChloride" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Nitrogen" }
+      ],
+      "output": [
+         {  "item": "LiquidNitrogen" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "Oxygen" }
+      ],
+      "output": [
+         {  "item": "LiquidOxygen" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "HVTransformer", "rate": 60.0 },
+         {  "item": "LVTransformer", "rate": 60.0 },
+         {  "item": "PowerCable", "rate": 120.0 },
+         {  "item": "Sodium" }
+      ],
+      "output": [
+         {  "item": "LiquidTransformationSingularity" }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "AstraliteFragment", "rate": 60.0 },
+         {  "item": "ChromiumCrystalCore", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "LuminaryCrystalCore", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PowerCable", "rate": 120.0 },
+         {  "item": "SteelSheets", "rate": 120.0 },
+         {  "item": "ReinforcedSteelPlate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "LVTransformer", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "OsmiumFilament", "rate": 120.0 },
+         {  "item": "AluminumCoating", "rate": 60.0 },
+         {  "item": "etherealcoolant" }
+      ],
+      "output": [
+         {  "item": "MagneticCoolingRegulator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "CopperPipe", "rate": 30.0 },
+         {  "item": "AluminumBar", "rate": 30.0 },
+         {  "item": "SulfuricAcid" }
+      ],
+      "output": [
+         {  "item": "MagneticIndunctionCoil", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "CopperPipe", "rate": 60.0 },
+         {  "item": "AluminumBar", "rate": 60.0 },
+         {  "item": "LiquidHydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "MagneticIndunctionCoil", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Nickel", "rate": 60.0 },
+         {  "item": "MagneticIndunctionCoil", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "MagneticNickelRod", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AstralShadowOcilator", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "MeltedAstralShadow" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "WaterFiltrationDevice", "rate": 60.0 },
+         {  "item": "LiquidHydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "MeltedWaterFilter" }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "ReactiveAlloyCasing", "rate": 60.0 },
+         {  "item": "stabilizedethericalkalinebase" }
+      ],
+      "output": [
+         {  "item": "MultiphaseAlloyReactor", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "NickelInfusedWire", "rate": 20.0 },
+         {  "item": "PlasticMold", "rate": 30.0 },
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 },
+         {  "item": "EthericBinderGel" }
+      ],
+      "output": [
+         {  "item": "NanoInsulatedWiringSet", "rate": 10.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "VoidStabilizedContainmentRing", "rate": 60.0 },
+         {  "item": "NickelInfusedWire", "rate": 60.0 },
+         {  "item": "CrystalPressureModulator", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "NanoMagneticFlowRegulator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "ShadowOpalShard", "rate": 60.0 },
+         {  "item": "NebulitePrism", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "NebulaInfusedOpal", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Nebulite", "rate": 120.0 },
+         {  "item": "ReinforcedAluminumBeams", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NebulitePrism", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Nebulite", "rate": 120.0 },
+         {  "item": "AluminumCoating", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NebulitePrism", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "TunedQuantumProcessor", "rate": 30.0 },
+         {  "item": "AutomaticControlPanel", "rate": 60.0 },
+         {  "item": "ZincCarbonMatrix", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeuralControlInterface", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "TunedQuantumProcessor", "rate": 30.0 },
+         {  "item": "AutomaticControlPanel", "rate": 60.0 },
+         {  "item": "ReinforcedAluminumBeams", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeuralControlInterface", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "NeuralControlInterface", "rate": 60.0 },
+         {  "item": "FusionFieldStabilizer", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeuralPhaseThread", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "SynapticFiberCoil", "rate": 60.0 },
+         {  "item": "TemporalDivergenceArray", "rate": 60.0 },
+         {  "item": "CondensedEtherPulseEngine", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeutronFluxGenerator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "IridiumReflector", "rate": 120.0 },
+         {  "item": "TitaniuMesh", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeutroniumStabilizationBrace", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "NeutronStabilizedCore", "rate": 30.0 },
+         {  "item": "QuantumCooledReactorCasing", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeutronizedCoolingPillar", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "NeutroniumStabilizationBrace", "rate": 60.0 },
+         {  "item": "EnrichedUraniumPellet", "rate": 60.0 },
+         {  "item": "PlatinumCoil", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "NeutronStabilizedCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Nickel", "rate": 120.0 },
+         {  "item": "CondensedHelium3" }
+      ],
+      "output": [
+         {  "item": "NickelInfusedWire", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "EtherGuidedFlowRod", "rate": 60.0 },
+         {  "item": "DeepCoreSensorNode", "rate": 60.0 },
+         {  "item": "NanoInsulatedWiringSet", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OminidirectionalHeatFilter", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "SyntheticCircuitSubbrain", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OmniFusedRelayAmplifier", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "voidstabilizer" },
+         {  "item": "Singularity4", "rate": 24.0 },
+         {  "item": "OmniversalEnergyNexus", "rate": 12.0 },
+         {  "item": "FracturedSingularityMesh", "rate": 12.0 }
+      ],
+      "output": [
+         {  "item": "OmniSingularity", "rate": 12.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AstralVoidEnergyCascade", "rate": 60.0 },
+         {  "item": "Singularity4", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OmniversalEnergyNexus", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Osmium", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OsmiumFilament", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Osmium", "rate": 120.0 },
+         {  "item": "ReinforcedConcrete", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OsmiumReinforcement", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Osmium", "rate": 120.0 },
+         {  "item": "QuantumDataCompressor", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "OsmiumReinforcement", "rate": 240.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "TitaniuMesh", "rate": 120.0 },
+         {  "item": "UraniumIonCell", "rate": 20.0 }
+      ],
+      "output": [
+         {  "item": "PhaseCompressionArray", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "RubyCircuitInlay", "rate": 120.0 },
+         {  "item": "PolycrystallineSilicon", "rate": 240.0 }
+      ],
+      "output": [
+         {  "item": "PhaseSyncedRelayCircuit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "RubyCircuitInlay", "rate": 120.0 },
+         {  "item": "SolarPanel", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PhaseSyncedRelayCircuit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Diamond", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PhotonicDiamondLayer", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "IonizedHydrogen" }
+      ],
+      "output": [
+         {  "item": "PlasmaArcEnergy" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "OmniFusedRelayAmplifier", "rate": 60.0 },
+         {  "item": "ReactiveFlowManipulator", "rate": 60.0 },
+         {  "item": "NeuralPhaseThread", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PlasmaConductorArray", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "catalyzedcarbonbinder" }
+      ],
+      "output": [
+         {  "item": "plasmalinkedcatalystgel" }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Plastic", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PlasticFrame", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Plastic", "rate": 120.0 },
+         {  "item": "LiquidChloride" }
+      ],
+      "output": [
+         {  "item": "PlasticMold", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Platinum", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "PlatinumCatalyst", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Platinum", "rate": 120.0 },
+         {  "item": "MagneticIndunctionCoil", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PlatinumCoil", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Platinum", "rate": 120.0 },
+         {  "item": "ShadowOpalShard", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PlatinumCoil", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Platinum", "rate": 15.0 },
+         {  "item": "Ruby", "rate": 45.0 }
+      ],
+      "output": [
+         {  "item": "PlatinumPrecisionGear", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Platinum", "rate": 120.0 },
+         {  "item": "Ruby", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PlatinumPrecisionGear", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "PhotonicDiamondLayer", "rate": 30.0 },
+         {  "item": "ChromiumCrystal", "rate": 15.0 }
+      ],
+      "output": [
+         {  "item": "PlatonicMemoryCore", "rate": 15.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "PhotonicDiamondLayer", "rate": 120.0 },
+         {  "item": "ChronoCatalystGel" }
+      ],
+      "output": [
+         {  "item": "PlatonicMemoryCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Silicon", "rate": 120.0 },
+         {  "item": "LiquidDeuterium" }
+      ],
+      "output": [
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Silicon", "rate": 120.0 },
+         {  "item": "HeavyOil" }
+      ],
+      "output": [
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "StructuralCable", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "PowerCable", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "StructuralCable", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "PowerCable", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SapphireConduit", "rate": 60.0 },
+         {  "item": "EtherQuartz", "rate": 120.0 },
+         {  "item": "ChromiumSuspension" }
+      ],
+      "output": [
+         {  "item": "PulseEnergyMatrix", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "SapphireConduit", "rate": 60.0 },
+         {  "item": "ChromiumSuspension" }
+      ],
+      "output": [
+         {  "item": "PulseEnergyMatrix", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AdvancedHeatSink", "rate": 60.0 },
+         {  "item": "voidstabilizer" },
+         {  "item": "BasaltHeatSink", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "QuantumCooledReactorCasing", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "PlatonicMemoryCore", "rate": 60.0 },
+         {  "item": "PhaseSyncedRelayCircuit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuantumDataCompressor", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "TriCrystalFusionNode", "rate": 60.0 },
+         {  "item": "PhaseSyncedRelayCircuit", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuantumDataCompressor", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "SuperheatedPlasmaCore" },
+         {  "item": "CondensedHelium3" }
+      ],
+      "output": [
+         {  "item": "QuantumEnergySolution" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "NebulitePrism", "rate": 60.0 },
+         {  "item": "ChromiumCrystalWafer", "rate": 120.0 },
+         {  "item": "CompressedShadowOpal", "rate": 60.0 },
+         {  "item": "LiquidHydrofluoricAcid" }
+      ],
+      "output": [
+         {  "item": "QuantumNebuliteSphere", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "QuantumEnergySolution" },
+         {  "item": "ChronoCatalystGel" }
+      ],
+      "output": [
+         {  "item": "QuantumPlasma" }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Quartz", "rate": 240.0 },
+         {  "item": "Singularity1", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuantumQuartzCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Quartz", "rate": 240.0 },
+         {  "item": "EtherQuartz", "rate": 240.0 }
+      ],
+      "output": [
+         {  "item": "QuantumQuartzCore", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "FractalProcessingPrism", "rate": 60.0 },
+         {  "item": "VoidglassFocusingArray", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "QuantumResonantLensCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PlasticMold", "rate": 120.0 },
+         {  "item": "CopperFilament", "rate": 60.0 },
+         {  "item": "OsmiumReinforcement", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuantumSignalRelay", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PlasticMold", "rate": 120.0 },
+         {  "item": "SteelSheets", "rate": 60.0 },
+         {  "item": "OsmiumReinforcement", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuantumSignalRelay", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "TemporalRefractionInverter", "rate": 120.0 },
+         {  "item": "voidstabilizer" },
+         {  "item": "SuperheatedPlasmaCore" }
+      ],
+      "output": [
+         {  "item": "QuantumStabilizedAlloy", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Quartz", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "QuartzInsulatedGlass", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "CrystallizedDiamondCore", "rate": 60.0 },
+         {  "item": "ShadowOpalShard", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "RadiantCrystalAmplifier", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "EnrichedUraniumPellet", "rate": 60.0 },
+         {  "item": "BasaltComposite", "rate": 60.0 },
+         {  "item": "TitaniumAlloyPlate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "RadiationShieldingPanel", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ReinforcedNail", "rate": 60.0 },
+         {  "item": "RailwayTrack", "rate": 60.0 },
+         {  "item": "ReinforcedConcrete", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Railwayline", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "ReinforcedNail", "rate": 120.0 },
+         {  "item": "RailwayTrack", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Railwayline", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "IronBar", "rate": 120.0 },
+         {  "item": "StoneBlock", "rate": 60.0 },
+         {  "item": "WoodPlank", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "RailwayTrack", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "CopperBars", "rate": 60.0 },
+         {  "item": "Stone", "rate": 120.0 },
+         {  "item": "WoodPlank", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "RailwayTrack", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "TitaniumAlloyPlate", "rate": 240.0 },
+         {  "item": "UraniumIonCell", "rate": 30.0 },
+         {  "item": "HardenedQuartzPlate", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "ReactiveAlloyCasing", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "BioeletricExtractionCore", "rate": 30.0 },
+         {  "item": "NanoMagneticFlowRegulator", "rate": 30.0 },
+         {  "item": "NeuralControlInterface", "rate": 30.0 },
+         {  "item": "etherealcoolant" }
+      ],
+      "output": [
+         {  "item": "ReactiveFlowManipulator", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "EtherQuartz", "rate": 60.0 },
+         {  "item": "LiquidOxygen" }
+      ],
+      "output": [
+         {  "item": "RefinedEtherQuartz", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "EtherQuartz", "rate": 60.0 },
+         {  "item": "LiquidNitrogen" }
+      ],
+      "output": [
+         {  "item": "RefinedEtherQuartz", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "EtherQuartz", "rate": 60.0 },
+         {  "item": "Sodium" }
+      ],
+      "output": [
+         {  "item": "RefinedEtherQuartz", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Uranium", "rate": 120.0 },
+         {  "item": "UraniumSuspension" }
+      ],
+      "output": [
+         {  "item": "RefinedUraniumRod", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Uranium", "rate": 120.0 },
+         {  "item": "UraniumSuspension" }
+      ],
+      "output": [
+         {  "item": "RefinedUraniumRod", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "AluminumProfile", "rate": 60.0 },
+         {  "item": "AluminumBar", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "ReinforcedAluminumBeams", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "StoneBlock", "rate": 120.0 },
+         {  "item": "Coal", "rate": 60.0 },
+         {  "item": "IronIngot", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ReinforcedConcrete", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Glass", "rate": 120.0 },
+         {  "item": "ReinforcedConcrete", "rate": 60.0 },
+         {  "item": "IronPipe", "rate": 120.0 },
+         {  "item": "SulfuricAcid" },
+         {  "item": "LiquidHydrofluoricAcid" }
+      ],
+      "output": [
+         {  "item": "ReinforcedGlassScreen", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Glass", "rate": 60.0 },
+         {  "item": "ReinforcedConcrete", "rate": 120.0 },
+         {  "item": "CopperPipe", "rate": 120.0 },
+         {  "item": "SulfuricAcid" }
+      ],
+      "output": [
+         {  "item": "ReinforcedGlassScreen", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "IronBar", "rate": 60.0 },
+         {  "item": "Coal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ReinforcedNail", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "furnace",
+      "input": [
+         {  "item": "Steel", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ReinforcedSteelPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "UraniumSuspension" },
+         {  "item": "EthericBinderGel" }
+      ],
+      "output": [
+         {  "item": "reinforceduraniumsuspension" }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Ruby", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "RubyCircuitInlay", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Ruby", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "RubyLens", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Ruby", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "RubyLens", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Saphire", "rate": 120.0 },
+         {  "item": "StructuralCable", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SapphireConduit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Saphire", "rate": 120.0 },
+         {  "item": "LuminaryCrystalCore", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SapphireConduit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Saphire", "rate": 60.0 },
+         {  "item": "RefinedEtherQuartz", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SapphireEnergyCell", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ZincPlating", "rate": 240.0 },
+         {  "item": "ShadowOpalShard", "rate": 120.0 },
+         {  "item": "VoidglassFocusingArray", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ShadowglassCapacitor", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "CompressedShadowOpal", "rate": 120.0 },
+         {  "item": "NebulitePrism", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ShadowNebulaCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ShadowOpal", "rate": 60.0 },
+         {  "item": "SulfuricAcid" },
+         {  "item": "CopperFilament", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "ShadowOpalShard", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "ShadowOpal", "rate": 60.0 },
+         {  "item": "StructuralCable", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ShadowOpalShard", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ShadowOpal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "shadowopalsolution" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Silicon", "rate": 120.0 },
+         {  "item": "LightOil" }
+      ],
+      "output": [
+         {  "item": "SiliconDiode", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Silicon", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SiliconPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "CopperPipe", "rate": 60.0 },
+         {  "item": "SteelSheets", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Singularity1", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Singularity1", "rate": 120.0 },
+         {  "item": "PowerCable", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "Singularity2", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Singularity1", "rate": 120.0 },
+         {  "item": "SupportBeams", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "Singularity2", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Singularity2", "rate": 60.0 },
+         {  "item": "HVTransformer", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Singularity3", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Singularity2", "rate": 60.0 },
+         {  "item": "LVTransformer", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "Singularity3", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Singularity2", "rate": 30.0 },
+         {  "item": "CelestialFluxEngine", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "Singularity4", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "FracturedSingularityMesh", "rate": 60.0 },
+         {  "item": "QuantumResonantLensCore", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Singularity5", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AutomatedSingularityConverter", "rate": 120.0 },
+         {  "item": "RefinedUraniumRod", "rate": 60.0 },
+         {  "item": "TitaniuMesh", "rate": 240.0 }
+      ],
+      "output": [
+         {  "item": "SingularityInfusedActuator", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "Sodium" },
+         {  "item": "Water" }
+      ],
+      "output": [
+         {  "item": "SodiumHydroxide" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 },
+         {  "item": "AluminumIngot", "rate": 120.0 },
+         {  "item": "AluminumBar", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarCell", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 },
+         {  "item": "AluminumProfile", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "SolarCell", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "SiliconPlate", "rate": 120.0 },
+         {  "item": "PlasticMold", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarControlPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "PolycrystallineSilicon", "rate": 120.0 },
+         {  "item": "SolarCell", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarControlPanel", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Glass", "rate": 120.0 },
+         {  "item": "Concrete", "rate": 60.0 },
+         {  "item": "SolarPanel", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarLantern", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "AstralShadowModule", "rate": 30.0 },
+         {  "item": "LuminaryCrystalCore", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarLightingModule", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ConcreteBlock", "rate": 120.0 },
+         {  "item": "NebulaInfusedOpal", "rate": 60.0 },
+         {  "item": "PolycrystallineSilicon", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SolarLightingTower", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SolarCell", "rate": 60.0 },
+         {  "item": "PlasticFrame", "rate": 120.0 },
+         {  "item": "HeavyOil" }
+      ],
+      "output": [
+         {  "item": "SolarPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SolarCell", "rate": 60.0 },
+         {  "item": "PlasticFrame", "rate": 60.0 },
+         {  "item": "LiquidDeuterium" }
+      ],
+      "output": [
+         {  "item": "SolarPanel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "SolarCell", "rate": 60.0 },
+         {  "item": "SiliconDiode", "rate": 60.0 },
+         {  "item": "LiquidHydrogenChloride" }
+      ],
+      "output": [
+         {  "item": "SolarPanel", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AlkalineCrystallizationAgent", "rate": 60.0 },
+         {  "item": "CryoalkalineSolution" }
+      ],
+      "output": [
+         {  "item": "stabilizedethericalkalinebase" }
+      ]
+   },
+   {
+      "machine": "distilation_column",
+      "input": [
+         {  "item": "IridiumSolution" }
+      ],
+      "output": [
+         {  "item": "StabilizedIridiumMatrix" }
+      ]
+   },
+   {
+      "machine": "bifluxor",
+      "input": [
+         {  "item": "shadowopalsolution" }
+      ],
+      "output": [
+         {  "item": "stabilizedopalslurry" }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Iron", "rate": 120.0 },
+         {  "item": "Coal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Steel", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "Iron", "rate": 60.0 },
+         {  "item": "Coal", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "Steel", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Steel", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SteelSheets", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "ChromiumCrystalCore", "rate": 60.0 },
+         {  "item": "RefinedEtherQuartz", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "StellarChromiumModule", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Stone", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "StoneBlock", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "CopperFilament", "rate": 120.0 },
+         {  "item": "ReinforcedSteelPlate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "StructuralCable", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "CopperFilament", "rate": 120.0 },
+         {  "item": "CopperBars", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "StructuralCable", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Sulfur", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SulfurDioxide" }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "WaterSteam" },
+         {  "item": "SulfurTrioxide" }
+      ],
+      "output": [
+         {  "item": "SulfuricAcid" }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "SulfurDioxide" },
+         {  "item": "WaterSteam" }
+      ],
+      "output": [
+         {  "item": "SulfurTrioxide" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "AlloySuspendedMagneticFieldGenerator", "rate": 60.0 },
+         {  "item": "EtherealPrismaticSphere", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SupercompressedPhaseAlloy", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "PlasmaArcEnergy" }
+      ],
+      "output": [
+         {  "item": "SuperheatedPlasmaCore" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "PulseEnergyMatrix", "rate": 60.0 },
+         {  "item": "TunedQuantumProcessor", "rate": 60.0 },
+         {  "item": "QuantumSignalRelay", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SuperluminalRelayCore", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "IronPipe", "rate": 60.0 },
+         {  "item": "StoneBlock", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SupportBeams", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "CopperPipe", "rate": 120.0 },
+         {  "item": "StoneBlock", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "SupportBeams", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "AutoIrrigation", "rate": 120.0 },
+         {  "item": "IonFluxBeamEmitter", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "SynapticFiberCoil", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "NeuralControlInterface", "rate": 60.0 },
+         {  "item": "RubyCircuitInlay", "rate": 120.0 },
+         {  "item": "SiliconDiode", "rate": 240.0 }
+      ],
+      "output": [
+         {  "item": "SyntheticCircuitSubbrain", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "DiamondSlurry" },
+         {  "item": "ChromiumSuspension" }
+      ],
+      "output": [
+         {  "item": "TemporalCircuitSlurry" }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "ChronoResonanceMatrix", "rate": 60.0 },
+         {  "item": "TriCrystalFusionNode", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "TemporalDivergenceArray", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ChromiumCrystalWafer", "rate": 120.0 },
+         {  "item": "NebulitePrism", "rate": 60.0 },
+         {  "item": "AstraliteFragment", "rate": 120.0 },
+         {  "item": "LiquidDeuterium" }
+      ],
+      "output": [
+         {  "item": "TemporalPrismCircuit", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "ChronoResonanceMatrix", "rate": 60.0 },
+         {  "item": "QuantumDataCompressor", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "TemporalRefractionInverter", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "ZincPlating", "rate": 15.0 },
+         {  "item": "SiliconPlate", "rate": 15.0 },
+         {  "item": "CopperBars", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "ThermoeletricInterfaceChip", "rate": 180.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Titanium", "rate": 120.0 },
+         {  "item": "CopperBars", "rate": 60.0 },
+         {  "item": "AluminumIngot", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "TitaniumAlloyPlate", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Titanium", "rate": 120.0 },
+         {  "item": "SiliconDiode", "rate": 60.0 },
+         {  "item": "IronIngot", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "TitaniumAlloyPlate", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Titanium", "rate": 60.0 },
+         {  "item": "Aluminum", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "TitaniuMesh", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "Titanium", "rate": 120.0 },
+         {  "item": "Aluminum", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "TitaniuMesh", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_furnace",
+      "input": [
+         {  "item": "TitaniumLattice", "rate": 120.0 },
+         {  "item": "TitaniumAlloyPlate", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "TitaniumInfusionEngine", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Titanium", "rate": 30.0 },
+         {  "item": "DiamondDust", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "TitaniumLattice", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "Titanium", "rate": 30.0 },
+         {  "item": "CrystallizedDiamondCore", "rate": 30.0 }
+      ],
+      "output": [
+         {  "item": "TitaniumLattice", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "RefinedEtherQuartz", "rate": 120.0 },
+         {  "item": "SapphireEnergyCell", "rate": 60.0 },
+         {  "item": "RubyLens", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "TriCrystalFusionNode", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "welder",
+      "input": [
+         {  "item": "CrystallizedDiamondCore", "rate": 60.0 },
+         {  "item": "AluminumCoating", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "TunedQuantumProcessor", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "CrystallizedDiamondCore", "rate": 60.0 },
+         {  "item": "Railwayline", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "TunedQuantumProcessor", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "storage_packing",
+      "input": [
+         {  "item": "Uranium", "rate": 60.0 },
+         {  "item": "SuperheatedPlasmaCore" }
+      ],
+      "output": [
+         {  "item": "UraniumIonCell", "rate": 10.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Uranium", "rate": 60.0 },
+         {  "item": "QuantumPlasma" }
+      ],
+      "output": [
+         {  "item": "UraniumIonCell", "rate": 20.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "UraniumIonCell", "rate": 20.0 }
+      ],
+      "output": [
+         {  "item": "UraniumSuspension" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AstraliteReinforcementPanel", "rate": 60.0 },
+         {  "item": "RefinedUraniumRod", "rate": 60.0 },
+         {  "item": "PlatonicMemoryCore", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "VoidglassFocusingArray", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "AstraliteReinforcementPanel", "rate": 60.0 },
+         {  "item": "RefinedUraniumRod", "rate": 60.0 },
+         {  "item": "UraniumIonCell", "rate": 60.0 },
+         {  "item": "reinforceduraniumsuspension" }
+      ],
+      "output": [
+         {  "item": "VoidglassFocusingArray", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "VoidglassFocusingArray", "rate": 60.0 },
+         {  "item": "ShadowglassCapacitor", "rate": 60.0 },
+         {  "item": "IridiumSolution" }
+      ],
+      "output": [
+         {  "item": "VoidglassImplosionDamper", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "ShadowNebulaCore", "rate": 60.0 },
+         {  "item": "QuantumNebuliteSphere", "rate": 120.0 },
+         {  "item": "EtheriumShadowPlate", "rate": 30.0 },
+         {  "item": "LiquidTransformationSingularity" }
+      ],
+      "output": [
+         {  "item": "VoidNebulaReactor", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "CooperFluxVapor" },
+         {  "item": "SulfuricAcid" },
+         {  "item": "stabilizedopalslurry" }
+      ],
+      "output": [
+         {  "item": "voidreactionslurry" }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "IridiumCatalyst", "rate": 120.0 },
+         {  "item": "CryoalkalineSolution" },
+         {  "item": "CompressedBasalt", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "VoidStabilizedContainmentRing", "rate": 30.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "voidreactionslurry" },
+         {  "item": "plasmalinkedcatalystgel" }
+      ],
+      "output": [
+         {  "item": "voidstabilizer" }
+      ]
+   },
+   {
+      "machine": "manufacturer",
+      "input": [
+         {  "item": "Glass", "rate": 60.0 },
+         {  "item": "AdvancedSolarModule", "rate": 60.0 },
+         {  "item": "SolarLantern", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "WaterFiltrationDevice", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "chemical_infuser",
+      "input": [
+         {  "item": "Water" }
+      ],
+      "output": [
+         {  "item": "WaterSteam" }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Wood", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "WoodBoard", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "cutter",
+      "input": [
+         {  "item": "Wood", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "WoodPlank", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_cutter",
+      "input": [
+         {  "item": "Wood", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "WoodPlank", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Zinc", "rate": 120.0 },
+         {  "item": "catalyzedcarbonbinder" }
+      ],
+      "output": [
+         {  "item": "ZincCarbonMatrix", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "press",
+      "input": [
+         {  "item": "Nickel", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ZincPlating", "rate": 60.0 }
+      ]
+   },
+   {
+      "machine": "advanced_press",
+      "input": [
+         {  "item": "Nickel", "rate": 120.0 }
+      ],
+      "output": [
+         {  "item": "ZincPlating", "rate": 120.0 }
+      ]
+   },
+   {
+      "machine": "dissolution_chamber",
+      "input": [
+         {  "item": "Zinc", "rate": 60.0 }
+      ],
+      "output": [
+         {  "item": "ZincSolution" }
+      ]
+   }
+]
