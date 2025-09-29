@@ -124,16 +124,14 @@
 			<button id="calculate-btn">Calculate</button>
 		</div>
 		<div class="production-plan" id="production-plan">
-			<div style="display: flex; flex-direction: row; gap: 2rem;">
-				<div style="flex: 1; min-width: 350px;">
+			<div style="display: flex; flex-direction: column; gap: 1.5rem;">
+				<div id="network-graph" style="width:100%;height:500px;background:#222;border-radius:8px;"></div>
+				<div>
 					<div class="placeholder-graph">
 						Production plan will appear here as a tree/graph.<br>
 						(Icons, rates, and buildings will be shown)
 					</div>
 					<div id="plan-tree-html"></div>
-				</div>
-				<div style="flex: 2; min-width: 400px;">
-					<div id="network-graph" style="width:100%;height:500px;background:#222;border-radius:8px;"></div>
 				</div>
 			</div>
 		</div>
@@ -983,7 +981,7 @@ const itemsLoadedPromise = (async function loadData() {
 								direction: 'UD',
 								sortMethod: 'directed',
 								nodeSpacing: 220,
-								levelSeparation: 140,
+								levelSeparation: 200,
 								treeSpacing: 320,
 								parentCentralization: true
 							}
