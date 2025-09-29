@@ -270,17 +270,7 @@ const itemsLoadedPromise = (async function loadData() {
 				row.appendChild(span);
 
 				row.addEventListener('click', () => {
-					// Set hidden input value and update visible label/icon
-					itemSelect.value = key;
-					itemSelectLabel.textContent = label;
-					if (item.icon) {
-						itemSelectIcon.src = item.icon;
-						itemSelectIcon.style.display = 'inline-block';
-					} else {
-						itemSelectIcon.style.display = 'none';
-					}
-					// Trigger change so existing listeners (rate disabling, etc.) run
-					itemSelect.dispatchEvent(new Event('change'));
+					updateItemSelectDisplay(key);
 					// Hide options
 					itemSelectOptions.style.display = 'none';
 				});
@@ -293,8 +283,80 @@ const itemsLoadedPromise = (async function loadData() {
 			});
 		}
 
+		function updateItemSelectDisplay(itemKey, { fireChange = true } = {}) {
+			const itemData = items[itemKey] || null;
+			itemSelect.value = itemKey || '';
+			if (itemData) {
+				itemSelectLabel.textContent = itemData.name || itemKey;
+				if (itemData.icon) {
+					itemSelectIcon.src = itemData.icon;
+					itemSelectIcon.style.display = 'inline-block';
+				} else {
+					itemSelectIcon.style.display = 'none';
+				}
+			} else {
+				itemSelectLabel.textContent = 'Select Item';
+				itemSelectIcon.style.display = 'none';
+			}
+			if (fireChange) {
+				itemSelect.dispatchEvent(new Event('change'));
+			}
+		}
+
+		function syncUrlState() {
+			const params = new URLSearchParams(window.location.search);
+			if (itemSelect.value) {
+				params.set('item', itemSelect.value);
+			} else {
+				params.delete('item');
+			}
+			if (!rateInput.disabled && rateInput.value) {
+				params.set('rate', rateInput.value);
+			} else {
+				params.delete('rate');
+			}
+			const query = params.toString();
+			const hash = window.location.hash || '';
+			const newUrl = query ? `${window.location.pathname}?${query}${hash}` : `${window.location.pathname}${hash}`;
+			history.replaceState(null, '', newUrl);
+		}
+
+		function applyInitialStateFromUrl() {
+			const params = new URLSearchParams(window.location.search);
+			const itemParam = params.get('item');
+			let shouldAutoCalculate = false;
+			if (itemParam && items[itemParam]) {
+				updateItemSelectDisplay(itemParam);
+				shouldAutoCalculate = true;
+			}
+			const rateParam = params.get('rate');
+			if (rateParam !== null && rateParam !== '') {
+				const parsedRate = parseFloat(rateParam);
+				if (!Number.isNaN(parsedRate)) {
+					if (!rateInput.disabled) {
+						rateInput.value = parsedRate;
+					}
+				}
+			}
+			syncUrlState();
+			// Auto-run calculation if we have an item from URL and either a valid rate or it's a nonsolid (rate not needed)
+			if (shouldAutoCalculate) {
+				const selType = items[itemParam]?.type;
+				if (selType === 'nonsolid' || rateInput.value) {
+					const calcBtn = document.getElementById('calculate-btn');
+					if (calcBtn) {
+						// Delay a tick to ensure any UI state (e.g., disabled rate field) has settled
+						setTimeout(() => calcBtn.click(), 0);
+					}
+				}
+			}
+		}
+
 		// Initial render after data is ready
-		itemsLoadedPromise.then(() => renderMainOptions(''));
+		itemsLoadedPromise.then(() => {
+			renderMainOptions('');
+			applyInitialStateFromUrl();
+		});
 
 		// Search filter
 		mainSearch.addEventListener('input', () => {
@@ -528,6 +590,10 @@ const itemsLoadedPromise = (async function loadData() {
 				rateInput.disabled = false;
 				rateInput.placeholder = 'Rate per minute';
 			}
+			syncUrlState();
+		});
+		rateInput.addEventListener('input', () => {
+			syncUrlState();
 		});
 
 
