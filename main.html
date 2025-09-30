@@ -113,14 +113,35 @@
 								<thead><tr><th>Item</th><th>Amount</th><th></th></tr></thead>
 								<tbody></tbody>
 							</table>
-							<button type="button" id="add-available-item-row">Add New Item</button>
-								<div style="margin-top:auto;text-align:right;position:sticky;bottom:0;background:#23272b;padding-top:1rem;">
-								<button type="button" id="close-available-items-modal" style="margin-right:1rem;">Cancel</button>
-								<button type="submit">Save</button>
-							</div>
+								<div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+									<button type="button" id="add-available-item-row">Add New Item</button>
+								</div>
+								<div style="margin-top:auto;position:sticky;bottom:0;background:#23272b;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">
+									<div style="display:flex;gap:0.75rem;align-items:center;">
+										<button type="button" id="open-level-presets-btn">Level Presets</button>
+									</div>
+									<div style="display:flex;gap:0.75rem;align-items:center;">
+										<button type="button" id="close-available-items-modal">Cancel</button>
+										<button type="submit">Save</button>
+									</div>
+								</div>
 						</form>
 					</div>
 				</div>
+					<!-- Level Presets Modal -->
+					<div id="level-presets-modal" style="display:none;position:fixed;z-index:1200;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+						<div style="background:#23272b;padding:1.75rem 2rem;border-radius:12px;min-width:520px;width:70vw;max-width:900px;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;">
+							<div style="display:flex;align-items:center;gap:1rem;">
+								<h2 style="margin:0;flex:1;">Level Presets</h2>
+								<button type="button" id="close-level-presets" style="background:#444;color:#fff;border:none;padding:0.4rem 0.8rem;border-radius:6px;cursor:pointer;">Close</button>
+							</div>
+							<div style="margin-top:0.75rem;">
+								<input id="level-presets-search" type="text" placeholder="Search presets..." style="width:100%;padding:0.55rem 0.7rem;border:1px solid #333;border-radius:8px;background:#1f2327;color:#fff;">
+							</div>
+							<div id="level-presets-list" style="margin-top:1rem;overflow:auto;padding-right:4px;flex:1 1 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;"></div>
+							<div id="level-presets-empty" style="display:none;color:#888;text-align:center;margin-top:2rem;">No presets found.</div>
+						</div>
+					</div>
 			<button id="calculate-btn">Calculate</button>
 		</div>
 		<div class="production-plan" id="production-plan">
@@ -394,8 +415,99 @@ const itemsLoadedPromise = (async function loadData() {
 				const openModalBtn = document.getElementById('edit-available-items-btn');
 				const closeModalBtn = document.getElementById('close-available-items-modal');
 				const addRowBtn = document.getElementById('add-available-item-row');
+						const openLevelPresetsBtn = document.getElementById('open-level-presets-btn');
 				const tableBody = document.querySelector('#available-items-table tbody');
 				const form = document.getElementById('available-items-form');
+						// Level presets modal elements
+						const levelPresetsModal = document.getElementById('level-presets-modal');
+						const closeLevelPresetsBtn = document.getElementById('close-level-presets');
+						const levelPresetsSearch = document.getElementById('level-presets-search');
+						const levelPresetsList = document.getElementById('level-presets-list');
+						const levelPresetsEmpty = document.getElementById('level-presets-empty');
+
+						let levelPresets = [];
+						const levelPresetsLoadedPromise = fetch('LevelPresets.json')
+							.then(r => r.json())
+							.then(json => { if (Array.isArray(json)) levelPresets = json; })
+							.catch(() => { levelPresets = []; });
+
+						function renderLevelPresets(filter = '') {
+							const f = filter.trim().toLowerCase();
+							levelPresetsList.innerHTML = '';
+							let shown = 0;
+							for (const preset of levelPresets) {
+								if (!preset || !preset.name) continue;
+								if (f && !preset.name.toLowerCase().includes(f)) continue;
+								shown++;
+								const card = document.createElement('div');
+								card.style.background = '#2b2f33';
+								card.style.border = '1px solid #333';
+								card.style.borderRadius = '10px';
+								card.style.padding = '0.65rem 0.75rem';
+								card.style.display = 'flex';
+								card.style.flexDirection = 'column';
+								card.style.gap = '0.4rem';
+								card.style.cursor = 'pointer';
+								card.style.transition = 'background .15s';
+								card.innerHTML = `
+									<div style="font-weight:600;font-size:0.95rem;">${preset.name}</div>
+									<div style="font-size:0.72rem;line-height:1.2;color:#bbb;max-height:4.2em;overflow:hidden;">${(preset.items||[]).map(i=>i.item + (i.rate?`(${i.rate})`:'')).join(', ')}</div>
+								`;
+								card.addEventListener('mouseenter', ()=> card.style.background = '#34393e');
+								card.addEventListener('mouseleave', ()=> card.style.background = '#2b2f33');
+								card.addEventListener('click', () => {
+									applyLevelPreset(preset);
+								});
+								levelPresetsList.appendChild(card);
+							}
+							levelPresetsEmpty.style.display = shown === 0 ? 'block' : 'none';
+						}
+
+						function applyLevelPreset(preset) {
+							if (!preset || !Array.isArray(preset.items)) return;
+							// Build new availableItemsList from preset
+							const built = [];
+							for (const ent of preset.items) {
+								if (!ent || !ent.item) continue;
+								const id = ent.item;
+								if (!items[id]) continue; // skip unknown
+								const type = items[id].type;
+								if (type === 'nonsolid' || typeof ent.rate === 'undefined') {
+									built.push({ item: id });
+								} else {
+									built.push({ item: id, amount: ent.rate });
+								}
+							}
+							availableItemsList = built;
+							// Persist immediately (respect nonsolid rule)
+							try {
+								const filtered = availableItemsList.map(row => {
+									const type = items[row.item]?.type;
+									return type === 'nonsolid' ? { item: row.item } : row;
+								});
+								localStorage.setItem('availableItemsList', JSON.stringify(filtered));
+							} catch(e) {}
+							renderAvailableItemsTable();
+							levelPresetsModal.style.display = 'none';
+						}
+
+						openLevelPresetsBtn.addEventListener('click', async () => {
+							await levelPresetsLoadedPromise;
+							renderLevelPresets('');
+							levelPresetsModal.style.display = 'flex';
+							levelPresetsSearch.value = '';
+							setTimeout(()=> levelPresetsSearch.focus(), 0);
+						});
+						closeLevelPresetsBtn.addEventListener('click', () => {
+							levelPresetsModal.style.display = 'none';
+						});
+						levelPresetsSearch.addEventListener('input', () => {
+							renderLevelPresets(levelPresetsSearch.value);
+						});
+						// Close presets modal when clicking outside inner panel
+						levelPresetsModal.addEventListener('click', (e) => {
+							if (e.target === levelPresetsModal) levelPresetsModal.style.display = 'none';
+						});
 
 				function renderAvailableItemsTable() {
 					// Combine duplicate items (solids only, sum amounts)

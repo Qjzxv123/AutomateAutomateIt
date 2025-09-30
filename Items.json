@@ -234,27 +234,27 @@
       "type": "solid"
    },
    {
-      "id": "ChromiumCrystal",
-      "name": "Chromium Crystal",
-      "icon": "Icons/T_Icon_ChromiumCrystal.PNG",
+      "id": "ChroniumCrystal",
+      "name": "Chronium Crystal",
+      "icon": "Icons/T_Icon_ChroniumCrystal.PNG",
       "type": "solid"
    },
    {
-      "id": "ChromiumCrystalCore",
-      "name": "Chromium Crystal Core",
-      "icon": "Icons/T_Icon_ChromiumCrystalCore.PNG",
+      "id": "ChroniumCrystalCore",
+      "name": "Chronium Crystal Core",
+      "icon": "Icons/T_Icon_ChroniumCrystalCore.PNG",
       "type": "solid"
    },
    {
-      "id": "ChromiumCrystalWafer",
-      "name": "Chromium Crystal Wafer",
-      "icon": "Icons/T_Icon_ChromiumCrystalWafer.PNG",
+      "id": "ChroniumCrystalWafer",
+      "name": "Chronium Crystal Wafer",
+      "icon": "Icons/T_Icon_ChroniumCrystalWafer.PNG",
       "type": "solid"
    },
    {
-      "id": "ChromiumLuminaryMatrix",
-      "name": "Chromium Luminary Matrix",
-      "icon": "Icons/T_Icon_ChromiumLuminaryMatrix.PNG",
+      "id": "ChroniumLuminaryMatrix",
+      "name": "Chronium Luminary Matrix",
+      "icon": "Icons/T_Icon_ChroniumLuminaryMatrix.PNG",
       "type": "solid"
    },
    {
@@ -426,9 +426,9 @@
       "type": "solid"
    },
    {
-      "id": "EtherealChromiumEngine",
-      "name": "Ethereal Chromium Engine",
-      "icon": "Icons/T_Icon_EtherealChromiumEngine.PNG",
+      "id": "EtherealChroniumEngine",
+      "name": "Ethereal Chronium Engine",
+      "icon": "Icons/T_Icon_EtherealChroniumEngine.PNG",
       "type": "solid"
    },
    {
@@ -1134,9 +1134,9 @@
       "type": "solid"
    },
    {
-      "id": "StellarChromiumModule",
-      "name": "Stellar Chromium Module",
-      "icon": "Icons/T_Icon_StellarChromiumModule.PNG",
+      "id": "StellarChroniumModule",
+      "name": "Stellar Chronium Module",
+      "icon": "Icons/T_Icon_StellarChroniumModule.PNG",
       "type": "solid"
    },
    {
@@ -1356,9 +1356,9 @@
       "type": "nonsolid"
    },
    {
-      "id": "ChromiumSuspension",
-      "name": "Chromium Suspension",
-      "icon": "Icons/T_Icon_ChromiumSuspension.PNG",
+      "id": "ChroniumSuspension",
+      "name": "Chronium Suspension",
+      "icon": "Icons/T_Icon_ChroniumSuspension.PNG",
       "type": "nonsolid"
    },
    {

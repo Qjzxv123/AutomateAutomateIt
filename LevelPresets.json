@@ -1,0 +1,313 @@
+[
+    {
+        "name": "World 1 Level 1",
+        "items": [
+            {  "item": "Iron", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 2",
+        "items": [
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Iron", "rate": 60.0 },
+            {  "item": "Stone", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 3",
+        "items": [
+            {  "item": "Copper", "rate": 60.0},
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Iron", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 4",
+        "items": [
+            {  "item": "Wood", "rate": 120.0},
+            {  "item": "Stone", "rate": 144.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 5",
+        "items": [
+            {  "item": "Stone", "rate": 120.0},
+            {  "item": "Iron", "rate": 60.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 6",
+        "items": [
+            {  "item": "Wood", "rate": 120.0},
+            {  "item": "Iron", "rate": 120.0 },
+            {  "item": "Stone", "rate": 60.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 7",
+        "items": [
+            {  "item": "Copper", "rate": 240.0}
+        ]
+    },
+    {
+        "name": "World 1 Level 8",
+        "items": [
+            {  "item": "Wood", "rate": 120.0},
+            {  "item": "Iron", "rate": 240.0 },
+            {  "item": "Copper", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 9",
+        "items": [
+            {  "item": "Wood", "rate": 240.0},
+            {  "item": "Stone", "rate": 180.0 },
+            {  "item": "Iron", "rate": 240.0 }
+        ]
+    },
+    {
+        "name": "World 1 Level 10",
+        "items": [
+            {  "item": "Wood", "rate": 120.0},
+            {  "item": "Iron", "rate": 240.0 },
+            {  "item": "Copper", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 1",
+        "items": [
+            {  "item": "Wood", "rate": 60.0},
+            {  "item": "Copper", "rate": 240.0 },
+            {  "item": "Iron", "rate": 240.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 2",
+        "items": [
+            {  "item": "Iron", "rate": 120.0},
+            {  "item": "Stone", "rate": 120.0 },
+            {  "item": "Steel", "rate": 120.0 },
+            {  "item": "Copper", "rate": 180.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 3",
+        "items": [
+            {  "item": "Copper", "rate": 120.0 },
+            {  "item": "Steel", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 4",
+        "items": [
+            {  "item": "Copper", "rate": 360.0 },
+            {  "item": "Iron", "rate": 600.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 5",
+        "items": [
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "Copper", "rate": 120.0 },
+            {  "item": "Aluminum", "rate": 120.0 },
+            {  "item": "Salt", "rate": 60.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 6",
+        "items": [
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Water"},
+            {  "item": "HeavyWater"},
+            {  "item": "Oil"},
+            {  "item": "Aluminum", "rate": 480.0 },
+            {  "item": "Silicon", "rate": 240.0 }
+
+        ]
+    },
+    {
+        "name": "World 2 Level 7",
+        "items": [
+            {  "item": "Copper", "rate": 120.0 },
+            {  "item": "Aluminum", "rate": 60.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Water" }
+        ]
+    },
+    {
+        "name": "World 2 Level 8",
+        "items": [
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Copper", "rate": 240.0 },
+            {  "item": "Wood", "rate": 120.0 },
+            {  "item": "Iron", "rate": 240.0 },
+            {  "item": "Water" },
+            {  "item": "Silicon", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 2 Level 9",
+        "items": [
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Aluminum", "rate": 720.0 },
+            {  "item": "Silicon", "rate": 120.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyWater" },
+            {  "item": "Oil" },
+            {  "item": "SulfuricAcid" }
+
+        ]
+    },
+    {
+        "name": "World 2 Level 10",
+        "items": [
+            {  "item": "Copper", "rate": 600.0 },
+            {  "item": "Iron", "rate": 1140.0 },
+            {  "item": "Wood", "rate": 600.0 },
+            {  "item": "Stone", "rate": 120.0 }
+        ]
+    },
+    {
+        "name": "World 3 Level 1",
+        "items": [
+            {  "item": "Aluminum", "rate": 1080.0 }
+        ]
+    },
+    {
+        "name": "World 3 Level 2",
+        "items": [
+            {  "item": "Aluminum", "rate": 720.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Silicon", "rate": 120.0 },
+            {  "item": "Plastic", "rate": 80.0 },
+            {  "item": "Concrete", "rate": 360.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyWater" },
+            {  "item": "Oil" }
+        ]
+    },
+    {
+        "name": "World 3 Level 3",
+        "items": [
+            {  "item": "Glass", "rate": 240.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Concrete", "rate": 120.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Silicon", "rate": 240.0 },
+            {  "item": "Aluminum", "rate": 480.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyWater" },
+            {  "item": "Oil" }
+        ]
+    },
+    {
+        "name": "World 3 Level 4",
+        "items": [
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Glass", "rate": 240.0 },
+            {  "item": "Copper", "rate": 120.0 },
+            {  "item": "Iron", "rate": 240.0 },
+            {  "item": "Wood", "rate": 240.0 },
+            {  "item": "Stone", "rate": 480.0 },
+            {  "item": "Fluorite", "rate": 60.0 }
+        ]
+    },
+    {
+        "name": "World 3 Level 5",
+        "items": [
+            {  "item": "ShadowOpal", "rate": 60.0 },
+            {  "item": "Concrete", "rate": 240.0 },
+            {  "item": "Copper", "rate": 60.0 },
+            {  "item": "Nebulite", "rate": 240.0 },
+            {  "item": "Aluminum", "rate": 360.0 },
+            {  "item": "Silicon", "rate": 180.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Iron", "rate": 60.0 },
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyOil" },
+            {  "item": "SulfuricAcid" }
+        ]
+    },
+    {
+        "name": "World 3 Level 6",
+        "items": [
+            {  "item": "EtherQuartz", "rate": 120.0 },
+            {  "item": "ShadowOpal", "rate": 180.0 },
+            {  "item": "ChroniumCrystal", "rate": 120.0 },
+            {  "item": "Nebulite", "rate": 120.0 },
+            {  "item": "Aluminum", "rate": 180.0 },
+            {  "item": "Astralite", "rate": 360.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "Nitrogen" }
+        ]
+    },
+    {
+        "name": "World 3 Level 7",
+        "items": [
+            {  "item": "Aluminum", "rate": 240.0 },
+            {  "item": "Steel", "rate": 60.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "EtherQuartz", "rate": 300.0 },
+            {  "item": "ChroniumCrystalCore", "rate": 120.0 },
+            {  "item": "Silicon", "rate": 360.0 },
+            {  "item": "Copper", "rate": 60.0 },
+            {  "item": "Astralite", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "Oil" },
+            {  "item": "Nitrogen" }
+        ]
+    },
+    {
+        "name": "World 3 Level 8",
+        "items": [
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Copper", "rate": 120.0 },
+            {  "item": "ShadowOpal", "rate": 120.0 },
+            {  "item": "Silicon", "rate": 240.0 },
+            {  "item": "Nebulite", "rate": 480.0 },
+            {  "item": "Aluminum", "rate": 1200.0 },
+            {  "item": "Steel", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "Oil" },
+            {  "item": "SulfuricAcid" },
+            {  "item": "LiquidDeuterium" }
+        ]
+    },
+    {
+        "name": "World 3 Level 9",
+        "items": [
+            {  "item": "Wood", "rate": 300.0 },
+            {  "item": "Copper", "rate": 480.0 },
+            {  "item": "ChroniumCrystal", "rate": 60.0 },
+            {  "item": "Stone", "rate": 120.0 },
+            {  "item": "Iron", "rate": 540.0 },
+            {  "item": "EtherQuartz", "rate": 60.0 },
+            {  "item": "Astralite", "rate": 300.0 },
+            {  "item": "Nebulite", "rate": 120.0 },
+            {  "item": "ReinforcedAluminumBeams", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "LiquidDeuterium" }
+        ]
+    },
+    {
+        "name": "World 3 Level 10",
+        "items": [
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "EtherQuartz", "rate": 120.0 },
+            {  "item": "Iron", "rate": 1560.0 },
+            {  "item": "Wood", "rate": 720.0 },
+            {  "item": "ShadowOpal", "rate": 300.0 },
+            {  "item": "Copper", "rate": 1090.0 },
+            {  "item": "ChroniumCrystal", "rate": 60.0 },
+            {  "item": "Aluminum", "rate": 360.0 },
+            {  "item": "Nebulite", "rate": 240.0 },
+            {  "item": "Water" },
+            {  "item": "LiquidHydrofluoricAcid" }
+        ]
+    }
+]

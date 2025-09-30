@@ -473,29 +473,29 @@
    {
       "machine": "advanced_furnace",
       "input": [
-         {  "item": "ChromiumCrystal", "rate": 30.0 }
+         {  "item": "ChroniumCrystal", "rate": 30.0 }
       ],
       "output": [
-         {  "item": "ChromiumCrystalCore", "rate": 30.0 }
+         {  "item": "ChroniumCrystalCore", "rate": 30.0 }
       ]
    },
    {
       "machine": "furnace",
       "input": [
-         {  "item": "ChromiumCrystal", "rate": 15.0 }
+         {  "item": "ChroniumCrystal", "rate": 15.0 }
       ],
       "output": [
-         {  "item": "ChromiumCrystalCore", "rate": 15.0 }
+         {  "item": "ChroniumCrystalCore", "rate": 15.0 }
       ]
    },
    {
       "machine": "advanced_press",
       "input": [
-         {  "item": "ChromiumCrystal", "rate": 60.0 },
+         {  "item": "ChroniumCrystal", "rate": 60.0 },
          {  "item": "PowerCable", "rate": 120.0 }
       ],
       "output": [
-         {  "item": "ChromiumCrystalWafer", "rate": 120.0 }
+         {  "item": "ChroniumCrystalWafer", "rate": 120.0 }
       ]
    },
    {
@@ -508,16 +508,16 @@
          {  "item": "stabilizedethericalkalinebase" }
       ],
       "output": [
-         {  "item": "ChromiumLuminaryMatrix", "rate": 60.0 }
+         {  "item": "ChroniumLuminaryMatrix", "rate": 60.0 }
       ]
    },
    {
       "machine": "dissolution_chamber",
       "input": [
-         {  "item": "ChromiumCrystal", "rate": 60.0 }
+         {  "item": "ChroniumCrystal", "rate": 60.0 }
       ],
       "output": [
-         {  "item": "ChromiumSuspension" }
+         {  "item": "ChroniumSuspension" }
       ]
    },
    {
@@ -897,13 +897,13 @@
    {
       "machine": "dissolution_chamber",
       "input": [
-         {  "item": "ChromiumCrystalCore", "rate": 30.0 },
+         {  "item": "ChroniumCrystalCore", "rate": 30.0 },
          {  "item": "AluminumCoating", "rate": 60.0 },
          {  "item": "AutomaticControlPanel", "rate": 60.0 },
          {  "item": "LiquidHydrogenChloride" }
       ],
       "output": [
-         {  "item": "EtherealChromiumEngine", "rate": 30.0 }
+         {  "item": "EtherealChroniumEngine", "rate": 30.0 }
       ]
    },
    {
@@ -1273,7 +1273,7 @@
    {
       "machine": "manufacturer",
       "input": [
-         {  "item": "StellarChromiumModule", "rate": 120.0 },
+         {  "item": "StellarChroniumModule", "rate": 120.0 },
          {  "item": "AstralEtherLens", "rate": 60.0 }
       ],
       "output": [
@@ -1379,7 +1379,7 @@
       "machine": "welder",
       "input": [
          {  "item": "AstraliteFragment", "rate": 60.0 },
-         {  "item": "ChromiumCrystalCore", "rate": 30.0 }
+         {  "item": "ChroniumCrystalCore", "rate": 30.0 }
       ],
       "output": [
          {  "item": "LuminaryCrystalCore", "rate": 30.0 }
@@ -1816,7 +1816,7 @@
       "machine": "welder",
       "input": [
          {  "item": "PhotonicDiamondLayer", "rate": 30.0 },
-         {  "item": "ChromiumCrystal", "rate": 15.0 }
+         {  "item": "ChroniumCrystal", "rate": 15.0 }
       ],
       "output": [
          {  "item": "PlatonicMemoryCore", "rate": 15.0 }
@@ -1875,7 +1875,7 @@
       "input": [
          {  "item": "SapphireConduit", "rate": 60.0 },
          {  "item": "EtherQuartz", "rate": 120.0 },
-         {  "item": "ChromiumSuspension" }
+         {  "item": "ChroniumSuspension" }
       ],
       "output": [
          {  "item": "PulseEnergyMatrix", "rate": 30.0 }
@@ -1885,7 +1885,7 @@
       "machine": "storage_packing",
       "input": [
          {  "item": "SapphireConduit", "rate": 60.0 },
-         {  "item": "ChromiumSuspension" }
+         {  "item": "ChroniumSuspension" }
       ],
       "output": [
          {  "item": "PulseEnergyMatrix", "rate": 60.0 }
@@ -1936,7 +1936,7 @@
       "machine": "dissolution_chamber",
       "input": [
          {  "item": "NebulitePrism", "rate": 60.0 },
-         {  "item": "ChromiumCrystalWafer", "rate": 120.0 },
+         {  "item": "ChroniumCrystalWafer", "rate": 120.0 },
          {  "item": "CompressedShadowOpal", "rate": 60.0 },
          {  "item": "LiquidHydrofluoricAcid" }
       ],
@@ -2622,11 +2622,11 @@
    {
       "machine": "advanced_press",
       "input": [
-         {  "item": "ChromiumCrystalCore", "rate": 60.0 },
+         {  "item": "ChroniumCrystalCore", "rate": 60.0 },
          {  "item": "RefinedEtherQuartz", "rate": 120.0 }
       ],
       "output": [
-         {  "item": "StellarChromiumModule", "rate": 60.0 }
+         {  "item": "StellarChroniumModule", "rate": 60.0 }
       ]
    },
    {
@@ -2762,7 +2762,7 @@
       "machine": "chemical_infuser",
       "input": [
          {  "item": "DiamondSlurry" },
-         {  "item": "ChromiumSuspension" }
+         {  "item": "ChroniumSuspension" }
       ],
       "output": [
          {  "item": "TemporalCircuitSlurry" }
@@ -2781,7 +2781,7 @@
    {
       "machine": "dissolution_chamber",
       "input": [
-         {  "item": "ChromiumCrystalWafer", "rate": 120.0 },
+         {  "item": "ChroniumCrystalWafer", "rate": 120.0 },
          {  "item": "NebulitePrism", "rate": 60.0 },
          {  "item": "AstraliteFragment", "rate": 120.0 },
          {  "item": "LiquidDeuterium" }
