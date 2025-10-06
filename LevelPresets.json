@@ -309,5 +309,61 @@
             {  "item": "Water" },
             {  "item": "LiquidHydrofluoricAcid" }
         ]
+    },
+    {
+        "name": "World 5 Level 1",
+        "items": [
+            {  "item": "Aluminum", "rate": 480.0 },
+            {  "item": "Diamond", "rate": 240.0 },
+            {  "item": "Sapphire", "rate": 240.0 },
+            {  "item": "RubyLens", "rate": 240.0 },
+            {  "item": "PlasticMold", "rate": 180.0 },
+            {  "item": "Silicon", "rate": 960.0 },
+            {  "item": "RefinedEtherQuartz", "rate": 480.0 },
+            {  "item": "NickelInfusedWire", "rate": 180.0 },
+            {  "item": "Basalt", "rate": 720.0 },
+            {  "item": "Glass", "rate": 240.0 },
+            {  "item": "Stone", "rate": 480.0 },
+            {  "item": "Wood", "rate": 300.0 },
+            {  "item": "Iron", "rate": 300.0 },
+            {  "item": "Copper", "rate": 180.0 },
+            {  "item": "Fluorite", "rate": 60.0 },
+            {  "item": "Biomass", "rate": 60.0 },
+            {  "item": "Iridium", "rate": 480.0 },
+            {  "item": "HeavyWater" },
+            {  "item": "Helium-3" },
+            {  "item": "Water" },
+            {  "item": "CryoalkalineSolution" },
+            {  "item": "Oil" },
+            {  "item": "SulfuricAcid" }
+        ]
+    },    {
+        "name": "World 5 Level 2",
+        "items": [
+            {  "item": "Uranium", "rate": 60.0 },
+            {  "item": "Sapphire", "rate": 120.0 },
+            {  "item": "Nickel", "rate": 480.0 },
+            {  "item": "Ruby", "rate": 240.0 },
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Iridium", "rate": 180.0 },
+            {  "item": "Glass", "rate": 240.0 },
+            {  "item": "Biomass", "rate": 60.0 },
+            {  "item": "Titanium", "rate": 120.0 },
+            {  "item": "Aluminum", "rate": 540.0 },
+            {  "item": "Diamond", "rate": 60.0 },
+            {  "item": "EtherQuartz", "rate": 240.0 },
+            {  "item": "Basalt", "rate": 1440.0 },
+            {  "item": "ChroniumCrystal", "rate": 60.0 },
+            {  "item": "Platinum", "rate": 240.0 },
+            {  "item": "Copper", "rate": 60.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Iron", "rate": 60.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "ShadowOpal", "rate": 120.0 },
+            {  "item": "LiquidCarbon" },
+            {  "item": "Water" },
+            {  "item": "SuperheatedPlasmaCore" },
+            {  "item": "Nitrogen" }
+        ]
     }
 ]
