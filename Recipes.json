@@ -2268,7 +2268,7 @@
    {
       "machine": "welder",
       "input": [
-         {  "item": "Saphire", "rate": 120.0 },
+         {  "item": "Sapphire", "rate": 120.0 },
          {  "item": "StructuralCable", "rate": 60.0 }
       ],
       "output": [
@@ -2278,7 +2278,7 @@
    {
       "machine": "welder",
       "input": [
-         {  "item": "Saphire", "rate": 120.0 },
+         {  "item": "Sapphire", "rate": 120.0 },
          {  "item": "LuminaryCrystalCore", "rate": 60.0 }
       ],
       "output": [
@@ -2288,7 +2288,7 @@
    {
       "machine": "advanced_cutter",
       "input": [
-         {  "item": "Saphire", "rate": 60.0 },
+         {  "item": "Sapphire", "rate": 60.0 },
          {  "item": "RefinedEtherQuartz", "rate": 60.0 }
       ],
       "output": [

@@ -733,9 +733,108 @@ const itemsLoadedPromise = (async function loadData() {
 				rate = 1;
 			}
 
-			// Helper: get all recipes for an item
+			// Build set of producible items based solely on current available (base) items & fluids
+			function buildProducibleSet(baseItems) {
+				const set = new Set();
+				for (const b of baseItems) if (b) set.add(b);
+				let changed = true;
+				while (changed) {
+					changed = false;
+					for (const r of recipes) {
+						if (!r || !Array.isArray(r.inputs) || !Array.isArray(r.outputs)) continue;
+						let ok = true;
+						for (const i of r.inputs) {
+							if (!set.has(i.item)) { ok = false; break; }
+						}
+						if (!ok) continue;
+						for (const o of r.outputs) {
+							if (!set.has(o.item)) { set.add(o.item); changed = true; }
+						}
+					}
+				}
+				return set;
+			}
+
+			const producibleSet = buildProducibleSet(availableItems);
+
+			// Helper: get all recipes for an item but only those whose inputs are all producible
 			function getRecipesForItem(itemKey) {
-				return recipes.filter(r => r.outputs.some(o => o.item === itemKey));
+				return recipes.filter(r => r.outputs.some(o => o.item === itemKey) && r.inputs.every(inp => producibleSet.has(inp.item)));
+			}
+
+			// Validate target item is producible (either base available or reachable). For nonsolids rate is ignored.
+			if (selectedItem && !producibleSet.has(selectedItem)) {
+				// Determine missing prerequisite base items to unlock production.
+				const baseAvailableSet = new Set(availableItems.filter(Boolean));
+				const fullRecipeMap = new Map(); // item -> list of recipes producing it
+				for (const r of recipes) {
+					if (!Array.isArray(r.outputs)) continue;
+					for (const o of r.outputs) {
+						if (!o || !o.item) continue;
+						if (!fullRecipeMap.has(o.item)) fullRecipeMap.set(o.item, []);
+						fullRecipeMap.get(o.item).push(r);
+					}
+				}
+				const memo = new Map(); // item -> Set(missing)
+				function findMissingPrereqs(itemKey, depth = 0, stack = new Set()) {
+					if (baseAvailableSet.has(itemKey)) return new Set();
+					if (memo.has(itemKey)) return memo.get(itemKey);
+					if (stack.has(itemKey) || depth > 200) { // cycle / safety
+						const cyc = new Set([itemKey]);
+						memo.set(itemKey, cyc);
+						return cyc;
+					}
+					const recs = fullRecipeMap.get(itemKey) || [];
+					if (recs.length === 0) { // no way to make it, needs to be base
+						const s = new Set([itemKey]);
+						memo.set(itemKey, s);
+						return s;
+					}
+					stack.add(itemKey);
+					let bestMissing = null;
+					for (const r of recs) {
+						if (!Array.isArray(r.inputs) || r.inputs.length === 0) {
+							// Free product recipe (edge case)
+							bestMissing = new Set();
+							break;
+						}
+						let current = new Set();
+						let failed = false;
+						for (const inp of r.inputs) {
+							if (!inp || !inp.item) continue;
+							const sub = findMissingPrereqs(inp.item, depth + 1, stack);
+							// Union
+							sub.forEach(v => current.add(v));
+							// Early prune if already worse than best
+							if (bestMissing && current.size > bestMissing.size) {
+								failed = true; break;
+							}
+						}
+						if (failed) continue;
+						if (!bestMissing || current.size < bestMissing.size) {
+							bestMissing = current;
+							if (bestMissing.size === 0) break; // can't do better
+						}
+					}
+					stack.delete(itemKey);
+					if (!bestMissing) bestMissing = new Set([itemKey]);
+					memo.set(itemKey, bestMissing);
+					return bestMissing;
+				}
+				const missingSet = findMissingPrereqs(selectedItem);
+				// Map to item objects; filter out any that somehow became available
+				const missingList = Array.from(missingSet).filter(k => !baseAvailableSet.has(k));
+				missingList.sort((a,b)=> (items[a]?.name||a).localeCompare(items[b]?.name||b));
+				const missingHtml = missingList.length
+					? `<ul style="margin:0.75rem 0 0 1.1rem;">${missingList.map(k => `<li><b>${items[k]?.name || k}</b></li>`).join('')}</ul>`
+					: '<div style="color:#7fbf7f;margin-top:0.5rem;">No additional base items needed (check cycles).</div>';
+				planDiv.innerHTML = `
+					<div class="placeholder-graph" style="line-height:1.5;">
+						Cannot produce <b>${items[selectedItem]?.name || selectedItem}</b> with current available items/fluids.<br>
+						<span style="font-size:0.9rem;color:#bbb;">Add the following base prerequisites to unlock production:</span>
+						${missingHtml}
+					</div>`;
+				return;
 			}
 
 

@@ -360,7 +360,7 @@
             {  "item": "Iron", "rate": 60.0 },
             {  "item": "Salt", "rate": 60.0 },
             {  "item": "ShadowOpal", "rate": 120.0 },
-            {  "item": "LiquidCarbon" },
+            {  "item": "liquidcarbon" },
             {  "item": "Water" },
             {  "item": "SuperheatedPlasmaCore" },
             {  "item": "Nitrogen" }
