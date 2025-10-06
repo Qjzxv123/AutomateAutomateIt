@@ -573,5 +573,34 @@
             {  "item": "SuperheatedPlasmaCore" },
             {  "item": "Nitrogen" }
         ]
+    },
+    {
+        "name": "World 5 Level 3",
+        "items": [
+            {  "item": "Titanium", "rate": 1140.0 },
+            {  "item": "Wood", "rate": 180.0 },
+            {  "item": "Uranium", "rate": 360.0 },
+            {  "item": "Astralite", "rate": 120.0 },
+            {  "item": "EtherQuartz", "rate": 120.0 },
+            {  "item": "ChroniumCrystal", "rate": 120.0 },
+            {  "item": "Quartz", "rate": 240.0 },
+            {  "item": "Diamond", "rate": 300 },
+            {  "item": "Zinc", "rate": 60.0 },
+            {  "item": "Iridium", "rate": 60.0 },
+            {  "item": "Copper", "rate": 840.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Nickel", "rate": 60.0 },
+            {  "item": "Nebulite", "rate": 60.0 },
+            {  "item": "ShadowOpal", "rate": 60.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Aluminum", "rate": 660.0 },
+            {  "item": "Silicon", "rate": 600.0 },
+            {  "item": "Iron", "rate": 660.0 },
+            {  "item": "Fluorite", "rate": 60.0 },
+            {  "item": "Nitrogen" },
+            {  "item": "Helium-3" },
+            {  "item": "Water" },
+            {  "item": "Oil" }
+        ]
     }
 ]
