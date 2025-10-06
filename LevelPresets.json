@@ -311,6 +311,214 @@
         ]
     },
     {
+        "name": "World 4 Level 1",
+        "items": [
+            {  "item": "ShadowOpal", "rate": 240.0 },
+            {  "item": "Iron", "rate": 1440.0 },
+            {  "item": "Stone", "rate": 1440.0 },
+            {  "item": "Wood", "rate": 1080.0 },
+            {  "item": "Copper", "rate": 960.0 },
+            {  "item": "Water" },
+            {  "item": "SulfuricAcid" },
+            {  "item": "LiquidDeuterium" },
+            {  "item": "SulfurTrioxide" }
+        ]
+
+    },
+    {
+        "name": "World 4 Level 2",
+        "items": [
+            {  "item": "Aluminum", "rate": 360.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Steel", "rate": 240.0 },
+            {  "item": "ChroniumCrystal", "rate": 120.0 },
+            {  "item": "Plastic", "rate": 480.0 },
+            {  "item": "Silicon", "rate": 240.0 },
+            {  "item": "Copper", "rate": 480.0 },
+            {  "item": "Water" }
+        ]
+    },
+    {
+        "name": "World 4 Level 3",
+        "items": [
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Steel", "rate": 240.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Fluorite", "rate": 60.0 },
+            {  "item": "Aluminum", "rate": 360.0 },
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Iron", "rate": 240.0 },
+            {  "item": "Stone", "rate": 240.0 },
+            {  "item": "Glass", "rate": 240.0 },
+            {  "item": "ShadowOpal", "rate": 240.0 },
+            {  "item": "Nebulite", "rate": 240.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Water" },
+            {  "item": "Oil" }
+        ]
+    },
+    {
+        "name": "World 4 Level 4",
+        "items": [
+            {  "item": "Wood", "rate": 300.0 },
+            {  "item": "ChroniumCrystal", "rate": 240.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Iron", "rate": 540.0 },
+            {  "item": "Copper", "rate": 540.0 },
+            {  "item": "ShadowOpal", "rate": 60.0 },
+            {  "item": "Aluminum", "rate": 720.0 },
+            {  "item": "Nebulite", "rate": 480.0 },
+            {  "item": "Zinc", "rate": 60.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Astralite", "rate": 960.0 },
+            {  "item": "Water" },
+            {  "item": "Nitrogen" }
+        ]
+    },
+    {
+        "name": "World 4 Level 5",
+        "items": [
+            {  "item": "Aluminum", "rate": 1920.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Silicon", "rate": 480.0 },
+            {  "item": "Iron", "rate": 120.0 },
+            {  "item": "Concrete", "rate": 120.0 },
+            {  "item": "Wood", "rate": 60.0 },
+            {  "item": "Glass", "rate": 360.0 },
+            {  "item": "Water" },
+            {  "item": "Oil" },
+            {  "item": "HeavyWater" }
+        ]
+    },
+    {
+        "name": "World 4 Level 6",
+        "items": [
+            {  "item": "Nickel", "rate": 120.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Diamond", "rate": 60.0 },
+            {  "item": "ChroniumCrystal", "rate": 180.0 },
+            {  "item": "Astralite", "rate": 480.0 },
+            {  "item": "Wood", "rate": 240.0 },
+            {  "item": "Iron", "rate": 480.0 },
+            {  "item": "Copper", "rate": 600.0 },
+            {  "item": "Platinum", "rate": 240.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Silicon", "rate": 720.0 },
+            {  "item": "Aluminum", "rate": 720.0 },
+            {  "item": "Nebulite", "rate": 240.0 },
+            {  "item": "Ruby", "rate": 180.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyWater" },
+            {  "item": "Oil" }
+        ]
+    },
+    {
+        "name": "World 4 Level 7",
+        "items": [
+            {  "item": "Silicon", "rate": 120.0 },
+            {  "item": "Platinum", "rate": 120.0 },
+            {  "item": "Iron", "rate": 480.0 },
+            {  "item": "Stone", "rate": 360.0 },
+            {  "item": "ShadowOpal", "rate": 60.0 },
+            {  "item": "Copper", "rate": 420.0 },
+            {  "item": "Zinc", "rate": 120.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Astralite", "rate": 60.0 },
+            {  "item": "ChroniumCrystal", "rate": 60.0 },
+            {  "item": "Diamond", "rate": 420.0 },
+            {  "item": "Aluminum", "rate": 300.0 },
+            {  "item": "Iridium", "rate": 60.0 },
+            {  "item": "Plastic", "rate": 240.0 },
+            {  "item": "Wood", "rate": 360.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "Uranium", "rate": 360.0 },
+            {  "item": "Water" },
+            {  "item": "Helium-3" },
+            {  "item": "liquidcarbon" }
+        ]
+    },
+    {
+        "name": "World 4 Level 8",
+        "items": [
+            {  "item": "Titanium", "rate": 300.0 },
+            {  "item": "Uranium", "rate": 600.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Astralite", "rate": 960.0 },
+            {  "item": "Iridium", "rate": 300.0 },
+            {  "item": "Biomass", "rate": 60.0 },
+            {  "item": "Platinum", "rate": 240.0 },
+            {  "item": "Stone", "rate": 600.0 },
+            {  "item": "Osmium", "rate": 240.0 },
+            {  "item": "ChroniumCrystal", "rate": 360.0 },
+            {  "item": "Diamond", "rate": 600.0 },
+            {  "item": "Plastic", "rate": 540.0 },
+            {  "item": "EtherQuartz", "rate": 300.0 },
+            {  "item": "Copper", "rate": 780.0 },
+            {  "item": "Iron", "rate": 900.0 },
+            {  "item": "Wood", "rate": 840.0 },
+            {  "item": "Aluminum", "rate": 420.0 },
+            {  "item": "Sapphire", "rate": 300.0 },
+            {  "item": "Ruby", "rate": 180.0 },
+            {  "item": "Silicon", "rate": 360.0 },
+            {  "item": "Water" },
+            {  "item": "HeavyWater" },
+            {  "item": "Oil" },
+            {  "item": "Helium-3" },
+            {  "item": "Nitrogen" }
+        ]
+    },
+    {
+        "name": "World 4 Level 9",
+        "items": [
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Uranium", "rate": 960.0 },
+            {  "item": "Zinc", "rate": 60.0 },
+            {  "item": "Titanium", "rate": 1380.0 },
+            {  "item": "Copper", "rate": 660.0 },
+            {  "item": "Astralite", "rate": 480.0 },
+            {  "item": "Quartz", "rate": 480.0 },
+            {  "item": "Diamond", "rate": 420.0 },
+            {  "item": "ChroniumCrystal", "rate": 180.0 },
+            {  "item": "Aluminum", "rate": 660.0 },
+            {  "item": "Water" },
+            {  "item": "Nitrogen" }
+        ]
+    },
+    {
+        "name": "World 4 Level 10",
+        "items": [
+            {  "item": "Uranium", "rate": 1560.0 },
+            {  "item": "Astralite", "rate": 1440.0 },
+            {  "item": "Diamond", "rate": 1020.0 },
+            {  "item": "Biomass", "rate": 60.0 },
+            {  "item": "Titanium", "rate": 1080.0 },
+            {  "item": "Sapphire", "rate": 540.0 },
+            {  "item": "Salt", "rate": 60.0 },
+            {  "item": "Quartz", "rate": 480.0 },
+            {  "item": "Osmium", "rate": 240.0 },
+            {  "item": "Ruby", "rate": 180.0 },
+            {  "item": "Sulfur", "rate": 60.0 },
+            {  "item": "EtherQuartz", "rate": 540.0 },
+            {  "item": "Aluminum", "rate": 2460.0 },
+            {  "item": "Silicon", "rate": 720.0 },
+            {  "item": "ChroniumCrystal", "rate": 480.0 },
+            {  "item": "Iron", "rate": 3480.0 },
+            {  "item": "Plastic", "rate": 540.0 },
+            {  "item": "Copper", "rate": 2400.0 },
+            {  "item": "Wood", "rate": 2340.0 },
+            {  "item": "Iridium", "rate": 540.0 },
+            {  "item": "Stone", "rate": 840.0 },
+            {  "item": "Water" },
+            {  "item": "Oil" },
+            {  "item": "Helium-3" },
+            {  "item": "Nitrogen" },
+            {  "item": "HeavyWater" }
+        ]
+    },
+    {
         "name": "World 5 Level 1",
         "items": [
             {  "item": "Aluminum", "rate": 480.0 },
